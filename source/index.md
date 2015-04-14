@@ -2,167 +2,92 @@
 title: API Reference
 
 language_tabs:
+  - http
   - shell
-  - ruby
   - python
 
+
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='mailto:soporte@aplazame.com?subject=I want my API Key'>Contact us for a Developer Key</a>
+  - <a href='https://aplazame.com'>Documentation Powered by Aplazame</a>
 
 includes:
+  - checkout
+  - objects
+  - requests
+  - orders
+  - customers
+  - packages
   - errors
 
 search: true
 ---
 
+
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```
+ welcome to docs!! 
+           ,__,
+           (oo)____
+           (__)    )\
+              ||--|| *
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ```
 
-```python
-import kittn
+```http
+GET /<PATH> HTTP/1.1
+Host: api.aplazame.com
+```
 
-api = kittn.authorize('meowmeowmeow')
+```http
+HTTP/1.1 200 it's OK?, then let's go!
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace `meowmeowmeow` with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+$ curl "https://api.aplazame.com" \
+    -H "User-Agent: hello, I am a cow, muUuuUuuUuuUUu"
 ```
 
 ```python
-import kittn
+from somewhere import something
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+assert(something.__doc__ is not None)
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+### Soy una tienda
 
-> The above command returns JSON structured like this:
+Aplázame REST API se ha creado con el objetivo de adaptarse fácilmente a cualquier ecommerce. Si tienes una plataforma de comercio electrónico gratuita, quizás se encuentre entre nuestros [plugins instalables](#-e-commerce-modules).
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+En caso contrario deberás seguir con detalle esta documentación, empezando por el [Checkout en 3 pasos](#3-steps-to-checkout) y a continuación con nuestra [descripción de la API](#making-requests), que define servicios disponibles y los pasos necesarios para establecer una comunicación con nuestros endpoints.
 
-This endpoint retrieves all kittens.
 
-### HTTP Request
+### Soy un servicio de APLAZAME
 
-`GET http://example.com/kittens`
+Si te identificas como servicio de Aplázame, estarás interesado en consultar información de [usuarios](#customer) y/o [pedidos](#orders).
 
-### Query Parameters
+Nuestros servicios API reconocerán tus credenciales para responder de forma exclusiva con la información dedicada al servicio que ofreces.
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+### Soy un python developer
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+¿Tienes al menos 3 años de experiancia?, ¿te apasiona intenet?, **queremos conocerte!!**
 
-## Get a Specific Kitten
+Trabajamos con datos GIS, bases de datos NOSQL (Elasticsearch, Neo4J, Mongodb...), Django en el backend, Angular en el front y Scrapy para nuestros spiders. Además nos gusta desarrollar código legible, autoexplicativo y seguiendo guías de estilo propias y de terceros.
 
-```ruby
-require 'kittn'
+Por la parte DevOps tenemos preparados entornos de trabajo con Vagrant, desplegamos con Ansibles y nos encanta jugar con Docker.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+Si te **divierte** trabajar con algunas de estas tecnologías envíanos un correo a [jobs@aplazame.com](mailto:jobs@aplazame.com?subject=Hello world).
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+### Necesito ayuda
 
-```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
-```
+Para cualquier **incidencia** puedes contactar con [soporte@aplazame.com](mailto:soporte@aplazame.com?subject=Help me), nuestro equipo de soporte se encuentra disponible las 24H y dispone de recursos para monitorizar todas tus comunicaciones e identificar así cualquier tipo de problema que tengas.
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+### Feedback
 
-This endpoint retrieves a specific kitten.
+También estamos abiertos a cambios en la documentación y nuestros servicios API. Para cualquier tipo de sugerencia no dudes en enviar un correo a [dev@aplazame.com](mailto:dev@aplazame.com?subject=Hello).
 
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+**We hope you'll enjoy using Aplázame API!**
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the cat to retrieve
 

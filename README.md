@@ -56,6 +56,20 @@ docker build -t slate .
 docker run -d -p 4567:4567 slate
 ```
 
+Or you can bind mount a volume in interactive mode
+
+```shell
+docker run -i -t --name=slate -p 4567:4567 -v /opt/slate/source:/app/source slate 
+docker start slate
+```
+
+Fix http rouge lexer
+
+```shell
+nano /var/lib/docker/aufs/mnt/<CONTAINER>/var/lib/gems/v.x/gems/rouge-v.x/lib/rouge/lexers/http.rb
+docker restart slate
+```
+
 You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
 *Note: if you're using the Docker setup on OSX, the docs will be

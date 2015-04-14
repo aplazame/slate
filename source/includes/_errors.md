@@ -1,20 +1,59 @@
-# Errors
+# ![shell](http://www.maxi-gif.com/gif-anime/jeux-videos/jeux-videos-mario-bros-00045.gif) Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+> 400 Bad Request
 
-The Kittn API uses the following error codes:
+```json
+{
+  "error": {
+    "fields": {
+      "articles": [
+        "This field is required."
+      ]
+    }, 
+    "message": "API validation error", 
+    "type": "ApiValidationException"
+  }
+}
+```
 
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slown down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+> 401 Unauthorized
+
+```json
+{
+  "error": {
+    "message": "Authentication credentials were not provided.", 
+    "type": "UnauthorizedException"
+  }
+}
+```
+
+
+> 404 Not Found
+
+```json
+{
+  "error": {
+    "fields": {
+      "order__mid": "145000006"
+    }, 
+    "message": "Object not found", 
+    "type": "ObjectNotFoundException"
+  }
+}
+```
+
+We show below a list of the error codes returned by the API and the status codes in the response and the reason why your request is not correct.
+
+
+Code | Error | Meaning
+---- | ----- | -------
+400 | Bad Request | If the data have not been correctly validated
+401 | Unauthorized | If the token is not found in the request or it is wrong
+403 | Forbidden | If you do not have permission to do this operation
+404 | Not Found | If the object or the resource is not found
+405 | Method Not Allowed | You tried to access with an invalid method
+406 | Not Acceptable | You requested a format that is not valid
+420 | Too Many Requests | If multiple simultaneous requests are made. Slown down!
+500 | Internal Server Error | Houston, we have a problem. Try again later.
+503 | Service Unavailable | We're temporarially offline for maintanance. Please try again later.
