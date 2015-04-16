@@ -107,6 +107,8 @@ Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 id | hash | equal | Same customer `ID`.
 phone | number | equal | Same customer mobile phone number.
+created_until | datetime |  before | Results with customer's created in Aplazame `before` than the specified datetime.
+created_since | datetime |  after | Results with customer's created in Aplazame `after` than the specified datetime.
 document_id | string | equal | Same customer document id number, the choices are 01:NIF, 02:NIE, 03:CIF, 04: Passport, 05:others.
 document_id_type | string | equal | Same customer document id type.
 document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
