@@ -140,17 +140,17 @@ document_id_type | string | equal | Same customer document id type.
 document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
 
 
-### by profile
+### by account
 
 Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
-profile_id | hash |  equal | Same customer profile `ID`.
-profile_type | string |  equal | Same customer type, the choices are g:guest, n:new, e:existing.
-profile_gender | integer |  equal | Same customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
-profile_last_login_until | datetime |  before | Results with customer's last login happens `before` than the specified datetime.
-profile_last_login_since | datetime |  after | Results with customer's last login happens `after` than the specified datetime.
-profile_date_joined_until | datetime |  before | Results with customer's created in your merchant `before` than the specified datetime.
-profile_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
+account_id | hash |  equal | Same customer profile `ID`.
+account_type | string |  equal | Same customer type, the choices are g:guest, n:new, e:existing.
+account_gender | integer |  equal | Same customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
+account_last_login_until | datetime |  before | Results with customer's last login happens `before` than the specified datetime.
+account_last_login_since | datetime |  after | Results with customer's last login happens `after` than the specified datetime.
+account_date_joined_until | datetime |  before | Results with customer's created in your merchant `before` than the specified datetime.
+account_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
 
 
 ## - Searching
@@ -206,9 +206,9 @@ Searches will use case-insensitive partial matches. The search parameter may con
 
 Parameter | Description
 --------- | -----------
-profile_first_name | The customer first name.
-profile_last_name | The customer last name.
-profile_email | The customer email.
+account_first_name | The customer first name.
+account_last_name | The customer last name.
+account_email | The customer email.
 
 
 ## - Ordering
@@ -267,9 +267,9 @@ created | datetime | A datetime designating when the order was created.
 verified | datetime | A datetime designating when the order was verified.
 confirmed | datetime | A datetime designating when the order was confirmed.
 cancelled | datetime | A datetime designating when the order was cancelled.
-profile_last_login | datetime | A datetime of the customer last login.
-profile_date_joined | datetime | A datetime designating when the customer account was created in your merchant.
-profile_created | datetime | A datetime designating when the customer account was created in Aplazame.
+account_last_login | datetime | A datetime of the customer last login.
+account_date_joined | datetime | A datetime designating when the customer account was created in your merchant.
+account_created | datetime | A datetime designating when the customer account was created in Aplazame.
 
 
 
