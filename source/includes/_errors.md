@@ -1,4 +1,4 @@
-# ![shell](http://www.maxi-gif.com/gif-anime/jeux-videos/jeux-videos-mario-bros-00045.gif) Errors
+# ![shell](http://aplazame.com/static/img/docs/shell.gif) Errors
 
 > 400 Bad Request
 

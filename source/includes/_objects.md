@@ -53,7 +53,7 @@ The user will be redirected to the Url `success_url` or `cancel_url` depending o
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-id | string | yes | Your order ID.
+id | string | yes | Your order `ID`.
 discount | integer | no | The discount amount of the order.
 discount_rate | integer | no | The rate discount of the order.
 cart_discount | integer | no | The discount amount of the cart.
@@ -96,7 +96,7 @@ La tasa de impuesto a nivel de artículo o shipping sobreescribe la tasa de impu
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-id | string | yes | String `id` of the order to perform action with.
+id | string | yes | Customer `ID`.
 email | string | yes | The customer email.
 type | char | yes | Customer type, the choices are g:guest, n:new, e:existing.
 gender | integer | yes | Customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
@@ -156,7 +156,7 @@ zip | string | yes | Address zip code.
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-id | string | yes | The article ID.
+id | string | yes | The article `ID`.
 name | string | yes | Article name.
 description | string | no | Article description.
 url | url | yes | Article url.

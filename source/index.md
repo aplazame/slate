@@ -16,6 +16,7 @@ includes:
   - objects
   - requests
   - orders
+  - merchants
   - customers
   - packages
   - errors
@@ -36,7 +37,7 @@ search: true
 ```
 
 ```http
-GET /<PATH> HTTP/1.1
+TRACE /<PATH> HTTP/1.1
 Host: api.aplazame.com
 ```
 
@@ -46,7 +47,8 @@ HTTP/1.1 200 it's OK?, then let's go!
 
 ```shell
 $ curl "https://api.aplazame.com" \
-    -H "User-Agent: hello, I am a cow, muUuuUuuUuuUUu"
+    -H "User-Agent: hello, I am a cow, muUuuUuuUuuUUu" \
+    -X ECHO
 ```
 
 ```python
@@ -64,7 +66,7 @@ En caso contrario deberás seguir con detalle esta documentación, empezando por
 
 ### Soy un servicio de APLAZAME
 
-Si te identificas como servicio de Aplázame, estarás interesado en consultar información de [usuarios](#customer) y/o [pedidos](#orders).
+Si te identificas como servicio de Aplázame, estarás interesado en consultar información de [usuarios](#+-customers) y/o [pedidos](#+-orders).
 
 Nuestros servicios API reconocerán tus credenciales para responder de forma exclusiva con la información dedicada al servicio que ofreces.
 
