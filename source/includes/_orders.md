@@ -115,9 +115,9 @@ id | hash | equal | Same Aplazame order `ID`.
 mid | string | equal | Same order `ID` in your merchant. 
 total_amount | integer | equal | Same order total amount.
 min_amount | integer | greater | With total_amount `greater` than the specified.
-max_amount | integer | less | With total_amount `less` than the specified..
-min_discount | integer | greater | With discount `greater` than the specified..
-max_discount | integer | less | With discount `less` than the specified..
+max_amount | integer | less | With total_amount `less` than the specified.
+min_discount | integer | greater | With discount `greater` than the specified.
+max_discount | integer | less | With discount `less` than the specified.
 created_since | datetime | after | Created `after` than the specified datetime.
 created_until | datetime | before | Created `before` than the specified datetime.
 verified_since | datetime | after | Verified `after` than the specified datetime.
@@ -133,6 +133,8 @@ Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 customer_id | hash | equal | Same ustomer `ID`.
 customer_phone | number | equal | Same customer mobile phone number.
+customer_created_until | datetime |  before | Results with customer's created in Aplazame `before` than the specified datetime.
+customer_created_since | datetime |  after | Results with customer's created in Aplazame `after` than the specified datetime.
 document_id | string | equal | Same customer document id number, the choices are 01:NIF, 02:NIE, 03:CIF, 04: Passport, 05:others.
 document_id_type | string | equal | Same customer document id type.
 document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
@@ -147,8 +149,8 @@ profile_type | string |  equal | Same customer type, the choices are g:guest, n:
 profile_gender | integer |  equal | Same customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
 profile_last_login_until | datetime |  before | Results with customer's last login happens `before` than the specified datetime.
 profile_last_login_since | datetime |  after | Results with customer's last login happens `after` than the specified datetime.
-profile_date_joined_until | datetime |  before | Results with customer's created `before` than the specified datetime.
-profile_date_joined_since | datetime |  after | Results with customer's created `after` than the specified datetime.
+profile_date_joined_until | datetime |  before | Results with customer's created in your merchant `before` than the specified datetime.
+profile_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
 
 
 ## - Searching
