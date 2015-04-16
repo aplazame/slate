@@ -208,7 +208,7 @@ $ curl "https://api.aplazame.com/customers?ordering=param1,-param2" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.customers(ordering=('param1', '-param2'))
+response = client.customers(ordering='param1,-param2')
 ```
 
 `GET http://api.aplazame.com/customers?ordering=param1,-param2`
