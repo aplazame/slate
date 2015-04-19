@@ -55,7 +55,7 @@ results | collection | Customer queryset.
 
 
 
-## - Filtering
+## > Filtering
 
 ```http
 GET /customers?param=value HTTP/1.1
@@ -116,7 +116,7 @@ document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-
 
 
 
-## - Searching
+## > Searching
 
 ```http
 GET /customers?q=param1,param2 HTTP/1.1
@@ -172,7 +172,7 @@ Parameter | Description
 full_name | The customer full name.
 
 
-## - Ordering
+## > Ordering
 
 ```http
 GET /customers?ordering=param1,-param2 HTTP/1.1

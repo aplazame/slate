@@ -62,7 +62,7 @@ paging | object | Pagination state.
 results | collection | Order queryset.
 
 
-## - Filtering
+## > Filtering
 
 ```http
 GET /orders?param=value HTTP/1.1
@@ -153,7 +153,7 @@ account_date_joined_until | datetime |  before | Results with customer's created
 account_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
 
 
-## - Searching
+## > Searching
 
 ```http
 GET /orders?q=param1,param2 HTTP/1.1
@@ -211,7 +211,7 @@ account_last_name | The customer last name.
 account_email | The customer email.
 
 
-## - Ordering
+## > Ordering
 
 ```http
 GET /orders?ordering=param1,-param2 HTTP/1.1
