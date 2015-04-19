@@ -113,11 +113,11 @@ Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 id | hash | equal | Same Aplazame order `ID`. 
 mid | string | equal | Same order `ID` in your merchant. 
-total_amount | integer | equal | Same order total amount.
-min_amount | integer | greater | With total_amount `greater` than the specified.
-max_amount | integer | less | With total_amount `less` than the specified.
-min_discount | integer | greater | With discount `greater` than the specified.
-max_discount | integer | less | With discount `less` than the specified.
+total_amount | float | equal | Same order total amount.
+min_amount | float | greater | With total_amount `greater` than the specified.
+max_amount | float | less | With total_amount `less` than the specified.
+min_discount | float | greater | With discount `greater` than the specified.
+max_discount | float | less | With discount `less` than the specified.
 created_since | datetime | after | Created `after` than the specified datetime.
 created_until | datetime | before | Created `before` than the specified datetime.
 verified_since | datetime | after | Verified `after` than the specified datetime.
@@ -262,7 +262,7 @@ The ordering param is a tuple or list of strings. Each string is a field name wi
 
 Parameter | Type | Description
 --------- | ---- | -----------
-total_amount | integer | Order total amount.
+total_amount | float | Order total amount.
 created | datetime | A datetime designating when the order was created.
 verified | datetime | A datetime designating when the order was verified.
 confirmed | datetime | A datetime designating when the order was confirmed.
@@ -458,14 +458,14 @@ ID | string | String `id` of the order to perform action with.
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-amount | integer | yes | The amount to refund.
+amount | float | yes | The amount to refund.
 
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-remaining_amount | integer | The remaining order amount.
+remaining_amount | float | The remaining order amount.
 
 
 
@@ -863,8 +863,8 @@ ID | string | String `id` of the order to perform action with.
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 id | string | yes | String `id` of the order to perform action with.
-amount | integer | yes | Order amount.
-due | integer | no | The total amount due of the order.
+amount | float | yes | Order amount.
+due | float | no | The total amount due of the order.
 status | string | yes | Order status, the choices are pending, cancelled, processing and complete.
 type | string | yes | Order type.
 order_date | string | yes | The date of the order.
