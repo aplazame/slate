@@ -20,7 +20,8 @@ aplazame.button({
 });
 ```
 
-En el menú de selección de métido de pago debes incluir un script que comprueba a través de nuestro servicio API si el pedido puede ser procesado.
+Start by including in the payment method selection menu a script that checks, through our API, whether the request can be processed.
+
 
 ![Button](https://aplazame.com/static/img/docs/button.png)
 

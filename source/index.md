@@ -57,39 +57,43 @@ from somewhere import something
 assert(something.__doc__ is not None)
 ```
 
-### Soy una tienda
 
-Aplázame REST API se ha creado con el objetivo de adaptarse fácilmente a cualquier ecommerce. Si tienes una plataforma de comercio electrónico gratuita, quizás se encuentre entre nuestros [plugins instalables](#-e-commerce-modules).
+### I'M ECOMMERCE
 
-En caso contrario deberás seguir con detalle esta documentación, empezando por el [Checkout en 3 pasos](#3-steps-to-checkout) y a continuación con nuestra [descripción de la API](#making-requests), que define servicios disponibles y los pasos necesarios para establecer una comunicación con nuestros endpoints.
+Ease of implementation is the main objective we had in mind when developing Aplazame’s REST API. 
 
+If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#-e-commerce-modules) list.
 
-### Soy un servicio de APLAZAME
-
-Si te identificas como servicio de Aplázame, estarás interesado en consultar información de [usuarios](#+-customers) y/o [pedidos](#+-orders).
-
-Nuestros servicios API reconocerán tus credenciales para responder de forma exclusiva con la información dedicada al servicio que ofreces.
-
-### Soy un python developer
-
-¿Tienes al menos 3 años de experiancia?, ¿te apasiona intenet?, **queremos conocerte!!**
-
-Trabajamos con datos GIS, bases de datos NOSQL (Elasticsearch, Neo4J, Mongodb...), Django en el backend, Angular en el front y Scrapy para nuestros spiders. Además nos gusta desarrollar código legible, autoexplicativo y seguiendo guías de estilo propias y de terceros.
-
-Por la parte DevOps tenemos preparados entornos de trabajo con Vagrant, desplegamos con Ansibles y nos encanta jugar con Docker.
-
-Si te **divierte** trabajar con algunas de estas tecnologías envíanos un correo a [jobs@aplazame.com](mailto:jobs@aplazame.com?subject=Hello world).
+Otherwise you will have to carefully follow the instructions contained in this documentation, starting with the [3 step Checkout](#3-steps-to-checkout) and following to our [API description](#making-requests), which defines the available services and the steps required to establish communication with our endpoints.
 
 
-### Necesito ayuda
+### I'M AN APLAZAME’S SERVICE
 
-Para cualquier **incidencia** puedes contactar con [soporte@aplazame.com](mailto:soporte@aplazame.com?subject=Help me), nuestro equipo de soporte se encuentra disponible las 24H y dispone de recursos para monitorizar todas tus comunicaciones e identificar así cualquier tipo de problema que tengas.
+If you are an Aplazame service, you may be interested in viewing information of [users](#+-customers) and / or [orders](#+-orders).
+
+Our API service will recognize your credentials and will provide you exclusively with the information required by the service you are using.
 
 
-### Feedback
+### I'M A PYTHON DEVELOPER
 
-También estamos abiertos a cambios en la documentación y nuestros servicios API. Para cualquier tipo de sugerencia no dudes en enviar un correo a [dev@aplazame.com](mailto:dev@aplazame.com?subject=Hello).
+Do you have at least three years of experience?, Internet is your passion?, we want to meet you!!
 
-**We hope you'll enjoy using Aplázame API!**
+We work with GIS data, NoSQL databases (Elasticsearch, Neo4J, MongoDB ...) and Django in the backend, Angular in the front and Scrapy for our spiders. Furthermore we like to develop readable and self-explanatory code, following both our own style and best practice from third parties.
+
+On the DevOps side, we use Vagrant for setting up working environments, we use Ansibles for our deployments and we love playing with Docker :)
+
+If you **enjoy** working with some of these technologies and would like to have fun working with us to fix the financial sector by offering people fair and convenient financing send us a line at [jobs@aplazame.com](mailto:jobs@aplazame.com?subject=Hello world).
+
+
+### I NEED HELP
+
+For any support request please drop us an email at [soporte@aplazame.com](mailto:soporte@aplazame.com?subject=Help me). Our support team is available 24/7 and has the resources to monitor all your communications and thus identify any problems you may have.
+
+
+### FEEDBACK
+
+We are open to changes in the API documentation and our services. For any suggestions please send us an email to  [dev@aplazame.com](mailto:dev@aplazame.com?subject=Hello).
+
+**We hope you'll enjoy using Aplázame's API!**
 
 
