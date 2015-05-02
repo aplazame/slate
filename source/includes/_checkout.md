@@ -84,7 +84,6 @@ Parameter | Type | Required | Description
 meta | json | no | SDK-Client info.
 
 
-
 ## 3 Authorize
 
 ```http

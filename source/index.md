@@ -14,6 +14,7 @@ toc_footers:
 includes:
   - checkout
   - objects
+  - testdata
   - requests
   - orders
   - merchants
