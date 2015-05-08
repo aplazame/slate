@@ -1,5 +1,5 @@
 Slate
-=====
+========
 
 [![Build Status](https://travis-ci.org/tripit/slate.svg?branch=master)](https://travis-ci.org/tripit/slate) [![Dependency Status](https://gemnasium.com/tripit/slate.png)](https://gemnasium.com/tripit/slate)
 
@@ -56,20 +56,6 @@ docker build -t slate .
 docker run -d -p 4567:4567 slate
 ```
 
-Or you can bind mount a volume in interactive mode
-
-```shell
-docker run -i -t --name=slate -p 4567:4567 -v /opt/slate/source:/app/source slate 
-docker start slate
-```
-
-Fix http rouge lexer
-
-```shell
-nano /var/lib/docker/aufs/mnt/<CONTAINER>/var/lib/gems/v.x/gems/rouge-v.x/lib/rouge/lexers/http.rb
-docker restart slate
-```
-
 You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 
 *Note: if you're using the Docker setup on OSX, the docs will be
@@ -96,6 +82,12 @@ Examples of Slate in the Wild
 * [Crafty Clicks API](https://craftyclicks.co.uk/api/)
 * [Paracel API Reference](http://paracel.io/docs/api_reference.html)
 * [Switch Payments Documentation](http://switchpayments.com/docs/) & [API](http://switchpayments.com/developers/)
+* [Coinbase API Reference](https://developers.coinbase.com/api)
+* [Whispir.io API](https://whispir.github.io/api)
+* [NASA API](https://data.nasa.gov/developer/external/planetary/)
+* [CardPay API](https://developers.cardpay.com/)
+* [IBM Cloudant](https://docs-testb.cloudant.com/content-review/_design/couchapp/index.html)
+* [Bitrix basis components](http://bbc.bitrix.expert/)
 
 (Feel free to add your site to this list in a pull request!)
 
