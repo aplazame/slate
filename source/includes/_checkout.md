@@ -117,7 +117,7 @@ client = Client('access_token')
 response = client.authorize('<ID>')
 ```
 
-`POST http://api.aplazame.com/orders/<ID>/authorize`
+`POST https://api.aplazame.com/orders/<ID>/authorize`
 
 Once you have completed the checkout process, the client JS will send a signal to the URL of his backend `confirmation_url` which will in turn send a request to this service to validate the order. Our server will respond with the total order and its corresponding ID, the same we were provided with during the integration.
 

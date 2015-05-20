@@ -49,7 +49,7 @@ client = Client('access_token')
 response = client.orders()
 ```
 
-`GET http://api.aplazame.com/orders`
+`GET https://api.aplazame.com/orders`
 
 To retrieve order queryset.
 
@@ -103,7 +103,7 @@ client = Client('access_token')
 response = client.orders(param='value')
 ```
 
-`GET http://api.aplazame.com/orders?param=value`
+`GET https://api.aplazame.com/orders?param=value`
 
 To retrieve order queryset filtered.
 
@@ -194,7 +194,7 @@ client = Client('access_token')
 response = client.orders(q='param1,param2')
 ```
 
-`GET http://api.aplazame.com/orders?q=param1,param2`
+`GET https://api.aplazame.com/orders?q=param1,param2`
 
 To search order queryset.
 
@@ -252,7 +252,7 @@ client = Client('access_token')
 response = client.orders(ordering='param1,-param2')
 ```
 
-`GET http://api.aplazame.com/orders?ordering=param1,-param2`
+`GET https://api.aplazame.com/orders?ordering=param1,-param2`
 
 To retrieve order queryset ordered.
 
@@ -306,7 +306,7 @@ client = Client('access_token')
 response = client.order_detail('<ID>')
 ```
 
-`GET http://api.aplazame.com/orders/<ID>`
+`GET https://api.aplazame.com/orders/<ID>`
 
 If you want to check the status of an order, this is the service you need.
 
@@ -359,7 +359,7 @@ client = Client('access_token')
 response = client.cancel('<ID>')
 ```
 
-`POST http://api.aplazame.com/orders/<ID>/cancel`
+`POST https://api.aplazame.com/orders/<ID>/cancel`
 
 Service in charge of canceling an order. Note that once the order has been cancelled it may not be modified.
 
@@ -440,11 +440,11 @@ response = client.refund('<ID>', 10050)
 
 ### Check remaining amount
 
-`GET http://api.aplazame.com/orders/<ID>/refund`
+`GET https://api.aplazame.com/orders/<ID>/refund`
 
 ### Refund
 
-`POST http://api.aplazame.com/orders/<ID>/refund`
+`POST https://api.aplazame.com/orders/<ID>/refund`
 
 
 ### Url parameters
@@ -555,7 +555,7 @@ client = Client('access_token')
 response = client.update('<ID>', payload, partial=True)
 ```
 
-`PATCH http://api.aplazame.com/orders/<ID>`
+`PATCH https://api.aplazame.com/orders/<ID>`
 
 This service is used to partially modify the order, you choose if you want to change the shipping data, the billing or the cart.
 
@@ -712,7 +712,7 @@ client = Client('access_token')
 response = client.update('<ID>', payload)
 ```
 
-`PUT http://api.aplazame.com/orders/<ID>`
+`PUT https://api.aplazame.com/orders/<ID>`
 
 If you want to update an order, this is the service you need.
 
@@ -845,7 +845,7 @@ response = client.history('<ID>', payload)
 ```
 
 
-`POST http://api.aplazame.com/orders/<ID>/history`
+`POST https://api.aplazame.com/orders/<ID>/history`
 
 When a checkout process begins, a request is sent to our server with the information of the history of the customer. It is recommended to make an asynchronous request not to delay the loading of the template.
 

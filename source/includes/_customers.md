@@ -41,7 +41,7 @@ client = Client('access_token')
 response = client.customers()
 ```
 
-`GET http://api.aplazame.com/customers`
+`GET https://api.aplazame.com/customers`
 
 To retrieve customer queryset.
 
@@ -96,7 +96,7 @@ client = Client('access_token')
 response = client.customers(param='value')
 ```
 
-`GET http://api.aplazame.com/customers?param=value`
+`GET https://api.aplazame.com/customers?param=value`
 
 To retrieve customer queryset filtered.
 
@@ -157,7 +157,7 @@ client = Client('access_token')
 response = client.customers(q='param1,param2')
 ```
 
-`GET http://api.aplazame.com/customers?q=param1,param2`
+`GET https://api.aplazame.com/customers?q=param1,param2`
 
 To search customer queryset.
 
@@ -213,7 +213,7 @@ client = Client('access_token')
 response = client.customers(ordering='param1,-param2')
 ```
 
-`GET http://api.aplazame.com/customers?ordering=param1,-param2`
+`GET https://api.aplazame.com/customers?ordering=param1,-param2`
 
 To retrieve customer queryset oredered.
 
@@ -259,7 +259,7 @@ client = Client('access_token')
 response = client.customer_detail('<ID>')
 ```
 
-`GET http://api.aplazame.com/customers/<ID>`
+`GET https://api.aplazame.com/customers/<ID>`
 
 If you want to check the status of an customer, this is the service you need.
 

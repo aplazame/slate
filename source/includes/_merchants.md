@@ -41,7 +41,7 @@ client = Client('access_token')
 response = client.merchants()
 ```
 
-`GET http://api.aplazame.com/merchants`
+`GET https://api.aplazame.com/merchants`
 
 To retrieve merchant queryset.
 
@@ -87,7 +87,7 @@ client = Client('access_token')
 response = client.merchant_detail('<ID>')
 ```
 
-`GET http://api.aplazame.com/merchants/<ID>`
+`GET https://api.aplazame.com/merchants/<ID>`
 
 If you want to check the status of an merchant, this is the service you need.
 
