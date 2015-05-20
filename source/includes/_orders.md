@@ -254,7 +254,7 @@ response = client.orders(ordering='param1,-param2')
 
 `GET http://api.aplazame.com/orders?ordering=param1,-param2`
 
-To retrieve order queryset oredered.
+To retrieve order queryset ordered.
 
 The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending. 
 
