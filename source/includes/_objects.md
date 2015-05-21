@@ -14,7 +14,7 @@
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 public_api_key | hash | yes | Your public api key.
-confirmation_url | url | no | url that the JS client sent to confirming the order.
+confirmation_url | url | yes | url that the JS client sent to confirming the order.
 cancel_url | url | yes | url that the customer is sent to if the customer chooses to cancel the order.
 success_url | url | yes | url that the customer is sent to after confirming their order.
 
