@@ -737,7 +737,7 @@ Accept: application/vnd.aplazame-v1+json
 Authorization: Bearer <ACCESS_TOKEN>
 Host: api.aplazame.com
 
-{
+[{
   "id": "18857527248912279381",
   "amount": 12080,
   "due": "",
@@ -762,7 +762,7 @@ Host: api.aplazame.com
     "name": "Planet Express",
     "discount": 100
   }
-}
+}]
 ```
 
 ```http
