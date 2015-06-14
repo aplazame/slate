@@ -124,9 +124,8 @@ Once you have completed the checkout process, the client JS will send a signal t
 
 ### Workflow
 
-`CHECKOUT -- <ID> --> YOU (Confirmation url)`
+`CHECKOUT --(ID)--> Confirmation url --(ID)--> API`
 
-`YOU -- <ID> + Private Key --> APLAZAME API`
 
 
 ### Url parameters
