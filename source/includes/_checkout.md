@@ -124,7 +124,7 @@ Once you have completed the checkout process, the client JS will send a signal t
 
 ### Workflow
 
-`CHECKOUT --(ID)--> Confirmation url --(ID)--> API authorize`
+`CHECKOUT --(GET/ID)--> Confirmation url --(POST/ID)--> API`
 
 
 
