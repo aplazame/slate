@@ -84,7 +84,7 @@ Parameter | Type | Required | Description
 meta | json | no | SDK-Client info.
 
 
-## 3 Authorize
+## 3 Confirm
 
 ```http
 POST /orders/<ID>/authorize HTTP/1.1
@@ -136,4 +136,5 @@ Parameter | Type | Description
 ID | string | String `id` of the order to perform action with.
 
 
-Si tienes alguna duda de cómo comunicarte con nuestros servicios API, revisa la **[documentación](#making-requests)**.
+If you have any doubt about how to communicate with our API services, check the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
+
