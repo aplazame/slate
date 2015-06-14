@@ -10,7 +10,3 @@ The following modules are maintained by the Aplazame development team:
 
 * [magento](https://github.com/aplazame/magento)
 * [prestashop](https://github.com/aplazame/prestashop)
-
-<aside class="warning">
-Prestashop module is not ready.
-</aside>
