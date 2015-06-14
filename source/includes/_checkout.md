@@ -136,5 +136,5 @@ Parameter | Type | Description
 ID | string | String `id` of the order to perform action with.
 
 
-If you have any doubt about how to communicate with our API services, check the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
+If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
 
