@@ -87,6 +87,15 @@ meta | json | no | SDK-Client info.
 ## 3 Confirm
 
 ```http
+POST /confirmation_url HTTP/1.1
+
+{
+  "checkout_token": "<ID>"
+}
+```
+
+
+```http
 POST /orders/<ID>/authorize HTTP/1.1
 Accept: application/vnd.aplazame-v1+json
 Authorization: Bearer <ACCESS_TOKEN>
@@ -124,7 +133,7 @@ Once you have completed the checkout process, the client JS will send a signal t
 
 ### Workflow
 
-`CHECKOUT --(GET/ID)--> Confirmation url --(POST/ID)--> API`
+`CHECKOUT --(POST/ID)--> Confirmation url --(POST/ID)--> API`
 
 
 
