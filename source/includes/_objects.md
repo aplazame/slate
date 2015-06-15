@@ -18,11 +18,11 @@ confirmation_url | url | yes | url that the JS client sent to confirming the ord
 cancel_url | url | yes | url that the customer is sent to if the customer chooses to cancel the order.
 success_url | url | yes | url that the customer is sent to after confirming their order.
 
-### Authorize
+### Confirm
 
 Once the funding process is completed, a request is sent to the URL `confirmation-url` in which a request must be made to the service `/authorize` to verify the order.
 
-### Redirect
+### Success/Cancel Redirect
 
 The user will be redirected to the Url `success_url` or `cancel_url` depending on the status in which the checkout process finishes.
 
