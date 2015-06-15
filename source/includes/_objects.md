@@ -1,4 +1,4 @@
-# Checkout Objects
+# Checkout Items
 
 ## Merchant
 
