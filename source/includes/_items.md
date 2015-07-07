@@ -4,7 +4,6 @@
 
 ```json
 {
-  "public_api_key": "f5f64b3e9c7d8da5de29d4a45f40d370282f6f05",
   "confirmation_url": "/confirm",
   "cancel_url": "/cancel",
   "success_url": "/success"
