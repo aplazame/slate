@@ -35,7 +35,7 @@
 {
   "error": {
     "fields": {
-      "order__mid": "145000006"
+      "order__id": "145000006"
     }, 
     "message": "Object not found", 
     "type": "ObjectNotFoundException"

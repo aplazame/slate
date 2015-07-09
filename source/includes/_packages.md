@@ -1,10 +1,11 @@
-# ![buh](http://icons.iconarchive.com/icons/social-media-icons/social-buntings/32/Github-icon.png) API Clients
+# ![github](http://icons.iconarchive.com/icons/social-media-icons/social-buntings/32/Github-icon.png) API Clients
 
 The following clients are maintained by the Aplazame development team:
 
 * [Python Aplazame sdk](https://github.com/aplazame/aplazame-sdk)
+* [Aplazame js](https://github.com/aplazame/aplazame-js)
 
-# ![buh](http://icons.iconarchive.com/icons/social-media-icons/social-buntings/32/Github-icon.png) E-commerce modules
+# ![github](http://icons.iconarchive.com/icons/social-media-icons/social-buntings/32/Github-icon.png) E-commerce modules
 
 The following modules are maintained by the Aplazame development team:
 

@@ -5,18 +5,16 @@
 > How to import
 
 ```html
-<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/button.js"></script>
+<script src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
 ```
 
 > How to use it
 
 ```javascript
 aplazame.button({
-  id: "CONTAINER_ID",
-  token: "->AccessToken<-",
+  id: ":containerId",
   amount: 12050,
   currency: "EUR",
-  sandbox: true
 });
 ```
 
@@ -90,13 +88,13 @@ meta | json | no | SDK-Client info.
 POST /confirmation_url HTTP/1.1
 
 {
-  "checkout_token": "<ID>"
+  "checkout_token": ":orderId"
 }
 ```
 
 
 ```http
-POST /orders/<ID>/authorize HTTP/1.1
+POST /orders/:orderId/authorize HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -107,13 +105,13 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.aplazame.v1+json
 
 {
-  "id": "<ID>",
-  "total_amount": "<ORDER_AMOUNT>"
+  "id": ":orderId",
+  "total_amount": 12050
 }
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>/authorize" \
+$ curl "https://api.aplazame.com/orders/:orderId/authorize" \
     -H "Accept: application/vnd.aplazame.sandbox.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X POST
@@ -123,10 +121,10 @@ $ curl "https://api.aplazame.com/orders/<ID>/authorize" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.authorize('<ID>')
+response = client.authorize(':orderId')
 ```
 
-`POST https://api.aplazame.com/orders/<ID>/authorize`
+`POST https://api.aplazame.com/orders/:orderId/authorize`
 
 Once you have completed the checkout process, the client JS will send a signal to the URL of his backend `confirmation_url` which will in turn send a request to this service to validate the order. Our server will respond with the total order and its corresponding ID, the same we were provided with during the integration.
 

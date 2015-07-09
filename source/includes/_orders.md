@@ -277,7 +277,7 @@ account_created | datetime | A datetime designating when the customer account wa
 ## Detail
 
 ```http
-GET /orders/<ID> HTTP/1.1
+GET /orders/:orderId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -288,13 +288,13 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.aplazame.v1+json
 
 {
-  "id": "<ID>",
+  "id": ":orderId",
   "...": "..."
 }
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>" \
+$ curl "https://api.aplazame.com/orders/:orderId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -303,10 +303,10 @@ $ curl "https://api.aplazame.com/orders/<ID>" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.order_detail('<ID>')
+response = client.order_detail(':orderId')
 ```
 
-`GET https://api.aplazame.com/orders/<ID>`
+`GET https://api.aplazame.com/orders/:orderId`
 
 If you want to check the status of an order, this is the service you need.
 
@@ -329,7 +329,7 @@ id | object | Order id,
 ## Cancel
 
 ```http
-POST /orders/<ID>/cancel HTTP/1.1
+POST /orders/:orderId/cancel HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -346,7 +346,7 @@ Content-Type: application/vnd.aplazame.v1+json
 
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>/cancel" \
+$ curl "https://api.aplazame.com/orders/:orderId/cancel" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X POST
@@ -356,10 +356,10 @@ $ curl "https://api.aplazame.com/orders/<ID>/cancel" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.cancel('<ID>')
+response = client.cancel(':orderId')
 ```
 
-`POST https://api.aplazame.com/orders/<ID>/cancel`
+`POST https://api.aplazame.com/orders/:orderId/cancel`
 
 Service in charge of canceling an order. Note that once the order has been cancelled it may not be modified.
 
@@ -377,7 +377,7 @@ ID | string | String `id` of the order to perform action with.
 > Check (GET) and refund (POST)
 
 ```http
-GET /orders/<ID>/refund HTTP/1.1
+GET /orders/:orderId/refund HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -393,7 +393,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```http
-POST /orders/<ID>/refund HTTP/1.1
+POST /orders/:orderId/refund HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -413,13 +413,13 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>/refund" \
+$ curl "https://api.aplazame.com/orders/:orderId/refund" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>/refund" \
+$ curl "https://api.aplazame.com/orders/:orderId/refund" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X POST \
@@ -432,19 +432,19 @@ from aplazame_sdk import Client
 client = Client('access_token')
 
 # Check
-response = client.refund_check('<ID>')
+response = client.refund_check(':orderId')
 
 # ...and refund
-response = client.refund('<ID>', 10050)
+response = client.refund(':orderId', 10050)
 ```
 
 ### Check remaining amount
 
-`GET https://api.aplazame.com/orders/<ID>/refund`
+`GET https://api.aplazame.com/orders/:orderId/refund`
 
 ### Refund
 
-`POST https://api.aplazame.com/orders/<ID>/refund`
+`POST https://api.aplazame.com/orders/:orderId/refund`
 
 
 ### Url parameters
@@ -473,7 +473,7 @@ remaining_amount | float | The remaining order amount.
 
 
 ```http
-PATCH /orders/<ID> HTTP/1.1
+PATCH /orders/:orderId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -507,7 +507,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>" \
+$ curl "https://api.aplazame.com/orders/:orderId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X PATCH \
@@ -552,10 +552,10 @@ payload = {
 }
 
 client = Client('access_token')
-response = client.update('<ID>', payload, partial=True)
+response = client.update(':orderId', payload, partial=True)
 ```
 
-`PATCH https://api.aplazame.com/orders/<ID>`
+`PATCH https://api.aplazame.com/orders/:orderId`
 
 This service is used to partially modify the order, you choose if you want to change the shipping data, the billing or the cart.
 
@@ -576,7 +576,7 @@ Parameter | Type | Required | Description
 ## Update
 
 ```http
-PUT /orders/<ID> HTTP/1.1
+PUT /orders/:orderId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -628,7 +628,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>" \
+$ curl "https://api.aplazame.com/orders/:orderId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X PUT \
@@ -709,10 +709,10 @@ payload = {
 }
 
 client = Client('access_token')
-response = client.update('<ID>', payload)
+response = client.update(':orderId', payload)
 ```
 
-`PUT https://api.aplazame.com/orders/<ID>`
+`PUT https://api.aplazame.com/orders/:orderId`
 
 If you want to update an order, this is the service you need.
 
@@ -732,7 +732,7 @@ Parameter | Type | Required | Description
 ## History
 
 ```http
-POST /orders/<ID>/history HTTP/1.1
+POST /orders/:orderId/history HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -775,7 +775,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/<ID>/history" \
+$ curl "https://api.aplazame.com/orders/:orderId/history" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-" \
     -X POST \
@@ -841,11 +841,11 @@ payload = [
 ]
 
 client = Client('access_token')
-response = client.history('<ID>', payload)
+response = client.history(':orderId', payload)
 ```
 
 
-`POST https://api.aplazame.com/orders/<ID>/history`
+`POST https://api.aplazame.com/orders/:orderId/history`
 
 When a checkout process begins, a request is sent to our server with the information of the history of the customer. It is recommended to make an asynchronous request not to delay the loading of the template.
 

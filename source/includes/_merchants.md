@@ -58,7 +58,7 @@ results | collection | Merchant queryset.
 ## Detail
 
 ```http
-GET /merchants/<ID> HTTP/1.1
+GET /merchants/:merchantId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -69,13 +69,13 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.aplazame.v1+json
 
 {
-  "id": "<ID>",
+  "id": ":merchantId",
   "...": "..."
 }
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/<ID>" \
+$ curl "https://api.aplazame.com/merchants/:merchantId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -84,10 +84,10 @@ $ curl "https://api.aplazame.com/merchants/<ID>" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.merchant_detail('<ID>')
+response = client.merchant_detail(':merchantId')
 ```
 
-`GET https://api.aplazame.com/merchants/<ID>`
+`GET https://api.aplazame.com/merchants/:merchantId`
 
 If you want to check the status of an merchant, this is the service you need.
 

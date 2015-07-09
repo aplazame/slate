@@ -230,7 +230,7 @@ created | datetime | A datetime designating when the customer was created.
 ## Detail
 
 ```http
-GET /customers/<ID> HTTP/1.1
+GET /customers/:customerId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -241,13 +241,13 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.aplazame.v1+json
 
 {
-  "id": "<ID>",
+  "id": ":customerId",
   "...": "..."
 }
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/customers/<ID>" \
+$ curl "https://api.aplazame.com/customers/:customerId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -256,10 +256,10 @@ $ curl "https://api.aplazame.com/customers/<ID>" \
 from aplazame_sdk import Client
 
 client = Client('access_token')
-response = client.customer_detail('<ID>')
+response = client.customer_detail(':customerId')
 ```
 
-`GET https://api.aplazame.com/customers/<ID>`
+`GET https://api.aplazame.com/customers/:customerId`
 
 If you want to check the status of an customer, this is the service you need.
 

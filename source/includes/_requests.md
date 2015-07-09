@@ -227,3 +227,43 @@ count | integer | The number of elements found.
 next | url | The API endpoint that will return the next page of data.
 previous | url | The API endpoint that will return the previous page of data.
 
+
+### Squema
+
+
+```http
+GET /orders/squema HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "name": "Order Queryset",
+  "description": "Order list rest service",
+  "renders": [
+      "application/json",
+      "application/javascript",
+      "application/yaml",
+      "application/xml",
+      "text/html"
+  ],
+  "parses": [
+      "application/json",
+      "application/yaml",
+      "application/xml"
+  ]
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders/squema" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+
