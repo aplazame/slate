@@ -228,8 +228,7 @@ next | url | The API endpoint that will return the next page of data.
 previous | url | The API endpoint that will return the previous page of data.
 
 
-### Squema
-
+## Squema
 
 ```http
 GET /orders/squema HTTP/1.1
