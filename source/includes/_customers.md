@@ -4,14 +4,14 @@
 
 ```http
 GET /customers HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -30,8 +30,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/customers" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -59,14 +59,14 @@ results | collection | Customer queryset.
 
 ```http
 GET /customers?param=value HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -85,8 +85,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/customers?param=value" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -120,14 +120,14 @@ document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-
 
 ```http
 GET /customers?q=param1,param2 HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -146,8 +146,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/customers?q=param1,param2" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -176,14 +176,14 @@ full_name | The customer full name.
 
 ```http
 GET /customers?ordering=param1,-param2 HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -202,8 +202,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/customers?ordering=param1,-param2" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -231,14 +231,14 @@ created | datetime | A datetime designating when the customer was created.
 
 ```http
 GET /customers/<ID> HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "id": "<ID>",
@@ -248,8 +248,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/customers/<ID>" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python

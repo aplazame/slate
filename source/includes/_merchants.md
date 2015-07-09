@@ -4,14 +4,14 @@
 
 ```http
 GET /merchants HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -30,8 +30,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/merchants" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -59,14 +59,14 @@ results | collection | Merchant queryset.
 
 ```http
 GET /merchants/<ID> HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "id": "<ID>",
@@ -76,8 +76,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/merchants/<ID>" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python

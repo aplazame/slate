@@ -12,14 +12,14 @@ Before making requests , make sure that the header Accept of your client API mat
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -38,8 +38,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -66,14 +66,14 @@ results | collection | Order queryset.
 
 ```http
 GET /orders?param=value HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -92,8 +92,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders?param=value" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -157,14 +157,14 @@ account_date_joined_since | datetime |  after | Results with customer's created 
 
 ```http
 GET /orders?q=param1,param2 HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -183,8 +183,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders?q=param1,param2" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -215,14 +215,14 @@ account_email | The customer email.
 
 ```http
 GET /orders?ordering=param1,-param2 HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -241,8 +241,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders?ordering=param1,-param2" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -278,14 +278,14 @@ account_created | datetime | A datetime designating when the customer account wa
 
 ```http
 GET /orders/<ID> HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "id": "<ID>",
@@ -295,8 +295,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -330,14 +330,14 @@ id | object | Order id,
 
 ```http
 POST /orders/<ID>/cancel HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "success": true
@@ -347,8 +347,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>/cancel" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X POST
 ```
 
@@ -378,14 +378,14 @@ ID | string | String `id` of the order to perform action with.
 
 ```http
 GET /orders/<ID>/refund HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "remaining_amount": 70070
@@ -394,8 +394,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```http
 POST /orders/<ID>/refund HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 
 {
@@ -405,7 +405,7 @@ Host: api.aplazame.com
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "remaining_amount": 60020
@@ -414,14 +414,14 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>/refund" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>/refund" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X POST \
     -d "amount=10050"
 ```
@@ -474,8 +474,8 @@ remaining_amount | float | The remaining order amount.
 
 ```http
 PATCH /orders/<ID> HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 
 {
@@ -499,7 +499,7 @@ Host: api.aplazame.com
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "success": true
@@ -508,8 +508,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X PATCH \
     --data-binary '{
       "order": {
@@ -577,8 +577,8 @@ Parameter | Type | Required | Description
 
 ```http
 PUT /orders/<ID> HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 
 {
@@ -620,7 +620,7 @@ Host: api.aplazame.com
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "success": true
@@ -629,8 +629,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X PUT \
     --data-binary '{
       "order": {
@@ -733,8 +733,8 @@ Parameter | Type | Required | Description
 
 ```http
 POST /orders/<ID>/history HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 
 [{
@@ -767,7 +767,7 @@ Host: api.aplazame.com
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "success": true
@@ -776,8 +776,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>/history" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X POST \
     --data-binary '[
       {

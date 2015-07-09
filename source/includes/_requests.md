@@ -9,20 +9,20 @@
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -44,7 +44,7 @@ OAuth2 is more simple to work with than OAuth1, and provides much better securit
 ```http
 GET /orders HTTP/1.1
 Accept: application/vnd.aplazame-v2+json
-Authorization: Bearer <ACCESS_TOKEN>
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
@@ -55,40 +55,40 @@ Content-Type: application/vnd.aplazame-v2+json
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame-v1+xml
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+xml
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+xml
+Content-Type: application/vnd.aplazame.v1+xml
 ```
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame-v1+yaml
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+yaml
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+yaml
+Content-Type: application/vnd.aplazame.v1+yaml
 ```
 
 ```shell
 $ curl "https://api.aplazame.com/orders" \
     -H "Accept: application/vnd.aplazame-v2+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Authorization: Bearer ->AccessToken<-"
 
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame-v1+xml" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+xml" \
+    -H "Authorization: Bearer ->AccessToken<-"
 
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame-v1+yaml" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+yaml" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -119,20 +119,20 @@ The latest API version is v1.
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame.sandbox-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.sandbox.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.sandbox-v1+json
+Content-Type: application/vnd.aplazame.sandbox.v1+json
 ```
 
 ```shell
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame.sandbox-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.sandbox.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
@@ -146,7 +146,7 @@ response = client.orders()
 Aplazame has a sandbox mode for your unit tests. If you want to make a request in sandbox mode, it must be specified in the `Accept` header just before the Api version.
 
 * Accept (sandbox): application/vnd.aplazame.**sandbox**-v1+json
-* Accept (production): application/vnd.aplazame-v1+json
+* Accept (production): application/vnd.aplazame.v1+json
 
 
 ## Decimals
@@ -166,14 +166,14 @@ All amounts related to taxes, discounts and prices will be formatted as an integ
 
 ```http
 GET /orders?page=2 HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "cursor": {
@@ -191,8 +191,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders?page=2" \
-    -H "Accept: application/vnd.aplazame-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>"
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python

@@ -13,7 +13,7 @@
 ```javascript
 aplazame.button({
   id: "CONTAINER_ID",
-  token: "<ACCESS_TOKEN>",
+  token: "->AccessToken<-",
   amount: 12050,
   currency: "EUR",
   sandbox: true
@@ -97,14 +97,14 @@ POST /confirmation_url HTTP/1.1
 
 ```http
 POST /orders/<ID>/authorize HTTP/1.1
-Accept: application/vnd.aplazame-v1+json
-Authorization: Bearer <ACCESS_TOKEN>
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame-v1+json
+Content-Type: application/vnd.aplazame.v1+json
 
 {
   "id": "<ID>",
@@ -114,8 +114,8 @@ Content-Type: application/vnd.aplazame-v1+json
 
 ```shell
 $ curl "https://api.aplazame.com/orders/<ID>/authorize" \
-    -H "Accept: application/vnd.aplazame.sandbox-v1+json" \
-    -H "Authorization: Bearer <ACCESS_TOKEN>" \
+    -H "Accept: application/vnd.aplazame.sandbox.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-" \
     -X POST
 ```
 
