@@ -1,8 +1,10 @@
 # ![shell](http://aplazame.com/static/img/docs/shell.gif) Errors
 
-> 400 Bad Request
 
-```json
+```http
+HTTP/1.1 400 BAD REQUEST
+Content-Type: application/vnd.aplazame.v1+json
+
 {
   "error": {
     "fields": {
@@ -16,10 +18,10 @@
 }
 ```
 
+```http
+HTTP/1.1 401 UNAUTHORIZED
+Content-Type: application/vnd.aplazame.v1+json
 
-> 401 Unauthorized
-
-```json
 {
   "error": {
     "message": "Authentication credentials were not provided.", 
@@ -29,9 +31,10 @@
 ```
 
 
-> 404 Not Found
+```http
+HTTP/1.1 404 NOT FOUND
+Content-Type: application/vnd.aplazame.v1+json
 
-```json
 {
   "error": {
     "fields": {
