@@ -5,7 +5,7 @@
 > How to import
 
 ```html
-<script src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
+<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
 ```
 
 > How to use it
@@ -38,7 +38,7 @@ sandbox | boolean | no | Determines if the request is in sandbox mode.
 > How to import
 
 ```html
-<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/aplazame.js"></script>
+<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
 ```
 
 > How to use it

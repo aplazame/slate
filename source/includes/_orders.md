@@ -336,13 +336,10 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 204 OK
 Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "success": true
-}
 ```
+
 
 
 ```shell
@@ -498,13 +495,10 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 204 OK
 Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "success": true
-}
 ```
+
 
 ```shell
 $ curl "https://api.aplazame.com/orders/:orderId" \
@@ -619,13 +613,10 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 204 OK
 Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "success": true
-}
 ```
+
 
 ```shell
 $ curl "https://api.aplazame.com/orders/:orderId" \
@@ -766,13 +757,10 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 204 OK
 Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "success": true
-}
 ```
+
 
 ```shell
 $ curl "https://api.aplazame.com/orders/:orderId/history" \
