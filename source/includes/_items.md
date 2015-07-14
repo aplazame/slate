@@ -81,7 +81,7 @@ La tasa de impuesto a nivel de artículo o shipping sobreescribe la tasa de impu
     "city": "Madrid",
     "state": "Madrid",
     "country": "ES",
-    "zip": "28013"
+    "postcode": "28013"
   },
   "type": "e",
   "gender": 0,
@@ -118,7 +118,7 @@ last_login | datetime | no | A datetime of the customer last login.
   "city": "Madrid",
   "state": "Madrid",
   "country": "ES",
-  "zip": "28013"
+  "postcode": "28013"
 }
 ```
 
@@ -133,7 +133,7 @@ address_addition | string | no | Address address addition.
 city | string | yes | Address city.
 state | string | yes | Address state.
 country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Address country code.
-zip | string | yes | Address zip code.
+postcode | string | yes | Address postcode.
 
 
 ## Article
@@ -177,7 +177,7 @@ discount_rate | integer | no | The rate discount of the article.
   "city": "Madrid",
   "state": "Madrid",
   "country": "ES",
-  "zip": "28014"
+  "postcode": "28014"
 }
 ```
 
@@ -192,7 +192,7 @@ address_addition | string | no | Billing address addition.
 city | string | yes | Billing city.
 state | string | yes | Billing state.
 country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Billing country code.
-zip | string | yes | Billing zip code.
+postcode | string | yes | Billing postcode code.
 
 ## Shipping info
 
@@ -207,7 +207,7 @@ zip | string | yes | Billing zip code.
   "city": "Madrid",
   "state": "Madrid",
   "country": "ES",
-  "zip": "28013",
+  "postcode": "28013",
   "price": 500,
   "tax_rate": 2100,
   "name": "Planet Express",
@@ -226,7 +226,7 @@ address_addition | string | no | Shipping address addition.
 city | string | yes | Shipping city.
 state | string | yes | Shipping state.
 country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Shipping country code.
-zip | string | yes | Shipping zip code.
+postcode | string | yes | Shipping postcode code.
 name | string | yes | Shipping name.
 tax_rate | integer | no | Shipping tax rate.
 discount | integer | no | The discount amount of the shipping.
