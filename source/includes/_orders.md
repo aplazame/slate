@@ -336,7 +336,7 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/vnd.aplazame.v1+json
 ```
 
@@ -495,7 +495,7 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/vnd.aplazame.v1+json
 ```
 
@@ -613,7 +613,7 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/vnd.aplazame.v1+json
 ```
 
@@ -757,7 +757,7 @@ Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/vnd.aplazame.v1+json
 ```
 
