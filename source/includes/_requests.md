@@ -28,7 +28,7 @@ $ curl "https://api.aplazame.com/orders" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token', format_type='json', version='1')
+client = Client('access_token', ctype='json', version='1')
 response = client.orders()
 ```
 
@@ -96,8 +96,8 @@ from aplazame_sdk import Client
 
 client = Client('access_token', version='2')
 
-client = Client('access_token', format_type='xml')
-client = Client('access_token', format_type='yaml')
+client = Client('access_token', ctype='xml')
+client = Client('access_token', ctype='yaml')
 ```
 
 Although we currently allow for versioned URL, as for example `https://api.aplazame.com/v1/orders`, we consider it a better practice the use of the header `Accept` in the request to specify the type and format of the API service response.
