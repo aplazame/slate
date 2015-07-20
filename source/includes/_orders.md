@@ -277,6 +277,7 @@ created | datetime | A datetime designating when the order was created.
 verified | datetime | A datetime designating when the order was verified.
 confirmed | datetime | A datetime designating when the order was confirmed.
 cancelled | datetime | A datetime designating when the order was cancelled.
+confirmed | datetime | A datetime designating when the order was confirmed.
 account_last_login | datetime | A datetime of the customer last login.
 account_date_joined | datetime | A datetime designating when the customer account was created in your merchant.
 account_created | datetime | A datetime designating when the customer account was created in Aplazame.
