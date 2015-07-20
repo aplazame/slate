@@ -198,8 +198,13 @@ $ curl "https://api.aplazame.com/orders?page=2" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.orders(page=2)
+
+# Build a url query string from a dictionary
+response = client.orders({
+  'page': 2
+})
 ```
 
 ### Response

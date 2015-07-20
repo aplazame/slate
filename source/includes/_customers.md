@@ -37,7 +37,7 @@ $ curl "https://api.aplazame.com/customers" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.customers()
 ```
 
@@ -55,7 +55,7 @@ results | collection | Customer queryset.
 
 
 
-## - Filtering
+## ○ Filtering
 
 ```http
 GET /customers?param=value HTTP/1.1
@@ -92,8 +92,10 @@ $ curl "https://api.aplazame.com/customers?param=value" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.customers(param='value')
+client = Client('->AccessToken<-')
+response = client.customers({
+  'param': 'value'
+})
 ```
 
 `GET https://api.aplazame.com/customers?param=value`
@@ -116,7 +118,7 @@ document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-
 
 
 
-## - Searching
+## ○ Searching
 
 ```http
 GET /customers?q=param1,param2 HTTP/1.1
@@ -153,8 +155,10 @@ $ curl "https://api.aplazame.com/customers?q=param1,param2" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.customers(q='param1,param2')
+client = Client('->AccessToken<-')
+response = client.customers({
+  'q': 'param1,param2'
+})
 ```
 
 `GET https://api.aplazame.com/customers?q=param1,param2`
@@ -172,7 +176,7 @@ Parameter | Description
 full_name | The customer full name.
 
 
-## - Ordering
+## ○ Ordering
 
 ```http
 GET /customers?ordering=param1,-param2 HTTP/1.1
@@ -209,8 +213,10 @@ $ curl "https://api.aplazame.com/customers?ordering=param1,-param2" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.customers(ordering='param1,-param2')
+client = Client('->AccessToken<-')
+response = client.customers({
+  'ordering': 'param1,-param2'
+})
 ```
 
 `GET https://api.aplazame.com/customers?ordering=param1,-param2`
@@ -255,7 +261,7 @@ $ curl "https://api.aplazame.com/customers/:customerId" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.customer_detail(':customerId')
 ```
 

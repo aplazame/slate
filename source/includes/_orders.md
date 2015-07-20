@@ -45,7 +45,7 @@ $ curl "https://api.aplazame.com/orders" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.orders()
 ```
 
@@ -62,7 +62,7 @@ paging | object | Pagination state.
 results | collection | Order queryset.
 
 
-## - Filtering
+## ○ Filtering
 
 ```http
 GET /orders?param=value HTTP/1.1
@@ -99,8 +99,10 @@ $ curl "https://api.aplazame.com/orders?param=value" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.orders(param='value')
+client = Client('->AccessToken<-')
+response = client.orders({
+  'param': 'value'
+})
 ```
 
 `GET https://api.aplazame.com/orders?param=value`
@@ -153,7 +155,7 @@ account_date_joined_until | datetime |  before | Results with customer's created
 account_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
 
 
-## - Searching
+## ○ Searching
 
 ```http
 GET /orders?q=param1,param2 HTTP/1.1
@@ -190,8 +192,10 @@ $ curl "https://api.aplazame.com/orders?q=param1,param2" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.orders(q='param1,param2')
+client = Client('->AccessToken<-')
+response = client.orders({
+  'q': 'param1,param2'
+})
 ```
 
 `GET https://api.aplazame.com/orders?q=param1,param2`
@@ -211,7 +215,7 @@ account_last_name | The customer last name.
 account_email | The customer email.
 
 
-## - Ordering
+## ○ Ordering
 
 ```http
 GET /orders?ordering=param1,-param2 HTTP/1.1
@@ -248,8 +252,10 @@ $ curl "https://api.aplazame.com/orders?ordering=param1,-param2" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
-response = client.orders(ordering='param1,-param2')
+client = Client('->AccessToken<-')
+response = client.orders({
+  'ordering': 'param1,-param2'
+})
 ```
 
 `GET https://api.aplazame.com/orders?ordering=param1,-param2`
@@ -302,7 +308,7 @@ $ curl "https://api.aplazame.com/orders/:orderId" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.order_detail(':orderId')
 ```
 
@@ -352,7 +358,7 @@ $ curl "https://api.aplazame.com/orders/:orderId/cancel" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.cancel(':orderId')
 ```
 
@@ -426,7 +432,7 @@ $ curl "https://api.aplazame.com/orders/:orderId/refund" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 
 # Check
 response = client.refund_check(':orderId')
@@ -545,7 +551,7 @@ payload = {
   }
 }
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.update(':orderId', payload, partial=True)
 ```
 
@@ -699,7 +705,7 @@ payload = {
   }
 }
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.update(':orderId', payload)
 ```
 
@@ -828,7 +834,7 @@ payload = [
   }
 ]
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.history(':orderId', payload)
 ```
 

@@ -120,7 +120,7 @@ $ curl "https://api.aplazame.com/orders/:orderId/authorize" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.authorize(':orderId')
 ```
 

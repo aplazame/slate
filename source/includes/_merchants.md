@@ -37,7 +37,7 @@ $ curl "https://api.aplazame.com/merchants" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.merchants()
 ```
 
@@ -83,7 +83,7 @@ $ curl "https://api.aplazame.com/merchants/:merchantId" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token')
+client = Client('->AccessToken<-')
 response = client.merchant_detail(':merchantId')
 ```
 
