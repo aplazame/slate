@@ -29,6 +29,7 @@ $ curl "https://api.aplazame.com/orders" \
 from aplazame_sdk import Client
 
 client = Client('access_token', ctype='json', version='1')
+
 response = client.orders()
 ```
 
@@ -139,6 +140,7 @@ $ curl "https://api.aplazame.com/orders" \
 from aplazame_sdk import Client
 
 client = Client('access_token', sandbox=True)
+
 response = client.orders()
 ```
 
@@ -199,6 +201,7 @@ $ curl "https://api.aplazame.com/orders?page=2" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.orders(page=2)
 
 # Build a url query string from a dictionary

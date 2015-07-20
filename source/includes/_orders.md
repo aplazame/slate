@@ -46,6 +46,7 @@ $ curl "https://api.aplazame.com/orders" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.orders()
 ```
 
@@ -100,6 +101,7 @@ $ curl "https://api.aplazame.com/orders?param=value" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.orders({
   'param': 'value'
 })
@@ -193,6 +195,7 @@ $ curl "https://api.aplazame.com/orders?q=param1,param2" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.orders({
   'q': 'param1,param2'
 })
@@ -253,6 +256,7 @@ $ curl "https://api.aplazame.com/orders?ordering=param1,-param2" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.orders({
   'ordering': 'param1,-param2'
 })
@@ -309,6 +313,7 @@ $ curl "https://api.aplazame.com/orders/:orderId" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.order_detail(':orderId')
 ```
 
@@ -359,6 +364,7 @@ $ curl "https://api.aplazame.com/orders/:orderId/cancel" \
 from aplazame_sdk import Client
 
 client = Client('->AccessToken<-')
+
 response = client.cancel(':orderId')
 ```
 
@@ -552,6 +558,7 @@ payload = {
 }
 
 client = Client('->AccessToken<-')
+
 response = client.update(':orderId', payload, partial=True)
 ```
 
@@ -706,6 +713,7 @@ payload = {
 }
 
 client = Client('->AccessToken<-')
+
 response = client.update(':orderId', payload)
 ```
 
@@ -835,6 +843,7 @@ payload = [
 ]
 
 client = Client('->AccessToken<-')
+
 response = client.history(':orderId', payload)
 ```
 
