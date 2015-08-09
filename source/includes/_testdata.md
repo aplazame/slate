@@ -2,11 +2,11 @@
 
 ## One time password
 
-<aside class="warning">
-Checkouts in sandbox mode will not ​send any SMS. The pin code will be displayed on the javacript console.
+<aside class="notice">
+Checkouts in SANDBOX mode will not ​send any SMS. The pin code will be displayed behind the form.
 </aside>
 
-![PIN Code](https://aplazame.com/static/img/docs/code.png)
+![PIN Code](https://aplazame.com/static/img/docs/demo-code.png)
 
 
 ## Credit cards

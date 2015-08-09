@@ -1,21 +1,44 @@
-# 3 Steps to Checkout
+# 3 Steps to Checkout v2
 
 ## 1 Button
 
-> How to import
+> -DEPRECATED- v1.1
 
 ```html
-<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
+<script
+  type="text/javascript"
+  src="https://api.aplazame.com/static/v1/js/button.js"></script>
 ```
 
-> How to use it
+> How to import v1.2
+
+```html
+<script
+  type="text/javascript"
+  src="https://api.aplazame.com/static/js/aplazame.js"
+  data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
+```
+
+> -DEPRECATED- v1.1
 
 ```javascript
 aplazame.button({
+  token: "->AccessToken<-",
   id: ":containerId",
   amount: 12050,
-  currency: "EUR",
+  currency: "EUR"
 });
+```
+
+> How to use it v1.2
+
+```html
+<button type="button"
+  data-amount="{{amount}}"
+  data-currency="EUR"
+  data-sandbox="true"></button>
+
+<div data-aplazame-payment-info="">lorem ipsum...</div>
 ```
 
 Start by including in the payment method selection menu a script that checks, through our API, whether the request can be processed.
@@ -27,18 +50,27 @@ Start by including in the payment method selection menu a script that checks, th
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-id | string | yes | Html container id.
-token | hash | yes | Your public API key.
 amount | integer | yes | Order total amount.
-currency | string [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
+currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
 sandbox | boolean | no | Determines if the request is in sandbox mode.
 
 ## 2 Checkout
 
-> How to import
+> -DEPRECATED- v1.1
 
 ```html
-<script type="text/javascript" src="https://api.aplazame.com/static/v1/js/button.js" data-aplazame="accessToken: ->AccessToken<-, version: 2, sandbox: true"></script>
+<script
+  type="text/javascript"
+  src="https://api.aplazame.com/static/v1/js/aplazame.js"></script>
+```
+
+> How to import v1.2
+
+```html
+<script
+  type="text/javascript"
+  src="https://api.aplazame.com/static/js/aplazame.js"
+  data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
 ```
 
 > How to use it
@@ -52,22 +84,23 @@ aplazame.checkout({
   "shipping": ... ,
   "order": ... ,
   "meta": {
-    "version": "1.0.1",
-    "name": "the cow and python developers"
+    "module": {
+      "name": "aplazame:module",
+      "version": 2.0.0
+    }
+    "version" "1.0.1"
   }
 });
 ```
 
 Once your ecommerce is registered in our system, you can integrate the payment method including a javascript code in your template.
 
-### Script versioning
+### Script options
 
-The import of the script must be performed according to the version of API being used `.../<VERSION>/js/aplazame.js`.
+The import of the script must be performed according to the version of API being used.
 
+`data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"`
 
-### Script Sandbox
-
-If you want to work in the sandbox mode, include the parameter `...js/aplazame.js?sandbox=true` in the URL of import.
 
 ### Checkout parameters
 

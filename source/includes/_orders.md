@@ -122,14 +122,14 @@ min_amount | float | greater | With total_amount `greater` than the specified.
 max_amount | float | less | With total_amount `less` than the specified.
 min_discount | float | greater | With discount `greater` than the specified.
 max_discount | float | less | With discount `less` than the specified.
-created_since | datetime | after | Created `after` than the specified datetime.
-created_until | datetime | before | Created `before` than the specified datetime.
-verified_since | datetime | after | Verified `after` than the specified datetime.
-verified_until | datetime | before | Verified `before` than the specified datetime.
-confirmed_since | datetime | after | Confirmed `after` than the specified datetime.
-confirmed_until | datetime | before | Confirmed `before` than the specified datetime.
-cancelled_since | datetime | after | Cancelled `after` than the specified datetime.
-cancelled_until | datetime | before | Cancelled `before` than the specified datetime.
+created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Created `after` than the specified datetime.
+created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Created `before` than the specified datetime.
+verified_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Verified `after` than the specified datetime.
+verified_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Verified `before` than the specified datetime.
+confirmed_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Confirmed `after` than the specified datetime.
+confirmed_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Confirmed `before` than the specified datetime.
+cancelled_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Cancelled `after` than the specified datetime.
+cancelled_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Cancelled `before` than the specified datetime.
 
 ### by customer
 
@@ -137,11 +137,11 @@ Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 customer_id | hash | equal | Same ustomer `ID`.
 customer_phone | number | equal | Same customer mobile phone number.
-customer_created_until | datetime |  before | Results with customer's created in Aplazame `before` than the specified datetime.
-customer_created_since | datetime |  after | Results with customer's created in Aplazame `after` than the specified datetime.
+customer_created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's created in Aplazame `before` than the specified datetime.
+customer_created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's created in Aplazame `after` than the specified datetime.
 document_id | string | equal | Same customer document id number, the choices are 01:NIF, 02:NIE, 03:CIF, 04: Passport, 05:others.
 document_id_type | string | equal | Same customer document id type.
-document_id_country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
+document_id_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
 
 
 ### by account
@@ -151,10 +151,10 @@ Parameter | Type | Lookup | Description
 account_id | hash |  equal | Same customer profile `ID`.
 account_type | string |  equal | Same customer type, the choices are g:guest, n:new, e:existing.
 account_gender | integer |  equal | Same customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
-account_last_login_until | datetime |  before | Results with customer's last login happens `before` than the specified datetime.
-account_last_login_since | datetime |  after | Results with customer's last login happens `after` than the specified datetime.
-account_date_joined_until | datetime |  before | Results with customer's created in your merchant `before` than the specified datetime.
-account_date_joined_since | datetime |  after | Results with customer's created in your merchant `after` than the specified datetime.
+account_last_login_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's last login happens `before` than the specified datetime.
+account_last_login_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's last login happens `after` than the specified datetime.
+account_date_joined_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's created in your merchant `before` than the specified datetime.
+account_date_joined_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's created in your merchant `after` than the specified datetime.
 
 
 ## ○ Searching
@@ -272,15 +272,15 @@ The ordering param is a tuple or list of strings. Each string is a field name wi
 
 Parameter | Type | Description
 --------- | ---- | -----------
-total_amount | float | Order total amount.
-created | datetime | A datetime designating when the order was created.
-verified | datetime | A datetime designating when the order was verified.
-confirmed | datetime | A datetime designating when the order was confirmed.
-cancelled | datetime | A datetime designating when the order was cancelled.
-confirmed | datetime | A datetime designating when the order was confirmed.
-account_last_login | datetime | A datetime of the customer last login.
-account_date_joined | datetime | A datetime designating when the customer account was created in your merchant.
-account_created | datetime | A datetime designating when the customer account was created in Aplazame.
+total_amount | [decimal](#decimals) | Order total amount.
+created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
+verified | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was verified.
+confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
+cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was cancelled.
+confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
+account_last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime of the customer last login.
+account_date_joined | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the customer account was created in your merchant.
+account_created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the customer account was created in Aplazame.
 
 
 
@@ -468,14 +468,14 @@ ID | string | String `id` of the order to perform action with.
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-amount | float | yes | The amount to refund.
+amount | [decimal](#decimals) | yes | The amount to refund.
 
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-remaining_amount | float | The remaining order amount.
+remaining_amount | [decimal](#decimals) | The remaining order amount.
 
 
 
@@ -867,12 +867,12 @@ ID | string | String `id` of the order to perform action with.
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 id | string | yes | String `id` of the order to perform action with.
-amount | float | yes | Order amount.
-due | float | no | The total amount due of the order.
+amount | [decimal](#decimals) | yes | Order amount.
+due | [decimal](#decimals) | no | The total amount due of the order.
 status | string | yes | Order status, the choices are pending, cancelled, processing and complete.
 type | string | yes | Order type.
 order_date | string | yes | The date of the order.
-currency | string [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
+currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
 [billing](#billing-address) | object | no | Order billing.
 [shipping](#shipping-info) | object | no | Order shipping.
 

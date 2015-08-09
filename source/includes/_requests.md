@@ -105,16 +105,15 @@ Although we currently allow for versioned URL, as for example `https://api.aplaz
 
 Thus we allow the following types of header
 
-* Accept: application/vnd.aplazame-**v1**+**json**
-* Accept: application/vnd.aplazame-**v1**+**xml**
-* Accept: application/vnd.aplazame-**v1**+**yaml**
+* Accept: application/vnd.aplazame.**v1**+**json**
+* Accept: application/vnd.aplazame.**v1**+**xml**
+* Accept: application/vnd.aplazame.**v1**+**yaml**
 
 If you do not specify any version by header or by URL, the latest version of the API will be activated. Since a new version of API can deprecate certain fields, this type of practice is not recommended.
 
 <aside class="notice">
-The latest API version is v1.
+The latest API version is v1 and the latest CHECKOUT version is v2, this is the v1.2
 </aside>
-
 
 ## Sandbox
 
@@ -147,14 +146,14 @@ response = client.orders()
 
 Aplazame has a sandbox mode for your unit tests. If you want to make a request in sandbox mode, it must be specified in the `Accept` header just before the Api version.
 
-* Accept (sandbox): application/vnd.aplazame.**sandbox**-v1+json
+* Accept (sandbox): application/vnd.aplazame.**sandbox**.v1+json
 * Accept (production): application/vnd.aplazame.v1+json
 
 
 ## Decimals
 
 ```shell
-$ if ((`bc <<< "12.50!=1250"`)); then echo "muUUuuUuu"; fi
+$ if ((`bc <<< "12.50!=1250"`)); then echo "beep beeeeeeep!!!"; fi
 ```
 
 ```python
@@ -236,10 +235,10 @@ next | url | The API endpoint that will return the next page of data.
 previous | url | The API endpoint that will return the previous page of data.
 
 
-## Squema
+## Schema
 
 ```http
-GET /orders/squema HTTP/1.1
+GET /orders/schema HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -268,7 +267,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders/squema" \
+$ curl "https://api.aplazame.com/orders/schema" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```

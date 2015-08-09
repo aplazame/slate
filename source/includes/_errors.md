@@ -57,6 +57,8 @@ Code | Error | Meaning
 404 | Not Found | If the object or the resource is not found
 405 | Method Not Allowed | You tried to access with an invalid method
 406 | Not Acceptable | You requested a format that is not valid
+408 | Request timeout | The server timed out waiting for the request
+409 | Conflict | Indicates that the request could not be processed because of conflict in the request
 429 | Too Many Requests | If multiple simultaneous requests are made. Slown down!
 500 | Internal Server Error | Houston, we have a problem. Try again later.
 503 | Service Unavailable | We're temporarially offline for maintanance. Please try again later.

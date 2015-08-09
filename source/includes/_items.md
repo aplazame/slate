@@ -12,6 +12,7 @@
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
+public_api_key | hash | yes | -DEPRECATED- v1.1
 confirmation_url | url | yes | url that the JS client sent to confirming the order.
 cancel_url | url | yes | url that the customer is sent to if the customer chooses to cancel the order.
 success_url | url | yes | url that the customer is sent to after confirming their order.
@@ -48,17 +49,16 @@ The user will be redirected to the Url `success_url` or `cancel_url` depending o
   "total_amount": 462000
 }
 ```
-
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 id | string | yes | Your order `ID`.
-discount | integer | no | The discount amount of the order.
-discount_rate | integer | no | The rate discount of the order.
-cart_discount | integer | no | The discount amount of the cart.
-cart_discount_rate | integer | no | The rate discount of the cart.
-currency | string [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
-tax_rate | integer | yes | Order tax rate.
-total_amount | integer | yes | Order total amount.
+discount | [decimal](#decimals) | no | The discount amount of the order.
+discount_rate | [decimal](#decimals) | no | The rate discount of the order.
+cart_discount | [decimal](#decimals) | no | The discount amount of the cart.
+cart_discount_rate | [decimal](#decimals) | no | The rate discount of the cart.
+currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
+tax_rate | [decimal](#decimals) | yes | Order tax rate.
+total_amount | [decimal](#decimals) | yes | Order total amount.
 
 ### Tax
 Every item of the order must have a tax rate `tax_rate`. You can include this rate globally in `order.tax_rate` or you can choose to apply the rate to every item and shipping.
@@ -101,10 +101,10 @@ gender | integer | yes | Customer gender, the choices are 0: not known, 1: male,
 first_name | string | no | Customer first name.
 last_name | string | no | Customer last name.
 birthday | date | no | Customer birthday.
-language | string [ISO 639-1](http://es.wikipedia.org/wiki/ISO_639-1) | no | Customer language preferences.
-date_joined | datetime | no | A datetime designating when the customer account was created.
-last_login | datetime | no | A datetime of the customer last login.
-[address](#customer-address)  | object | no | Customer address.
+language | [ISO 639-1](http://es.wikipedia.org/wiki/ISO_639-1) | no | Customer language preferences.
+date_joined | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime designating when the customer account was created.
+last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime of the customer last login.
+[address](#customer-address)  | [object](http://docs.aplazame.com/#customer-address) | no | Customer address.
 
 ## Customer Address
 
@@ -132,7 +132,7 @@ street | string | yes | Address street.
 address_addition | string | no | Address address addition.
 city | string | yes | Address city.
 state | string | yes | Address state.
-country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Address country code.
+country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Address country code.
 postcode | string | yes | Address postcode.
 
 
@@ -160,9 +160,10 @@ description | string | no | Article description.
 url | url | yes | Article url.
 image_url | url | yes | Article image url.
 quantity | integer | yes | Article quantity.
-tax_rate | integer | no | Article tax_rate.
-discount | integer | no | The discount amount of the article.
-discount_rate | integer | no | The rate discount of the article.
+price | [decimal](#decimals) | yes | Article price.
+tax_rate | [decimal](#decimals) | no | Article tax_rate.
+discount | [decimal](#decimals) | no | The discount amount of the article.
+discount_rate | [decimal](#decimals) | no | The rate discount of the article.
 
 ## Billing address
 
@@ -191,7 +192,7 @@ street | string | yes | Billing street.
 address_addition | string | no | Billing address addition.
 city | string | yes | Billing city.
 state | string | yes | Billing state.
-country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Billing country code.
+country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Billing country code.
 postcode | string | yes | Billing postcode code.
 
 ## Shipping info
@@ -225,9 +226,10 @@ street | string | yes | Shipping street.
 address_addition | string | no | Shipping address addition.
 city | string | yes | Shipping city.
 state | string | yes | Shipping state.
-country | string [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Shipping country code.
+country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Shipping country code.
 postcode | string | yes | Shipping postcode code.
 name | string | yes | Shipping name.
-tax_rate | integer | no | Shipping tax rate.
-discount | integer | no | The discount amount of the shipping.
-discount_rate | integer | no | The rate discount of the shipping.
+price | [decimal](#decimals) | yes | Shipping price.
+tax_rate | [decimal](#decimals) | no | Shipping tax rate.
+discount | [decimal](#decimals) | no | The discount amount of the shipping.
+discount_rate | [decimal](#decimals) | no | The rate discount of the shipping.

@@ -29,12 +29,11 @@ search: true
 # Introduction
 
 ```
- welcome to docs!! 
-           ,__,
-           (oo)____
-           (__)    )\
-              ||--|| *
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 ________  h___
+    __      _____       ___     |        | |  $|_
+  _| D\__  |    O\_   _/  C\__  |        |_|     |
+ '-o---o-' '-O---O-' '=o----o-' '-OO----`OO----O-'
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ```
 
 ```http
@@ -48,7 +47,7 @@ HTTP/1.1 200 it's OK?, then let's go!
 
 ```shell
 $ curl "https://api.aplazame.com" \
-    -H "User-Agent: hello, I am a cow, muUuuUuuUuuUUu" \
+    -H "User-Agent: Get ready for a lot of fun and excitement" \
     -X ECHO
 ```
 
