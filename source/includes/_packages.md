@@ -11,3 +11,4 @@ The following modules are maintained by the Aplazame development team:
 
 * [Magento](https://github.com/aplazame/magento)
 * [Prestashop](https://github.com/aplazame/prestashop)
+* [WooCommerce](https://github.com/aplazame/woocommerce) (coming soon)

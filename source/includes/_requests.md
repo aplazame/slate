@@ -1,11 +1,6 @@
 # Making Requests
 
 ## Headers
-* **Authorization**: oauth2 Bearer Token published as [RFC 6750](http://tools.ietf.org/html/rfc6750)
-* **Accept**: to specify certain media types which are acceptable for the response.
-
-
-## Authentication
 
 ```http
 GET /orders HTTP/1.1
@@ -32,6 +27,12 @@ client = Client('access_token', ctype='json', version='1')
 
 response = client.orders()
 ```
+
+* **Authorization**: oauth2 Bearer Token published as [RFC 6750](http://tools.ietf.org/html/rfc6750)
+* **Accept**: to specify certain media types which are acceptable for the response.
+
+
+### Authentication
 
 [Oauth2](http://en.wikipedia.org/wiki/OAuth) open standard for authorization.
 

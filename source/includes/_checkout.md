@@ -1,16 +1,6 @@
 # 3 Steps to Checkout v2
 
-## 1 Button
-
-> -DEPRECATED- v1.1
-
-```html
-<script
-  type="text/javascript"
-  src="https://api.aplazame.com/static/v1/js/button.js"></script>
-```
-
-> How to import v1.2
+> How to import
 
 ```html
 <script
@@ -18,6 +8,32 @@
   src="https://api.aplazame.com/static/js/aplazame.js"
   data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
 ```
+
+> -DEPRECATED- v1.1
+
+```html
+<script
+  type="text/javascript"
+  src="https://api.aplazame.com/static/v1/js/(button|aplazame).js"></script>
+```
+
+
+<aside class="notice">
+https://api.aplazame.com/static/js/aplazame.js is 404?, then goto http://docs.aplazame.com/v1.1
+</aside>
+
+### Script options
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+accessToken | hash | yes | your public/private ->AccessToken<-.
+version | float | yes | Api and Checkout version, for now is 1.2
+sandbox | boolean | no | Determines if the request is in sandbox mode.
+
+## 1 Button
+
+
+
 
 > -DEPRECATED- v1.1
 
@@ -34,9 +50,9 @@ aplazame.button({
 
 ```html
 <button type="button"
-  data-amount="{{amount}}"
+  data-amount="12050"
   data-currency="EUR"
-  data-sandbox="true"></button>
+  data-country="ES"></button>
 
 <div data-aplazame-payment-info="">lorem ipsum...</div>
 ```
@@ -50,28 +66,17 @@ Start by including in the payment method selection menu a script that checks, th
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-amount | integer | yes | Order total amount.
+amount | [decimal](#decimals)  | yes | Order total amount.
 currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
-sandbox | boolean | no | Determines if the request is in sandbox mode.
+country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | Country code.
+
+### Allowed countries
+
+* Spain (ES)
+
 
 ## 2 Checkout
 
-> -DEPRECATED- v1.1
-
-```html
-<script
-  type="text/javascript"
-  src="https://api.aplazame.com/static/v1/js/aplazame.js"></script>
-```
-
-> How to import v1.2
-
-```html
-<script
-  type="text/javascript"
-  src="https://api.aplazame.com/static/js/aplazame.js"
-  data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
-```
 
 > How to use it
 
@@ -94,12 +99,6 @@ aplazame.checkout({
 ```
 
 Once your ecommerce is registered in our system, you can integrate the payment method including a javascript code in your template.
-
-### Script options
-
-The import of the script must be performed according to the version of API being used.
-
-`data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"`
 
 
 ### Checkout parameters

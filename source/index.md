@@ -12,6 +12,7 @@ toc_footers:
   - <a href='https://aplazame.com'>Documentation Powered by Aplazame</a>
 
 includes:
+  - release
   - checkout
   - items
   - testdata
@@ -37,12 +38,15 @@ search: true
 ```
 
 ```http
-TRACE /<PATH> HTTP/1.1
+TRACE /:PATH HTTP/1.1
+Accept: something
+Authorization: my key
 Host: api.aplazame.com
 ```
 
 ```http
-HTTP/1.1 200 it's OK?, then let's go!
+HTTP/1.1 200 OK?, then let's go!
+Content-Type: something
 ```
 
 ```shell
@@ -62,14 +66,14 @@ assert(something.__doc__ is not None)
 
 Ease of implementation is the main objective we had in mind when developing Aplazame’s REST API. 
 
-If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#-e-commerce-modules) list.
+If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#img-alt-github-src-http-icons-iconarchive-com-icons-social-media-icons-social-buntings-32-github-icon-png) list.
 
-Otherwise you will have to carefully follow the instructions contained in this documentation, starting with the [3 step Checkout](#3-steps-to-checkout) and following to our [API description](#making-requests), which defines the available services and the steps required to establish communication with our endpoints.
+Otherwise you will have to carefully follow the instructions contained in this documentation, starting with the [3 step Checkout](#3-steps-to-checkout-v2) and following to our [API description](#making-requests), which defines the available services and the steps required to establish communication with our endpoints.
 
 
 ### I'M AN APLAZAME’S SERVICE
 
-If you are an Aplazame service, you may be interested in viewing information of [users](#+-customers) and / or [orders](#+-orders).
+If you are an Aplazame service, you may be interested in viewing information of [users](#customers) and / or [orders](#orders).
 
 Our API service will recognize your credentials and will provide you exclusively with the information required by the service you are using.
 
