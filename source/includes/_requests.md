@@ -45,43 +45,20 @@ OAuth2 is more simple to work with than OAuth1, and provides much better securit
 
 ```http
 GET /orders HTTP/1.1
-Accept: application/vnd.aplazame.v2+json
+Accept: application/vnd.aplazame.v1+(json|xml|yaml)
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v2+json
+Content-Type: application/vnd.aplazame.v1+(json|xml|yaml)
 ```
 
-```http
-GET /orders HTTP/1.1
-Accept: application/vnd.aplazame.v1+xml
-Authorization: Bearer ->AccessToken<-
-Host: api.aplazame.com
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+xml
-```
-
-```http
-GET /orders HTTP/1.1
-Accept: application/vnd.aplazame.v1+yaml
-Authorization: Bearer ->AccessToken<-
-Host: api.aplazame.com
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+yaml
-```
 
 ```shell
 $ curl "https://api.aplazame.com/orders" \
-    -H "Accept: application/vnd.aplazame.v2+json" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 
 $ curl "https://api.aplazame.com/orders" \
@@ -96,7 +73,7 @@ $ curl "https://api.aplazame.com/orders" \
 ```python
 from aplazame_sdk import Client
 
-client = Client('access_token', version='2')
+client = Client('access_token', version='1')
 
 client = Client('access_token', ctype='xml')
 client = Client('access_token', ctype='yaml')

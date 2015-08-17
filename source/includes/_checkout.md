@@ -9,15 +9,6 @@
   data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
 ```
 
-> -DEPRECATED- v1.1
-
-```html
-<script
-  type="text/javascript"
-  src="https://api.aplazame.com/static/v1/js/(button|aplazame).js"></script>
-```
-
-
 <aside class="notice">
 https://api.aplazame.com/static/js/aplazame.js is 404?, then goto http://docs.aplazame.com/v1.1
 </aside>
@@ -32,21 +23,7 @@ sandbox | boolean | no | Determines if the request is in sandbox mode.
 
 ## 1 Button
 
-
-
-
-> -DEPRECATED- v1.1
-
-```javascript
-aplazame.button({
-  token: "->AccessToken<-",
-  id: ":containerId",
-  amount: 12050,
-  currency: "EUR"
-});
-```
-
-> How to use it v1.2
+> How to use it
 
 ```html
 <button type="button"
