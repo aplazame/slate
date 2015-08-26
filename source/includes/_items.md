@@ -18,7 +18,7 @@ success_url | url | yes | url that the customer is sent to after confirming thei
 
 ### Confirm
 
-Once the funding process is completed, a request is sent to the URL `confirmation-url` in which a request must be made to the service `/authorize` to verify the order.
+Once the funding process is completed, a request is sent to the URL `confirmation_url` in which a request must be made to the service `/authorize` to verify the order.
 
 ### Success/Cancel Redirect
 
@@ -63,7 +63,7 @@ total_amount | [decimal](#decimals) | yes | Order total amount.
 Every item of the order must have a tax rate `tax_rate`. You can include this rate globally in `order.tax_rate` or you can choose to apply the rate to every item and shipping.
 
 <aside class="notice">
-La tasa de impuesto a nivel de artículo o shipping sobreescribe la tasa de impuesto global de pedido en caso de que exista.
+The tax rate of every article or shipping overrides the global tax rate in case there is one.
 </aside>
 
 ## Customer
@@ -99,7 +99,7 @@ type | char | yes | Customer type, the choices are g:guest, n:new, e:existing.
 gender | integer | yes | Customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
 first_name | string | no | Customer first name.
 last_name | string | no | Customer last name.
-birthday | date | no | Customer birthday.
+birthday | [iso-8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Customer birthday.
 language | [ISO 639-1](http://es.wikipedia.org/wiki/ISO_639-1) | no | Customer language preferences.
 date_joined | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime designating when the customer account was created.
 last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime of the customer last login.

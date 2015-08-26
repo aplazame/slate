@@ -5,20 +5,18 @@
 ```html
 <script
   type="text/javascript"
-  src="https://api.aplazame.com/static/js/aplazame.js"
-  data-aplazame="accessToken: ->AccessToken<-, version: 1.2, sandbox: true"></script>
+  src="https://aplazame.com/static/aplazame.min.js"
+  data-aplazame="publicKey: ->AccessToken<-"
+  data-version="1.2"
+  data-sandbox="true"></script>
 ```
-
-<aside class="notice">
-https://api.aplazame.com/static/js/aplazame.js is 404?, then goto http://docs.aplazame.com/v1.1
-</aside>
 
 ### Script options
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-accessToken | hash | yes | your public/private ->AccessToken<-.
-version | float | yes | Api and Checkout version, for now is 1.2
+publicKey | hash | yes | your public ->AccessToken<-.
+version | float | no | Api.Checkout version, by default is 1.2
 sandbox | boolean | no | Determines if the request is in sandbox mode.
 
 ## 1 Button

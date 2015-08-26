@@ -12,7 +12,6 @@ toc_footers:
   - <a href='https://aplazame.com'>Documentation Powered by Aplazame</a>
 
 includes:
-  - release
   - checkout
   - items
   - testdata
@@ -20,6 +19,7 @@ includes:
   - orders
   - merchants
   - customers
+  - release
   - packages
   - errors
 
@@ -30,11 +30,13 @@ search: true
 # Introduction
 
 ```
-    __      _____       ___ 
-  _| D\__  |    O\_   _/  C\__ 
- '-o---o-' '-O---O-' '=o----o-'
+   _________________  h___
+  |     Welcome     | |  $|_
+  |     to docs     |_|     |
+  '-OO-------------`OO----O-'
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ```
+
 
 ```http
 TRACE /:PATH HTTP/1.1
@@ -59,15 +61,6 @@ from somewhere import something
 
 assert(something.__doc__ is not None)
 ```
-
-```
-       ________  h___
-      |        | |  $|_
-      |        |_|     |
-      '-OO----`OO----O-'
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-```
-
 
 
 ### I'M ECOMMERCE
@@ -107,5 +100,4 @@ For any support request please drop us an email at [soporte@aplazame.com](mailto
 We are open to changes in the API documentation and our services. For any suggestions please send us an email to  [dev@aplazame.com](mailto:dev@aplazame.com?subject=Hello).
 
 **We hope you'll enjoy using Aplázame's API!**
-
 
