@@ -35,9 +35,9 @@ $ curl "https://api.aplazame.com/customers" \
 ```
 
 ```python
-from aplazame_sdk import Client
+import aplazame_sdk
 
-client = Client('->AccessToken<-')
+client = aplazame_sdk.Client('->AccessToken<-')
 
 response = client.customers()
 ```
@@ -91,9 +91,9 @@ $ curl "https://api.aplazame.com/customers?param=value" \
 ```
 
 ```python
-from aplazame_sdk import Client
+import aplazame_sdk
 
-client = Client('->AccessToken<-')
+client = aplazame_sdk.Client('->AccessToken<-')
 
 response = client.customers({
   'param': 'value'
@@ -154,9 +154,9 @@ $ curl "https://api.aplazame.com/customers?q=param1,param2" \
 ```
 
 ```python
-from aplazame_sdk import Client
+import aplazame_sdk
 
-client = Client('->AccessToken<-')
+client = aplazame_sdk.Client('->AccessToken<-')
 
 response = client.customers({
   'q': 'param1,param2'
@@ -213,9 +213,9 @@ $ curl "https://api.aplazame.com/customers?ordering=param1,-param2" \
 ```
 
 ```python
-from aplazame_sdk import Client
+import aplazame_sdk
 
-client = Client('->AccessToken<-')
+client = aplazame_sdk.Client('->AccessToken<-')
 
 response = client.customers({
   'ordering': 'param1,-param2'
@@ -262,9 +262,9 @@ $ curl "https://api.aplazame.com/customers/:customerId" \
 ```
 
 ```python
-from aplazame_sdk import Client
+import aplazame_sdk
 
-client = Client('->AccessToken<-')
+client = aplazame_sdk.Client('->AccessToken<-')
 
 response = client.customer_detail(':customerId')
 ```
