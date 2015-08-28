@@ -14,6 +14,7 @@ Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 confirmation_url | url | yes | url that the JS client sent to confirming the order.
 cancel_url | url | yes | url that the customer is sent to if the customer chooses to cancel the order.
+checkout_url | url | yes | url to configure checkout.
 success_url | url | yes | url that the customer is sent to after confirming their order.
 
 ### Confirm

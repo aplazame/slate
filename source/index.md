@@ -12,6 +12,7 @@ toc_footers:
   - <a href='https://aplazame.com'>Documentation Powered by Aplazame</a>
 
 includes:
+  - demo
   - checkout
   - items
   - testdata

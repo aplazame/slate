@@ -13,6 +13,7 @@
 * Add 408, 409, 415 errors
 * 204 No Content
 * endpoint schema
+* live demos
 * minor improvements
 
 ## 1.1 (2015-01-01)

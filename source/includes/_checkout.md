@@ -44,6 +44,7 @@ Parameter | Type | Required | Description
 amount | [decimal](#decimals)  | yes | Order total amount.
 currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
 country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | Country code.
+parent | selector | no | Parent tag to hide, "*" for the first parent node.
 
 ### Allowed countries
 
