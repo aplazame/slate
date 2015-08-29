@@ -34,9 +34,6 @@ sandbox | boolean | no | Determines if the request is in sandbox mode.
 
 Start by including in the payment method selection menu a script that checks, through our API, whether the request can be processed.
 
-
-![Button](https://aplazame.com/static/img/docs/button.png)
-
 ### Button parameters
 
 Parameter | Type | Required | Description
@@ -45,6 +42,8 @@ amount | [decimal](#decimals)  | yes | Order total amount.
 currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
 country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | Country code.
 parent | selector | no | Parent tag to hide, "*" for the first parent node.
+
+Take your button **image** [here](#buttons)!!
 
 ### Allowed countries
 

@@ -22,6 +22,7 @@ includes:
   - customers
   - release
   - packages
+  - buttons
   - errors
 
 search: true
