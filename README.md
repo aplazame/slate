@@ -8,13 +8,6 @@ Documentation is available at [http://docs.aplazame.com](http://docs.aplazame.co
 
 [ ![Image](https://aplazame.com/static/img/docs/slate.png "Aplazame") ](http://docs.aplazame.com "Aplazame")
 
-#### Help
-
-**Have a question about Aplazame?**
-
-For any support request please drop us an email at email soporte@aplazame.com.
-
-
 #### Contributors
 
 Slate was built by [Robert Lord](https://lord.io) while at [TripIt](http://tripit.com).
@@ -33,3 +26,9 @@ Also, thanks to [Sauce Labs](http://saucelabs.com) for helping sponsor the proje
 - [middleman-syntax](https://github.com/middleman/middleman-syntax)
 - [middleman-gh-pages](https://github.com/neo/middleman-gh-pages)
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+
+#### Help
+
+**Have a question about Aplazame?**
+
+For any support request please drop us an email at email soporte@aplazame.com.
