@@ -17,7 +17,7 @@ deploy:
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOK_URL
-    username: 'magento'
+    username: 'slate'
     on_success: change
     on_failure: true
 
