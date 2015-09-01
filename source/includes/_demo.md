@@ -1,6 +1,6 @@
 # Live demo
 
-* [Aplazame Checkout](http://demo.aplazame.com)
-* [Magento](http://magento.aplazame.com)
-* [Prestashop](http://prestashop.aplazame.com)
-* [WooCommerce](http://woo.aplazame.com?post_type=product) (coming soon)
+* Aplazame Checkout: [demo.aplazame.com](http://demo.aplazame.com)
+* Magento: [magento.aplazame.com](http://magento.aplazame.com)
+* Prestashop: [prestashop.aplazame.com](http://prestashop.aplazame.com)
+* WooCommerce (coming soon): [woo.aplazame.com](http://woo.aplazame.com?post_type=product)

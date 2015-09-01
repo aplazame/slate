@@ -6,24 +6,17 @@
 {
   "confirmation_url": "/confirm",
   "cancel_url": "/cancel",
-  "success_url": "/success"
+  "success_url": "/success",
+  "checkout_url": "/checkout"
 }
 ```
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
-confirmation_url | url | yes | url that the JS client sent to confirming the order.
-cancel_url | url | yes | url that the customer is sent to if the customer chooses to cancel the order.
-checkout_url | url | yes | url to configure checkout.
+[confirmation_url](#3-confirm) | url | yes | url that the JS client sent to confirming the order.
+cancel_url | url | yes | url that the customer is sent to if there is an error in the checkout.
 success_url | url | yes | url that the customer is sent to after confirming their order.
-
-### Confirm
-
-Once the funding process is completed, a request is sent to the URL `confirmation_url` in which a request must be made to the service `/authorize` to verify the order.
-
-### Success/Cancel Redirect
-
-The user will be redirected to the Url `success_url` or `cancel_url` depending on the status in which the checkout process finishes.
+checkout_url | url | no | url that the customer is sent to if the customer chooses to back to the eccommerce, by default is `/`.
 
 
 ## Order
