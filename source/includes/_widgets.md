@@ -1,5 +1,7 @@
 # Widgets
 
+Before you use a widget, you must import aplazame-js and configure it with the [option list](#3-steps-to-checkout-v2).
+
 ## Simulator
 
 ```html
@@ -16,9 +18,6 @@
 ```
 
 `GET https://api.aplazame.com/instalment-plan-simulator`
-
-Before you use a widget, you must import aplazame-js and configure it with the [option list](#3-steps-to-checkout-v2).
-
 
 ### Parameters
 
