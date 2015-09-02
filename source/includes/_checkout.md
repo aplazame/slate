@@ -55,7 +55,7 @@ Take your button **image** [here](#buttons)!!
 
 > How to use it
 
-```javascript
+```js
 aplazame.checkout({
   "toc": true,
   "merchant": ... ,
@@ -151,4 +151,3 @@ ID | string | String `id` of the order to perform action with.
 
 
 If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
-

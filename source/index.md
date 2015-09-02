@@ -22,6 +22,7 @@ includes:
   - customers
   - release
   - packages
+  - widgets
   - buttons
   - errors
 
@@ -67,7 +68,7 @@ assert(something.__doc__ is not None)
 
 ### I'M ECOMMERCE
 
-Ease of implementation is the main objective we had in mind when developing Aplazame’s REST API. 
+Ease of implementation is the main objective we had in mind when developing Aplazame’s REST API.
 
 If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#img-alt-github-src-http-icons-iconarchive-com-icons-social-media-icons-social-buntings-32-github-icon-png) list.
 
@@ -102,4 +103,3 @@ For any support request please drop us an email at [soporte@aplazame.com](mailto
 We are open to changes in the API documentation and our services. For any suggestions please send us an email to  [dev@aplazame.com](mailto:dev@aplazame.com?subject=Hello).
 
 **We hope you'll enjoy using Aplázame's API!**
-
