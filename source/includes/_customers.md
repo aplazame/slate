@@ -226,7 +226,7 @@ response = client.customers({
 
 To retrieve customer queryset oredered.
 
-The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending. 
+The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending.
 
 ### order by...
 
@@ -277,7 +277,7 @@ If you want to check the status of an customer, this is the service you need.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the customer to perform action with.
+:customerId | string | String `id` of the customer to perform action with.
 
 
 ### Response

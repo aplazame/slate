@@ -113,7 +113,7 @@ Content-Type: application/vnd.aplazame.v1+json
 
 {
   "id": ":orderId",
-  "total_amount": 12050
+  "amount": 12050
 }
 ```
 

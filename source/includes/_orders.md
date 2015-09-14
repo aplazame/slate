@@ -115,8 +115,8 @@ To retrieve order queryset filtered.
 
 Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
-id | hash | equal | Same Aplazame order `ID`. 
-mid | string | equal | Same order `ID` in your merchant. 
+id | hash | equal | Same Aplazame order `ID`.
+mid | string | equal | Same order `ID` in your merchant.
 total_amount | float | equal | Same order total amount.
 min_amount | float | greater | With total_amount `greater` than the specified.
 max_amount | float | less | With total_amount `less` than the specified.
@@ -266,7 +266,7 @@ response = client.orders({
 
 To retrieve order queryset ordered.
 
-The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending. 
+The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending.
 
 ### order by...
 
@@ -277,11 +277,9 @@ created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime design
 verified | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was verified.
 confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
 cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was cancelled.
-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
 account_last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime of the customer last login.
 account_date_joined | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the customer account was created in your merchant.
 account_created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the customer account was created in Aplazame.
-
 
 
 
@@ -326,7 +324,7 @@ If you want to check the status of an order, this is the service you need.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 
 ### Response
@@ -377,7 +375,7 @@ Service in charge of canceling an order. Note that once the order has been cance
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 
 
@@ -461,7 +459,7 @@ response = client.refund(':orderId', 10050)
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 
 ### Payload
@@ -571,7 +569,7 @@ This service is used to partially modify the order, you choose if you want to ch
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 
 ### Payload
@@ -726,7 +724,7 @@ If you want to update an order, this is the service you need.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 ### Payload
 
@@ -859,7 +857,7 @@ If you do not have asynchronous technology, you can develop your own REST servic
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | string | String `id` of the order to perform action with.
+:orderId | string | String `id` of the order to perform action with.
 
 
 ### Payload
@@ -875,4 +873,3 @@ order_date | string | yes | The date of the order.
 currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | yes | Currency code of the order.
 [billing](#billing-address) | object | no | Order billing.
 [shipping](#shipping-info) | object | no | Order shipping.
-

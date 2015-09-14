@@ -14,6 +14,9 @@
 * 204 No Content
 * endpoint schema
 * live demos
+* `/me` for the current merchant
+* `payline` endpoint
+* `simulator` widget
 * minor improvements
 
 ## 1.1 (2015-01-01)

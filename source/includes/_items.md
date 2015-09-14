@@ -93,7 +93,7 @@ type | char | yes | Customer type, the choices are g:guest, n:new, e:existing.
 gender | integer | yes | Customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
 first_name | string | no | Customer first name.
 last_name | string | no | Customer last name.
-birthday | [iso-8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Customer birthday.
+birthday | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Customer birthday.
 language | [ISO 639-1](http://es.wikipedia.org/wiki/ISO_639-1) | no | Customer language preferences.
 date_joined | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime designating when the customer account was created.
 last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetime of the customer last login.

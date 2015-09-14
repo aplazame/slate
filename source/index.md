@@ -20,11 +20,11 @@ includes:
   - orders
   - merchants
   - customers
-  - release
-  - packages
   - widgets
   - buttons
+  - packages
   - errors
+  - release
 
 search: true
 ---
