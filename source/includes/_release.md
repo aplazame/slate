@@ -1,5 +1,14 @@
 # Release History
 
+## 1.2-dev (now!)
+* `/me` for the current merchant
+* `payline` endpoint
+* `simulator` widget
+* WooCommerce package
+* `selector option` on button script for *One Step Checkouts* modules
+* more improvements, fixes...
+
+
 ## 1.2 (2015-08-16)
 **Diesel Truckers**
 
@@ -14,10 +23,7 @@
 * 204 No Content
 * endpoint schema
 * live demos
-* `/me` for the current merchant
-* `payline` endpoint
-* `simulator` widget
-* minor improvements
+
 
 ## 1.1 (2015-01-01)
 **The Cow**
