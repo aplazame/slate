@@ -114,10 +114,10 @@ id | object | Merchant id,
 
 
 
-## Payline
+## Operations
 
 ```http
-GET /merchants/:merchantId/payline HTTP/1.1
+GET /merchants/:merchantId/operations HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -134,8 +134,8 @@ Content-Type: application/vnd.aplazame.v1+json
   },
   "paging": {
     "count": 314,
-    "next": "https://api.aplazame.com/merchants/:merchantId/payline?page=3",
-    "previous": "https://api.aplazame.com/merchants/:merchantId/payline?page=1"
+    "next": "https://api.aplazame.com/merchants/:merchantId/operations?page=3",
+    "previous": "https://api.aplazame.com/merchants/:merchantId/operations?page=1"
   },
   "results": [
   ]
@@ -143,7 +143,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/payline" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/operations" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -153,16 +153,16 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.merchant_payline(':merchantId')
-response = client.payline()
+response = client.merchant_operations(':merchantId')
+response = client.operations()
 ```
 
-`GET https://api.aplazame.com/merchants/:merchantId/payline`
+`GET https://api.aplazame.com/merchants/:merchantId/operations`
 
-If you want to check the payline of a merchant, this is the service you need.
+If you want to check the operations of a merchant, this is the service you need.
 
 ### /me
-`GET https://api.aplazame.com/me/payline`
+`GET https://api.aplazame.com/me/operations`
 
 ### Parameters
 
@@ -183,7 +183,7 @@ results | collection | Operations queryset.
 ## ○ Filtering
 
 ```http
-GET /me/payline?param=value HTTP/1.1
+GET /me/operations?param=value HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -200,8 +200,8 @@ Content-Type: application/vnd.aplazame.v1+json
   },
   "paging": {
     "count": 314,
-    "next": "https://api.aplazame.com/me/payline?page=3&param=value",
-    "previous": "https://api.aplazame.com/me/payline?page=1&param=value"
+    "next": "https://api.aplazame.com/me/operations?page=3&param=value",
+    "previous": "https://api.aplazame.com/me/operations?page=1&param=value"
   },
   "results": [
   ]
@@ -209,7 +209,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/me/payline?param=value" \
+$ curl "https://api.aplazame.com/me/operations?param=value" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -219,12 +219,12 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.payline({
+response = client.operations({
   'param': 'value'
 })
 ```
 
-`GET https://api.aplazame.com/me/payline?param=value`
+`GET https://api.aplazame.com/me/operations?param=value`
 
 To retrieve operations queryset filtered.
 
@@ -265,7 +265,7 @@ order_cancelled_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | bef
 ## ○ Searching
 
 ```http
-GET /me/payline?q=param1,param2 HTTP/1.1
+GET /me/operations?q=param1,param2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -282,8 +282,8 @@ Content-Type: application/vnd.aplazame.v1+json
   },
   "paging": {
     "count": 314,
-    "next": "https://api.aplazame.com/me/payline?page=3&q=param1,param2",
-    "previous": "https://api.aplazame.com/me/payline?page=1&q=param1,param2"
+    "next": "https://api.aplazame.com/me/operations?page=3&q=param1,param2",
+    "previous": "https://api.aplazame.com/me/operations?page=1&q=param1,param2"
   },
   "results": [
   ]
@@ -291,7 +291,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/me/payline?q=param1,param2" \
+$ curl "https://api.aplazame.com/me/operations?q=param1,param2" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -301,12 +301,12 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.payline({
+response = client.operations({
   'q': 'param1,param2'
 })
 ```
 
-`GET https://api.aplazame.com/me/payline?q=param1,param2`
+`GET https://api.aplazame.com/me/operations?q=param1,param2`
 
 To search operations queryset.
 
@@ -327,7 +327,7 @@ order_mid | Order mid (your order id)
 ## ○ Ordering
 
 ```http
-GET /me/payline?ordering=param1,-param2 HTTP/1.1
+GET /me/operations?ordering=param1,-param2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -344,8 +344,8 @@ Content-Type: application/vnd.aplazame.v1+json
   },
   "paging": {
     "count": 314,
-    "next": "https://api.aplazame.com/me/payline?page=3&ordering=param1,-param2",
-    "previous": "https://api.aplazame.com/me/payline?page=1&ordering=param1,-param2"
+    "next": "https://api.aplazame.com/me/operations?page=3&ordering=param1,-param2",
+    "previous": "https://api.aplazame.com/me/operations?page=1&ordering=param1,-param2"
   },
   "results": [
   ]
@@ -353,7 +353,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/me/payline?ordering=param1,-param2" \
+$ curl "https://api.aplazame.com/me/operations?ordering=param1,-param2" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -363,12 +363,12 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.payline({
+response = client.operations({
   'ordering': 'param1,-param2'
 })
 ```
 
-`GET https://api.aplazame.com/me/payline?ordering=param1,-param2`
+`GET https://api.aplazame.com/me/operations?ordering=param1,-param2`
 
 To retrieve operations queryset ordered.
 

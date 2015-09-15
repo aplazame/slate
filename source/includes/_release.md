@@ -2,7 +2,7 @@
 
 ## 1.2-dev (now!)
 * `/me` for the current merchant
-* `payline` endpoint
+* `operations` endpoint
 * `simulator` widget
 * WooCommerce package
 * `selector option` on button script for *One Step Checkouts* modules
