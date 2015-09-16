@@ -168,7 +168,7 @@ If you want to check the operations of a merchant, this is the service you need.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-mark_as_readed | bool | `mark_as_readed=1` if you want to mark operations as readed.
+mark_as_read | bool | `mark_as_read=1` if you want to mark operations as read.
 
 ### Response
 
@@ -239,10 +239,10 @@ min_amount | float | greater | With amount `greater` than the specified.
 max_amount | float | less | With amount `less` than the specified.
 created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Created `after` than the specified datetime.
 created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Created `before` than the specified datetime.
-payed_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Payed `after` than the specified datetime.
-payed_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Payed `before` than the specified datetime.
-readed_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Readed `after` than the specified datetime.
-readed_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Readed `before` than the specified datetime.
+paid_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Paid `after` than the specified datetime.
+paid_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Paid `before` than the specified datetime.
+read_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Read `after` than the specified datetime.
+read_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Read `before` than the specified datetime.
 
 ### by order
 
@@ -381,7 +381,8 @@ Parameter | Type | Description
 amount | [decimal](#decimals) | Operation amount.
 type | Operation type, `order,cancel,refund`
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was created.
-payed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was payed.
-readed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was readed.
+paid | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was paid.
+read | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was read.
 order_created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
 order_confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
+he order was confirmed.
