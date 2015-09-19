@@ -111,50 +111,58 @@ response = client.orders({
 
 To retrieve order queryset filtered.
 
-### by order
+### by order `exact` values
 
 Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 id | hash | equal | Same Aplazame order `ID`.
 mid | string | equal | Same order `ID` in your merchant.
-total_amount | float | equal | Same order total amount.
-min_amount | float | greater | With total_amount `greater` than the specified.
-max_amount | float | less | With total_amount `less` than the specified.
-min_discount | float | greater | With discount `greater` than the specified.
-max_discount | float | less | With discount `less` than the specified.
-created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Created `after` than the specified datetime.
-created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Created `before` than the specified datetime.
-verified_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Verified `after` than the specified datetime.
-verified_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Verified `before` than the specified datetime.
-confirmed_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Confirmed `after` than the specified datetime.
-confirmed_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Confirmed `before` than the specified datetime.
-cancelled_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Cancelled `after` than the specified datetime.
-cancelled_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Cancelled `before` than the specified datetime.
+amount | [decimal](#decimals) | equal | Same order total amount.
 
-### by customer
+### by order `greater or less` values
+
+Parameter | Type | Lookup | Description
+--------- | ---- | ------ | -----------
+amount_`gt`<br>amount_`lt` | [decimal](#decimals) | greater<br>less | With total_amount `greater/less` than the specified.
+discount_`gt`<br>discount_`lt` | [decimal](#decimals) | greater<br>less | With discount `greater/less` than the specified.
+created_`gt`<br>created_`lt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after<br>before | Created `after/before` than the specified datetime.
+verified_`gt`<br>verified_`lt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after<br>before | Verified `after/before` than the specified datetime.
+confirmed_`gt`<br>confirmed_`lt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after<br>before | Confirmed `after/before` than the specified datetime.
+cancelled_`gt`<br>cancelled_`lt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after<br>before | Cancelled `after/before` than the specified datetime.
+
+### by customer `exact` values
 
 Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 customer_id | hash | equal | Same ustomer `ID`.
 customer_phone | number | equal | Same customer mobile phone number.
-customer_created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's created in Aplazame `before` than the specified datetime.
-customer_created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's created in Aplazame `after` than the specified datetime.
 document_id | string | equal | Same customer document id number, the choices are 01:NIF, 02:NIE, 03:CIF, 04: Passport, 05:others.
 document_id_type | string | equal | Same customer document id type.
 document_id_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
 
+### by customer `greater or less` values
 
-### by account
+Parameter | Type | Lookup | Description
+--------- | ---- | ------ | -----------
+customer_created_`gt`<br>customer_created_`gt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before<br>after | Results with customer's created in Aplazame `before/after` than the specified datetime.
+
+
+### by account `exact` values
 
 Parameter | Type | Lookup | Description
 --------- | ---- | ------ | -----------
 account_id | hash |  equal | Same customer profile `ID`.
 account_type | string |  equal | Same customer type, the choices are g:guest, n:new, e:existing.
 account_gender | integer |  equal | Same customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
-account_last_login_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's last login happens `before` than the specified datetime.
-account_last_login_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's last login happens `after` than the specified datetime.
-account_date_joined_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's created in your merchant `before` than the specified datetime.
-account_date_joined_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's created in your merchant `after` than the specified datetime.
+
+### by account `greater or less` values
+
+Parameter | Type | Lookup | Description
+--------- | ---- | ------ | -----------
+account_last_login_`gt`<br>account_last_login_`gt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before<br>after | Results with customer's last login happens `before/after` than the specified datetime.
+account_date_joined_`gt`<br>account_date_joined_`gt` | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before<br>after | Results with customer's created in your merchant `before/after` than the specified datetime.
+account_date_joined_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's 
+
 
 
 ## ○ Searching
