@@ -9,25 +9,6 @@ Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/customers?page=3",
-    "previous": "https://api.aplazame.com/customers?page=1"
-  },
-  "results": [
-  ]
-}
-```
-
 ```shell
 $ curl "https://api.aplazame.com/customers" \
     -H "Accept: application/vnd.aplazame.v1+json" \
@@ -56,32 +37,13 @@ results | collection | Customer queryset.
 
 
 
-## ○ Filtering
+## ○ Filter
 
 ```http
 GET /customers?param=value HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/customers?page=3&param=value",
-    "previous": "https://api.aplazame.com/customers?page=1&param=value"
-  },
-  "results": [
-  ]
-}
 ```
 
 ```shell
@@ -91,10 +53,6 @@ $ curl "https://api.aplazame.com/customers?param=value" \
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.customers({
   'param': 'value'
 })
@@ -104,66 +62,92 @@ response = client.customers({
 
 To retrieve customer queryset filtered.
 
+**Filters lookups** are listed **[HERE](#filters)**, `string`, `choices`, `range`, `isnull` and `date`.
 
-### by fields
+### by customer
 
-Parameter | Type | Lookup | Description
---------- | ---- | ------ | -----------
-id | hash | equal | Same customer `ID`.
-phone | number | equal | Same customer mobile phone number.
-created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  before | Results with customer's created in Aplazame `before` than the specified datetime.
-created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) |  after | Results with customer's created in Aplazame `after` than the specified datetime.
-document_id | string | equal | Same customer document id number, the choices are 01:NIF, 02:NIE, 03:CIF, 04: Passport, 05:others.
-document_id_type | string | equal | Same customer document id type.
-document_id_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | equal | Same customer document id country.
-
-
-
-## ○ Searching
+> Phone number exact
 
 ```http
-GET /customers?q=param1,param2 HTTP/1.1
+GET /customers?phone_number=612345678 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/customers?page=3&q=param1,param2",
-    "previous": "https://api.aplazame.com/customers?page=1&q=param1,param2"
-  },
-  "results": [
-  ]
-}
-```
-
 ```shell
-$ curl "https://api.aplazame.com/customers?q=param1,param2" \
+$ curl "https://api.aplazame.com/customers?phone_number=612345678" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.customers({
-  'q': 'param1,param2'
+  'phone_number': '612345678'
 })
 ```
 
-`GET https://api.aplazame.com/customers?q=param1,param2`
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+id | hash | `string` | Customer `ID`.
+phone_number | string | `string` | Customer mobile phone number.
+phone_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
+created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the customer was created.
+
+
+### by document id
+
+> Document ID type, choices are nif OR nie
+
+```http
+GET /customers?document_id-type=nif&document_id-type=nie HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/customers?document_id-type=nif&document_id-type=nie" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.customers({
+  'document_id-type': ['nif', 'nie']
+})
+```
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+document_id-number | string | `string` | Customer document id number.
+document_id-country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer document id country.
+document_id-type | string | `choices` | Customer document id type, the choices are `nif`, `nie`, `cif`, `passport`, `others`.
+
+
+## ○ Search
+
+```http
+GET /customers?q=param1,param2,... HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/customers?q=param1,param2,..." \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.customers({
+  'q': 'param1,param2,...'
+})
+```
+
+`GET https://api.aplazame.com/customers?q=param1,param2,...`
 
 To search customer queryset.
 
@@ -173,62 +157,79 @@ Searches will use case-insensitive partial matches. The search parameter may con
 
 ### Fields
 
-Parameter | Description
---------- | -----------
-full_name | The customer full name.
-
-
-## ○ Ordering
+> Search by name
 
 ```http
-GET /customers?ordering=param1,-param2 HTTP/1.1
+GET /customers?q=Alice HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/customers?page=3&ordering=param1,-param2",
-    "previous": "https://api.aplazame.com/customers?page=1&ordering=param1,-param2"
-  },
-  "results": [
-  ]
-}
-```
-
 ```shell
-$ curl "https://api.aplazame.com/customers?ordering=param1,-param2" \
+$ curl "https://api.aplazame.com/customers?q=Alice" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.customers({
-  'ordering': 'param1,-param2'
+  'q': 'Alice'
 })
 ```
 
-`GET https://api.aplazame.com/customers?ordering=param1,-param2`
+Parameter | Description
+--------- | -----------
+full_name | The customer full name.
+
+
+## ○ Order
+
+```http
+GET /customers?ordering=param1,-param2,... HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/customers?ordering=param1,-param2,..." \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.customers({
+  'ordering': 'param1,-param2,...'
+})
+```
+
+`GET https://api.aplazame.com/customers?ordering=param1,-param2,...`
 
 To retrieve customer queryset oredered.
 
 The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending.
 
 ### order by...
+
+```http
+GET /customers?ordering=-created HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/customers?ordering=-created" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.customers({
+  'ordering': '-created'
+})
+```
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -262,10 +263,6 @@ $ curl "https://api.aplazame.com/customers/:customerId" \
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.customer_detail(':customerId')
 ```
 

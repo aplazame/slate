@@ -7,7 +7,7 @@
 * WooCommerce package
 * `selector option` on button script for *One Step Checkouts* modules
 * more improvements, fixes...
-
+* Filters and lookups
 
 ## 1.2 (2015-08-16)
 **Diesel Truckers**

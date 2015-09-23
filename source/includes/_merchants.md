@@ -168,7 +168,7 @@ If you want to check the operations of a merchant, this is the service you need.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-mark_as_read | bool | `mark_as_read=1` if you want to mark operations as read.
+mark_as_read | bool | `mark_as_read=yes` if you want to mark operations as read.
 
 ### Response
 
@@ -180,32 +180,13 @@ results | collection | Operations queryset.
 
 
 
-## ○ Filtering
+## ○ Filter
 
 ```http
 GET /me/operations?param=value HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/me/operations?page=3&param=value",
-    "previous": "https://api.aplazame.com/me/operations?page=1&param=value"
-  },
-  "results": [
-  ]
-}
 ```
 
 ```shell
@@ -215,10 +196,6 @@ $ curl "https://api.aplazame.com/me/operations?param=value" \
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.operations({
   'param': 'value'
 })
@@ -228,85 +205,232 @@ response = client.operations({
 
 To retrieve operations queryset filtered.
 
+**Filters lookups** are listed **[HERE](#filters)**, `string`, `choices`, `range`, `isnull` and `date`.
+
 ### by operation
 
-Parameter | Type | Lookup | Description
---------- | ---- | ------ | -----------
-id | hash | equal | Same Aplazame operation `ID`.
-amount | float | equal | Same operation amount.
-type | string | equal | Same operation type, `order,cancel,refund`.
-min_amount | float | greater | With amount `greater` than the specified.
-max_amount | float | less | With amount `less` than the specified.
-created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Created `after` than the specified datetime.
-created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Created `before` than the specified datetime.
-paid_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Paid `after` than the specified datetime.
-paid_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Paid `before` than the specified datetime.
-read_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Read `after` than the specified datetime.
-read_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Read `before` than the specified datetime.
-
-### by order
-
-Parameter | Type | Lookup | Description
---------- | ---- | ------ | -----------
-order_id | hash | equal | Same Aplazame order `ID`.
-order_mid | string | equal | Same order `ID` in your merchant.
-order_total_amount | float | equal | Same order total amount.
-min_order_amount | float | greater | With total_amount `greater` than the specified.
-max_order_amount | float | less | With total_amount `less` than the specified.
-order_created_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Created `after` than the specified datetime.
-order_created_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Created `before` than the specified datetime.
-order_confirmed_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Confirmed `after` than the specified datetime.
-order_confirmed_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Confirmed `before` than the specified datetime.
-order_cancelled_since | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | after | Cancelled `after` than the specified datetime.
-order_cancelled_until | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | before | Cancelled `before` than the specified datetime.
-
-
-
-## ○ Searching
+> Amount greater or exact and fee rate less
 
 ```http
-GET /me/operations?q=param1,param2 HTTP/1.1
+GET /me/operations?amount-gte=462000&fee_rate-lt=10 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/me/operations?page=3&q=param1,param2",
-    "previous": "https://api.aplazame.com/me/operations?page=1&q=param1,param2"
-  },
-  "results": [
-  ]
-}
-```
-
 ```shell
-$ curl "https://api.aplazame.com/me/operations?q=param1,param2" \
+$ curl "https://api.aplazame.com/me/operations?amount-gte=462000&fee_rate-lt=10" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.operations({
-  'q': 'param1,param2'
+  'amount-gte': 462000,
+  'fee_rate-lt': 10 # 0.1%
 })
 ```
 
-`GET https://api.aplazame.com/me/operations?q=param1,param2`
+> Created after
+
+```http
+GET /me/operations?created-gt=2015-12-22T15:09:30.537951Z HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?created-gt=2015-12-22T15:09:30.537951Z" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'created-gt': '2015-12-22T15:09:30.537951Z'
+})
+```
+
+Parameter | Type | Lookups | Description
+--------- | ---- | ------ | -----------
+id | hash | `string` | Aplazame operation `ID`.
+type | string | `choices` | Operation type, the choices are `order`, `cancel`, `refund`
+| | | |
+amount | [decimal](#decimals) | `range` | Operation amount.
+fee_rate | [decimal](#decimals) | `range` | Operation fee rate.
+| | | |
+created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the operation was created.
+paid | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the operation was paid.
+read | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the operation was read.
+
+
+### by order
+
+> Your order ID exact
+
+```http
+GET /me/operations?order-mid=10002030001 HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?order-mid=10002030001" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'order-mid': '10002030001'
+})
+```
+
+> Order created after
+
+```http
+GET /me/operations?order-created-gte=2015-12-22T15:09:30.537951Z HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?order-created-gte=2015-12-22T15:09:30.537951Z" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'order-created-gte': '2015-12-22T15:09:30.537951Z'
+})
+```
+
+> Order confirmed after
+
+```http
+GET /me/operations?order-confirmed-gte=2015-12-22T15:09:30.537951Z HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?order-confirmed-gte=2015-12-22T15:09:30.537951Z" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'order-confirmed-gte': '2015-12-22T15:09:30.537951Z'
+})
+```
+
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+id | hash | `string` | Aplazame order `ID`.
+order-mid | string | `string` | Your order `ID`.
+order- | | | |
+order-total_amount | [decimal](#decimals) | `range` | Order total amount.
+order-discount | [decimal](#decimals) | `isnull`, `range` | Order discount amount.
+order-discount_rate | [decimal](#decimals) | `isnull`, `range` | Order discount rate.
+order- | | | |
+order-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the order was created.
+order-verified | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the order was verified.
+order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the order was confirmed.
+order-cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the order was cancelled.
+
+
+### by customer
+
+> Customer phone number exact
+
+```http
+GET /me/operations?customer-phone_number=612345678 HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?customer-phone_number=612345678" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'customer-phone_number': '612345678'
+})
+```
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+customer-id | hash | `string` | Customer `ID`.
+customer-phone_number | string | `string` | Customer mobile phone number.
+customer-phone_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
+customer-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the customer was created.
+
+
+### by customer document id
+
+> Document ID type, choices are nif OR nie
+
+```http
+GET /operations?customer-document_id-type=nif&customer-document_id-type=nie HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/operations?customer-document_id-type=nif&customer-document_id-type=nie" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'customer-document_id-type': ['nif', 'nie']
+})
+```
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+customer-document_id-number | string | `string` | Customer document id number.
+customer-document_id-country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer document id country.
+customer-document_id-type | string | `choices` | Customer document id type, the choices are `nif`, `nie`, `cif`, `passport`, `others`.
+
+
+
+
+## ○ Search
+
+```http
+GET /me/operations?q=param1,param2,... HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?q=param1,param2,..." \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'q': 'param1,param2,...'
+})
+```
+
+`GET https://api.aplazame.com/me/operations?q=param1,param2,...`
 
 To search operations queryset.
 
@@ -316,73 +440,116 @@ Searches will use case-insensitive partial matches. The search parameter may con
 
 ### Fields
 
-Parameter | Description
---------- | -----------
-id | Operation id
-type | Operation type, `order,cancel,refund`
-order_id | Order id
-order_mid | Order mid (your order id)
-
-
-## ○ Ordering
+> by some ID
 
 ```http
-GET /me/operations?ordering=param1,-param2 HTTP/1.1
+GET /me/operations?q=1000203 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.aplazame.v1+json
-
-{
-  "cursor": {
-    "after": 3,
-    "before": 1
-  },
-  "paging": {
-    "count": 314,
-    "next": "https://api.aplazame.com/me/operations?page=3&ordering=param1,-param2",
-    "previous": "https://api.aplazame.com/me/operations?page=1&ordering=param1,-param2"
-  },
-  "results": [
-  ]
-}
-```
-
 ```shell
-$ curl "https://api.aplazame.com/me/operations?ordering=param1,-param2" \
+$ curl "https://api.aplazame.com/me/operations?q=1000203" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
-import aplazame_sdk
-
-client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.operations({
-  'ordering': 'param1,-param2'
+  'q': '1000203'
 })
 ```
 
-`GET https://api.aplazame.com/me/operations?ordering=param1,-param2`
+Parameter | Description
+--------- | -----------
+id | Operation id
+order-id | Order id
+order-mid | Order mid (your order id)
+
+
+## ○ Order
+
+```http
+GET /me/operations?ordering=param1,-param2,... HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?ordering=param1,-param2,..." \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'ordering': 'param1,-param2,...'
+})
+```
+
+`GET https://api.aplazame.com/me/operations?ordering=param1,-param2,...`
 
 To retrieve operations queryset ordered.
 
 The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending.
 
-### order by...
+### by operation
+
+> Ascending amount, Descending created
+
+```http
+GET /me/operations?ordering=amount,-created HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?ordering=amount,-created" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'ordering': 'amount,-created'
+})
+```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 amount | [decimal](#decimals) | Operation amount.
-type | Operation type, `order,cancel,refund`
+fee_rate | [decimal](#decimals) | Operation fee rate.
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was created.
 paid | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was paid.
 read | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was read.
-order_created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
-order_confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
-he order was confirmed.
+
+### by order
+
+> Descending order confirmed
+
+```http
+GET /me/operations?ordering=-order-confirmed HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations?ordering=-order-confirmed" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations({
+  'ordering': '-order-confirmed'
+})
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+order-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
+order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.

@@ -58,15 +58,15 @@ Take your button **image** [here](#buttons)!!
 ```js
 aplazame.checkout({
   "toc": true,
-  "merchant": ... ,
-  "customer": ... ,
-  "billing": ... ,
-  "shipping": ... ,
-  "order": ... ,
+  "merchant": ...,
+  "order": ...,
+  "customer": ...,
+  "billing": ...,
+  "shipping": ...,
   "meta": {
     "module": {
       "name": "aplazame:module",
-      "version": 2.0.0
+      "version": "2.0.0"
     }
     "version" "1.0.1"
   }
@@ -83,7 +83,6 @@ Parameter | Type | Required | Description
 [merchant](#merchant) | object | yes | Your merchant data.
 [customer](#customer) | object | yes | Checkout customer.
 [order](#order) | object | yes | Your order data.
-[articles](#article) | collection | yes | Articles in cart.
 [billing](#billing-address) | object | no | Billing address.
 [shipping](#shipping-info) | object | yes | Shipping info.
 meta | json | no | SDK-Client info.
@@ -142,12 +141,10 @@ Once you have completed the checkout process, the client JS will send a signal t
 `CHECKOUT --(POST/ID)--> Confirmation url --(POST/ID)--> API`
 
 
-
 ### Url parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 ID | string | String `id` of the order to perform action with.
-
 
 If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).

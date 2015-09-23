@@ -213,6 +213,170 @@ next | url | The API endpoint that will return the next page of data.
 previous | url | The API endpoint that will return the previous page of data.
 
 
+
+## Filters
+
+Field lookups are how you specify the meat of an *SQL WHERE* clause, all lookups are listed below.
+
+As a convenience when no lookup type is provided the lookup type is assumed to be `exact`.
+
+### String filter
+
+```http
+GET /orders?my-param-term=value HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?my-param-term=value" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'my-param-term': 'value'
+})
+```
+
+> Exact
+
+```http
+GET /orders?id-exact=e791f108472e80d9b48cd05677b1b7b1 HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?id-exact=e791f108472e80d9b48cd05677b1b7b1" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'id-exact': 'e791f108472e80d9b48cd05677b1b7b1'
+})
+```
+
+> Starts with search
+
+```http
+GET /orders?id-startswith=e791f HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?id-startswith=e791f" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'id-startswith': 'e791f'
+})
+```
+
+Term | Usage | Description
+---- | ----- | -----------
+exact | `name-exact=AplaZame` | An "exact" match
+iexact | `name-iexact=aplazame` | A case-insensitive match
+regex | `name-regex=^[A-Z].*$` | Case-sensitive containment test. Use html plus `%2B` and not `+`.
+iregex | `name-iregex=^[a-z].*$` | String iregex value
+contains | `name-contains=plaZa` | String contains value
+icontains | `name-icontains=plaza` |  A case-insensitive match
+startswith | `name-startswith=Apla` | Starts-with search
+istartswith | `name-istartswith=apla` | A case-insensitive match
+endswith | `name-endswith=Zame` | Ends-with search
+iendswith | `name-iendswith=zame` | A case-insensitive match
+in | `name-in=AplaZame,Aplazar` | String in value
+search | `name-search=Ap` | String search value
+
+
+### Date filter
+
+> Week day
+
+```http
+GET /orders?confirmed-week_day=monday HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?confirmed-week_day=monday" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'confirmed-week_day': 'monday'
+})
+```
+
+Term | Usage | Description
+---- | ----- | -----------
+year | `created-year=2015` | Date year
+month | `created-month=10` | Date month
+week_day | `created-week_day=monday` | Week day, the choices are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`
+day | `created-day=2` | Date day
+hour | `created-hour=14` | Date hour
+
+
+### Isnull filter, `yes` or `no`
+
+Term | Usage | Description
+---- | ----- | -----------
+isnull | `confirmed-isnull=yes` | Filter by null fields, `yes` OR `no`
+
+
+### Range filter
+
+> Date greater/after than or equal to
+
+```http
+GET /orders?confirmed-gte=2015-10-02T18:15:45.101838Z HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?confirmed-gte=2015-10-02T18:15:45.101838Z" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'confirmed-gte': '2015-10-02T18:15:45.101838Z'
+})
+```
+
+Term | Usage | Description
+---- | ----- | -----------
+exact | `total_amount-exact=10000` | Exact
+gt | `total_amount-gt=8000` | Greater than
+gte | `total_amount-gte=10000` | Greater than or equal to
+lt | `total_amount-lt=12000` | Less than
+lte | `total_amount-lte=10000` | Less than or equal to
+
+
+### Choices filter
+
+Multiple choices, `a` OR `b`, for **example** `param=a&param=b`
+
+
+
 ## Schema
 
 ```http
