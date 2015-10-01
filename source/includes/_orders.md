@@ -4,7 +4,7 @@ Aplazame has a range of API services required for a complete integration as a me
 
 The requests must include the private key in the [header Authorization](#authentication) as indicated in the protocol [Oauth2](http://en.wikipedia.org/wiki/OAuth).
 
-Before making requests , make sure that the header Accept of your client API matches the [version](#versioning) and the format in which you want to establish communication (json, xml, yaml).
+Before making requests, make sure that the header Accept of your client API matches the [version](#versioning) and the format in which you want to establish communication (json, xml, yaml).
 
 
 
@@ -92,7 +92,7 @@ To retrieve order queryset filtered.
 **Filters lookups** are listed **[HERE](#filters)**, `string`, `choices`, `range`, `isnull` and `date`.
 
 
-### by order
+### Order filter
 
 > Total amount exact
 
@@ -173,26 +173,55 @@ confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date
 cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the order was cancelled.
 
 
-### by customer
+### Downpayment filter
 
-> Customer phone number exact
+> Downpayment
 
 ```http
-GET /orders?customer-phone_number=612345678 HTTP/1.1
+GET /orders?downpayment-state=failed HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders?customer-phone_number=612345678" \
+$ curl "https://api.aplazame.com/orders?downpayment-state=failed" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
 response = client.orders({
-  'customer-phone_number': '612345678'
+  'downpayment-state': ['failed']
+})
+```
+
+Parameter | Type | Filters | Description
+--------- | ---- | ------- | -----------
+downpayment-state | string | `choices` | Downpayment state
+downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
+
+
+### Customer filter
+
+> Customer phone number exact
+
+```http
+GET /orders?customer-phone-number=612345678 HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/orders?customer-phone-number=612345678" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.orders({
+  'customer-phone-number': '612345678'
 })
 ```
 
@@ -200,12 +229,12 @@ response = client.orders({
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
 customer-id | hash | `string` | Customer `ID`.
-customer-phone_number | string | `string` | Customer mobile phone number.
-customer-phone_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
+customer-phone-number | string | `string` | Customer mobile phone number.
+customer-phone-country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
 customer-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the customer was created.
 
 
-### by customer document id
+### Customer document id filter
 
 > Document ID type, choices are nif OR nie
 
@@ -235,7 +264,7 @@ customer-document_id-country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_316
 customer-document_id-type | string | `choices` | Customer document id type, the choices are `nif`, `nie`, `cif`, `passport`, `others`.
 
 
-### by account
+### Account filter
 
 > Gender exact
 
@@ -407,6 +436,7 @@ created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime design
 verified | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was verified.
 confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
 cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was cancelled.
+
 
 ### by account
 

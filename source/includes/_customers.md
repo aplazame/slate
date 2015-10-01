@@ -64,26 +64,26 @@ To retrieve customer queryset filtered.
 
 **Filters lookups** are listed **[HERE](#filters)**, `string`, `choices`, `range`, `isnull` and `date`.
 
-### by customer
+### Customer filter
 
 > Phone number exact
 
 ```http
-GET /customers?phone_number=612345678 HTTP/1.1
+GET /customers?phone-number=612345678 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/customers?phone_number=612345678" \
+$ curl "https://api.aplazame.com/customers?phone-number=612345678" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
 response = client.customers({
-  'phone_number': '612345678'
+  'phone-number': '612345678'
 })
 ```
 
@@ -91,12 +91,12 @@ response = client.customers({
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
 id | hash | `string` | Customer `ID`.
-phone_number | string | `string` | Customer mobile phone number.
-phone_country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
+phone-number | string | `string` | Customer mobile phone number.
+phone-country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | `string` | Customer phone country.
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the customer was created.
 
 
-### by document id
+### Document id filter
 
 > Document ID type, choices are nif OR nie
 
