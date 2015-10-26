@@ -329,28 +329,28 @@ order-cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`,
 > Downpayment
 
 ```http
-GET /me/operations?order-downpayment-state=failed HTTP/1.1
+GET /me/operations?order-instalment_plan-downpayment-state=failed HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/me/operations?order-downpayment-state=failed" \
+$ curl "https://api.aplazame.com/me/operations?order-instalment_plan-downpayment-state=failed" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
 response = client.operations({
-  'order-downpayment-state': ['failed']
+  'order-instalment_plan-downpayment-state': ['failed']
 })
 ```
 
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
-order-downpayment-state | string | `choices` | Downpayment state
-order-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
+order-instalment_plan-downpayment-state | string | `choices` | Downpayment state
+order-instalment_plan-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
 
 
 ### Customer filter
@@ -844,28 +844,28 @@ order-cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`,
 > Downpayment
 
 ```http
-GET /me/payments?order-downpayment-state=failed HTTP/1.1
+GET /me/payments?order-instalment_plan-downpayment-state=failed HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/me/payments?order-downpayment-state=failed" \
+$ curl "https://api.aplazame.com/me/payments?order-instalment_plan-downpayment-state=failed" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
 response = client.payments({
-  'order-downpayment-state': ['failed']
+  'order-instalment_plan-downpayment-state': ['failed']
 })
 ```
 
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
-order-downpayment-state | string | `choices` | Downpayment state
-order-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
+order-instalment_plan-downpayment-state | string | `choices` | Downpayment state
+order-instalment_plan-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
 
 
 ### Customer filter

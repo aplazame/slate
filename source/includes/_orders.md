@@ -178,28 +178,28 @@ cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date
 > Downpayment
 
 ```http
-GET /orders?downpayment-state=failed HTTP/1.1
+GET /orders?instalment_plan-downpayment-state=failed HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/orders?downpayment-state=failed" \
+$ curl "https://api.aplazame.com/orders?instalment_plan-downpayment-state=failed" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
 
 ```python
 response = client.orders({
-  'downpayment-state': ['failed']
+  'instalment_plan-downpayment-state': ['failed']
 })
 ```
 
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
-downpayment-state | string | `choices` | Downpayment state
-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
+instalment_plan-downpayment-state | string | `choices` | Downpayment state
+instalment_plan-downpayment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
 
 
 ### Customer filter
