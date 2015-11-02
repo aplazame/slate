@@ -32,6 +32,21 @@ sandbox | boolean | no | Determines if the request is in sandbox mode.
 <div data-aplazame-payment-info="">lorem ipsum...</div>
 ```
 
+> you can use js directly
+
+```js
+aplazame.button({
+  button: '#some-button-or-wrapper-id'  // accepts any valid css selector
+  amount: 12050
+});
+```
+
+> you can even check by amount
+
+```js
+aplazame.button.check(12050, function (allowed) { /* your code */ });
+```
+
 Start by including in the payment method selection menu a script that checks, through our API, whether the request can be processed.
 
 ### Button parameters
