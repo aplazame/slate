@@ -5,6 +5,7 @@ language_tabs:
   - http
   - shell
   - python
+  - js
 
 
 toc_footers:
