@@ -1,31 +1,34 @@
 # Release History
 
-## 1.2-dev (now!)
+## 0.0.4 (2015-12-05)
+**Untitled**
+
 * `/me` for the current merchant
 * `operations` endpoint
 * `simulator` widget
 * WooCommerce package
 * `selector option` on button script for *One Step Checkouts* modules
-* more improvements, fixes...
+* More improvements, fixes...
 * Filters and lookups
+* Replace release plan
 
-## 1.2 (2015-08-16)
+## 0.0.3 (2015-08-16)
 **Diesel Truckers**
 
 * Aplazame JS (Swiss Army knife)
 * Amazing Checkout v2
 * `country` param in button request (not required)
-* show `one time password` in sandbox mode
-* remove `merchant.public_api_key` on checkout
-* rename `postcode` field
-* fix field types
+* Show `one time password` in sandbox mode
+* Remove `merchant.public_api_key` on checkout
+* Rename `postcode` field
+* Fix field types
 * Add 408, 409, 415 errors
 * 204 No Content
-* endpoint schema
-* live demos
+* Endpoint schema
+* Live demos
 
 
-## 1.1 (2015-01-01)
+## 0.0.2 (2015-01-01)
 **The Cow**
 
 Birth!
