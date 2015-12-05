@@ -1,5 +1,12 @@
 # Release History
 
+## 0.0.5-dev
+**Duck season**
+
+* Merchant `/payments`, `/operations` and  `/instalment-payments` endpoints
+* Filters review
+* Replace opearion type, `order` by `credit`
+
 ## 0.0.4 (2015-12-05)
 **Untitled**
 
