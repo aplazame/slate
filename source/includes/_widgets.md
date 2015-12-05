@@ -30,7 +30,7 @@ num-instalments | integer | no | Num of instalments selected.
 locale | [ISO 639](https://en.wikipedia.org/wiki/ISO_639) & [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | l10n, widget localization.
 
 
-![Simulator info](https://aplazame.com/static/img/docs/simulator-info.png)
+![Widget](https://cloud.githubusercontent.com/assets/5514990/11610272/bb025c48-9b9d-11e5-8e3f-aa07f0b46245.png)
 
 ### Styles Parameters
 
