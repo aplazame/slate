@@ -1306,9 +1306,9 @@ order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`,
 order-cancelled | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the order was cancelled.
 
 
-### Downinstalment-payment filter
+### Downpayment filter
 
-> Downinstalment-payment
+> Downpayment
 
 ```http
 GET /me/instalment-payments?instalment_plan-downinstalment-payment-state=failed HTTP/1.1
@@ -1331,8 +1331,8 @@ response = client.instalment_payments({
 
 Parameter | Type | Filters | Description
 --------- | ---- | ------- | -----------
-instalment_plan-downinstalment-payment-state | string | `choices` | Downinstalment-payment state
-instalment_plan-downinstalment-payment-amount | [decimal](#decimals) | `isnull`, `range` | Downinstalment-payment amount
+instalment_plan-downinstalment-payment-state | string | `choices` | Downpayment state
+instalment_plan-downinstalment-payment-amount | [decimal](#decimals) | `isnull`, `range` | Downpayment amount
 
 
 ### Customer filter
