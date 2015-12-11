@@ -246,7 +246,7 @@ response = client.operations({
 Parameter | Type | Lookups | Description
 --------- | ---- | ------ | -----------
 id | hash | `string` | Aplazame operation `ID`.
-type | string | `choices` | Operation type, the choices are `credit`, `cancel`, `refund`, 'credit-denied'
+type | string | `choices` | Operation type, the choices are `credit`, `cancel`, `refund`, `credit-denied`
 | | | |
 amount | [decimal](#decimals) | `range` | Operation amount.
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the operation was created.
@@ -601,6 +601,29 @@ Parameter | Type | Description
 order-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
 order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
 
+## ○ Summary
+
+```http
+GET /me/operations/summary HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/operations/summary" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.operations_summary()
+```
+
+`GET https://api.aplazame.com/me/operations/summary`
+
+To retrieve operations summary grouped by month.
+
 
 ## Payments
 
@@ -745,6 +768,7 @@ id | hash | `string` | Aplazame operation `ID`.
 type | string | `choices` | Payment type, the choices are `order`, `cancel`, `refund` or `regularization`
 | | | |
 amount | [decimal](#decimals) | `range` | Payment amount.
+total_amount | [decimal](#decimals) | `range` | Payment total amount (include fees and tax).
 fee_rate | [decimal](#decimals) | `range` | Payment fee rate.
 | | | |
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the operation was created.
@@ -1068,6 +1092,7 @@ response = client.payments({
 Parameter | Type | Description
 --------- | ---- | -----------
 amount | [decimal](#decimals) | Payment amount.
+total amount | [decimal](#decimals) | Payment total amount.
 fee_rate | [decimal](#decimals) | Payment fee rate.
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was created.
 paid | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the operation was paid.
@@ -1100,6 +1125,31 @@ Parameter | Type | Description
 --------- | ---- | -----------
 order-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
 order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
+
+
+## ○ Summary
+
+```http
+GET /me/payments/summary HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```shell
+$ curl "https://api.aplazame.com/me/payments/summary" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+response = client.payments_summary()
+```
+
+`GET https://api.aplazame.com/me/payments/summary`
+
+To retrieve payments summary grouped by month.
+
 
 
 ## Instalment Payments
@@ -1147,7 +1197,7 @@ response = client.instalment_payments()
 
 `GET https://api.aplazame.com/merchants/:merchantId/instalment-payments`
 
-If you want to check the Aplazame instalment-payments, this is the service you need.
+If you want to check the Aplazame instalment payments, this is the service you need.
 
 ### /me
 `GET https://api.aplazame.com/me/instalment-payments`
@@ -1186,11 +1236,11 @@ response = client.instalment_payments({
 
 `GET https://api.aplazame.com/me/instalment-payments?param=value`
 
-To retrieve instalment instalment-payments queryset filtered.
+To retrieve instalment payments queryset filtered.
 
 **Filters lookups** are listed **[HERE](#filters)**, `string`, `choices`, `range`, `isnull` and `date`.
 
-### Instalment instalment-payment filter
+### Instalment payment filter
 
 > Amount greater or exact and fee rate less
 
@@ -1237,14 +1287,14 @@ response = client.instalment_payments({
 
 Parameter | Type | Lookups | Description
 --------- | ---- | ------ | -----------
-id | hash | `string` | Instalment instalment-payment `ID`.
-amount | [decimal](#decimals) | `range` | Instalment instalment-payment amount.
-total_paid | [decimal](#decimals) | `range` | Instalment instalment-payment total paid, includes recovery.
+id | hash | `string` | Instalment payment `ID`.
+amount | [decimal](#decimals) | `range` | Instalment payment amount.
+total_paid | [decimal](#decimals) | `range` | Instalment payment total paid, includes recovery.
 daily_penalty_interes | [decimal](#decimals) | `range` | Daily penalty interest per unit.
 penalty_fee | [decimal](#decimals) | `range` | Penalty fee amount.
 | | | |
-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the instalment instalment-payment was created.
-collected | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the instalment instalment-payment was collected.
+created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range` | A datetime designating when the instalment payment was created.
+collected | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `isnull`, `date`, `range` | A datetime designating when the instalment payment was collected.
 
 
 ### Order filter
@@ -1474,7 +1524,7 @@ response = client.instalment_payments({
 
 `GET https://api.aplazame.com/me/instalment-payments?q=param1,param2,...`
 
-To search instalment-payments queryset.
+To search instalment payments queryset.
 
 Aplazame API allows a list of field names that will be searched whenever somebody submits a search query param `q`.
 
@@ -1533,7 +1583,7 @@ response = client.instalment_payments({
 
 `GET https://api.aplazame.com/me/instalment-payments?ordering=param1,-param2,...`
 
-To retrieve instalment-payments queryset ordered.
+To retrieve instalment payments queryset ordered.
 
 The ordering param is a tuple or list of strings. Each string is a field name with an optional `-` prefix, which indicates descending order. Fields without a leading `-` will be ordered ascending.
 

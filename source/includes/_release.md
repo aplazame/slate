@@ -6,6 +6,10 @@
 * Merchant `/payments`, `/operations` and  `/instalment-payments` endpoints
 * Filters review
 * Replace opearion type, `order` by `credit`
+* Price does not include the tax
+* Widget, add attributes and remove unused options.
+* Operations and payments summary
+* Jazz dummy data
 
 ## 0.0.4 (2015-12-05)
 **Untitled**

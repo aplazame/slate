@@ -106,7 +106,7 @@ description | string | no | Article description.
 url | url | yes | Article url.
 image_url | url | yes | Article image url.
 quantity | integer | yes | Article quantity.
-price | [decimal](#decimals) | yes | Article price.
+price | [decimal](#decimals) | yes | Article price (tax is not included).
 tax_rate | [decimal](#decimals) | no | Article tax_rate.
 discount | [decimal](#decimals) | no | The discount amount of the article.
 discount_rate | [decimal](#decimals) | no | The rate discount of the article.
@@ -121,17 +121,17 @@ discount_rate | [decimal](#decimals) | no | The rate discount of the article.
   "address": {
     "phone": "616123456",
     "alt_phone": "+34917909930",
-    "street": "Calle del Postigo de San Martín 8",
+    "street": "Plaza del Angel nº10",
     "address_addition": "Cerca de la plaza Santa Ana",
     "city": "Madrid",
     "state": "Madrid",
     "country": "ES",
-    "postcode": "28013"
+    "postcode": "28012"
   },
   "type": "e",
   "gender": 0,
-  "first_name": "Bill",
-  "last_name": "Watterson",
+  "first_name": "John",
+  "last_name": "Coltrane",
   "date_joined": "2014-08-21T13:56:45+0000",
   "last_login": "2014-08-27T19:57:56+0000"
 }
@@ -159,12 +159,12 @@ last_login | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | A datetim
 {
   "phone": "616123456",
   "alt_phone": "+34917909930",
-  "street": "Calle del Postigo de San Martín 8",
+  "street": "Plaza del Angel nº10",
   "address_addition": "Cerca de la plaza Santa Ana",
   "city": "Madrid",
   "state": "Madrid",
   "country": "ES",
-  "postcode": "28013"
+  "postcode": "28012"
 }
 ```
 
@@ -186,8 +186,8 @@ postcode | string | yes | Address postcode.
 
 ```json
 {
-  "first_name": "Calvin",
-  "last_name": "Watterson",
+  "first_name": "Bill",
+  "last_name": "Evans",
   "phone": "+34914298407",
   "alt_phone": null,
   "street": "Calle de Las Huertas 22",
@@ -216,16 +216,16 @@ postcode | string | yes | Billing postcode code.
 
 ```json
 {
-  "first_name": "Hobbes",
-  "last_name": "Watterson",
+  "first_name": "Django",
+  "last_name": "Reinhard",
   "phone": "616123456",
   "alt_phone": "+34917909930",
-  "street": "Calle del Postigo de San Martín 8",
+  "street": "Plaza del Angel nº10",
   "address_addition": "Cerca de la plaza Santa Ana",
   "city": "Madrid",
   "state": "Madrid",
   "country": "ES",
-  "postcode": "28013",
+  "postcode": "28012",
   "price": 500,
   "tax_rate": 2100,
   "name": "Planet Express",
@@ -246,7 +246,7 @@ state | string | yes | Shipping state.
 country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | yes | Shipping country code.
 postcode | string | yes | Shipping postcode code.
 name | string | yes | Shipping name.
-price | [decimal](#decimals) | yes | Shipping price.
+price | [decimal](#decimals) | yes | Shipping price (tax is not included).
 tax_rate | [decimal](#decimals) | no | Shipping tax rate.
 discount | [decimal](#decimals) | no | The discount amount of the shipping.
 discount_rate | [decimal](#decimals) | no | The rate discount of the shipping.

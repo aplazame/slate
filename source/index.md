@@ -46,7 +46,7 @@ _/oo-OOOO-oo' !oo!!oo!=`!o!o!--!o!o!'=`!o!o!--!o!o!'=
 ```http
 TRACE /:PATH HTTP/1.1
 Accept: something
-Authorization: my key
+Authorization: my public/private key
 Host: api.aplazame.com
 ```
 
