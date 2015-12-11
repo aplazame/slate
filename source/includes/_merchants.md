@@ -86,7 +86,7 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.merchant_detail(':merchantId')
+response = client.get_merchant(':merchantId')
 ```
 
 `GET https://api.aplazame.com/merchants/:merchantId`

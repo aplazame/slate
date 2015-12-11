@@ -263,7 +263,7 @@ $ curl "https://api.aplazame.com/customers/:customerId" \
 ```
 
 ```python
-response = client.customer_detail(':customerId')
+response = client.get_customer(':customerId')
 ```
 
 `GET https://api.aplazame.com/customers/:customerId`

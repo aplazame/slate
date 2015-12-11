@@ -499,7 +499,7 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 
-response = client.order_detail(':orderId')
+response = client.get_order(':orderId')
 ```
 
 `GET https://api.aplazame.com/orders/:orderId`
