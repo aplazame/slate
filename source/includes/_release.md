@@ -10,6 +10,7 @@
 * Widget, add attributes and remove unused options.
 * Operations and payments summary
 * Jazz dummy data
+* Real time, socket.io and JWT
 
 ## 0.0.4 (2015-12-05)
 **Untitled**

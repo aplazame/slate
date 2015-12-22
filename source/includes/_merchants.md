@@ -622,7 +622,37 @@ response = client.operations_summary()
 
 `GET https://api.aplazame.com/me/operations/summary`
 
-To retrieve operations summary grouped by month.
+To retrieve operations summary grouped by month
+
+## ○ Real time
+
+```html
+<script src="http://socket.aplazame.com/socket.io/socket.io.js"></script>
+
+<script>
+  var socket = io.connect('http://socket.aplazame.com');
+</script>
+```
+
+```html
+<script>
+socket.on('connect', function () {
+  socket
+    .on('authenticated', function () {
+      socket
+        .on('operations', function (data) {
+        })
+    })
+    .emit('authenticate', {token: 'your-jwt-token'});
+});
+</script>
+```
+
+Aplazame provides a NodeJs server via the [socket.io](https://github.com/socketio/socket.io) module for real-time event-based communication.
+
+You can call join to subscribe the socket to the operations channel.
+
+[JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) is a compact, URL-safe means of representing claims to be transferred between the NodeJs server and the client. You can request `/me` or `/merchants` to get the jwt token by merchant.
 
 
 ## Payments
@@ -1149,6 +1179,37 @@ response = client.payments_summary()
 `GET https://api.aplazame.com/me/payments/summary`
 
 To retrieve payments summary grouped by month.
+
+
+## ○ Real time
+
+```html
+<script src="http://socket.aplazame.com/socket.io/socket.io.js"></script>
+
+<script>
+  var socket = io.connect('http://socket.aplazame.com');
+</script>
+```
+
+```html
+<script>
+socket.on('connect', function () {
+  socket
+    .on('authenticated', function () {
+      socket
+        .on('payments', function (data) {
+        })
+    })
+    .emit('authenticate', {token: 'your-jwt-token'});
+});
+</script>
+```
+
+Aplazame provides a NodeJs server via the [socket.io](https://github.com/socketio/socket.io) module for real-time event-based communication.
+
+You can call join to subscribe the socket to the payments channel.
+
+[JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) is a compact, URL-safe means of representing claims to be transferred between the NodeJs server and the client. You can request `/me` or `/merchants` to get the jwt token by merchant.
 
 
 
