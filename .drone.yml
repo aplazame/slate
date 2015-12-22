@@ -1,28 +1,36 @@
-image: python
-
 branches:
   - master
 
-script:
-  - chmod +x ./.drone/*.sh
-  - ./.drone/build.sh
-
 deploy:
-  bash:
-    script:
-      - ./.drone/deploy.sh
-    when:
-      branch: master
+  rsync:
+    user: $$DEPLOY_USER
+    host: docs.aplazame.com
+    target: $$RELEASE_PATH
+    delete: true
+    recursive: true
+    commands:
+      - 'source ~/.zshrc'
+      - 'cd $$RELEASE_PATH'
+      - 'rake'
 
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOK_URL
-    username: 'slate'
-    on_success: change
-    on_failure: true
+    username: 'drone'
+    channel: 'developers'
+    when:
+      success: false
+      failure: true
+      change: true
 
   email:
+    from: $$EMAIL_FROM
+    host: $$EMAIL_HOST
+    username: $$EMAIL_USERNAME
+    password: $$EMAIL_PASS
     recipients:
       - dev@aplazame.com
-    on_success: change
-    on_failure: true
+    when:
+      success: false
+      failure: true
+      change: true

@@ -1,6 +1,6 @@
 [ ![Image](https://aplazame.com/static/img/banners/banner-728-white-slate.png "Aplazame") ](http://docs.aplazame.com "Aplazame")
 
-[![Travis Build Status](https://travis-ci.org/tripit/slate.svg?branch=master)](https://travis-ci.org/tripit/slate) [![Drone Build Status](http://drone.aplazame.com/api/badge/github.com/aplazame/slate/status.svg?branch=master)](http://drone.aplazame.com/github.com/aplazame/slate) [![Dependency Status](https://gemnasium.com/tripit/slate.png)](https://gemnasium.com/tripit/slate)
+[![Travis Build Status](https://travis-ci.org/tripit/slate.svg?branch=master)](https://travis-ci.org/tripit/slate) [![Build Status](http://drone.aplazame.com/api/badges/aplazame/slate/status.svg)](http://drone.aplazame.com/aplazame/slate) [![Dependency Status](https://gemnasium.com/tripit/slate.png)](https://gemnasium.com/tripit/slate)
 
 [Slate](https://github.com/tripit/slate) helps us create beautiful API documentation.
 
