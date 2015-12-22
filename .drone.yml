@@ -6,7 +6,7 @@ deploy:
     user: $$DEPLOY_USER
     host: docs.aplazame.com
     target: $$RELEASE_PATH
-    delete: true
+    delete: false
     recursive: true
     commands:
       - 'source ~/.zshrc'
