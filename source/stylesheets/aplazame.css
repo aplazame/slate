@@ -10,3 +10,15 @@
 .content blockquote {
   padding: 1em 28px 0;
 }
+
+.content pre.pseudo {
+  background: none;
+  color:black;
+  margin-right: 50%;
+  padding: 0 0 25px 28px;
+  text-shadow:none;
+}
+
+.content pre.pseudo code span.na{
+  font-weight: bolder;
+}

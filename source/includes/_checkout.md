@@ -156,10 +156,34 @@ Once you have completed the checkout process, the client JS will send a signal t
 `CHECKOUT --(POST/ID)--> Confirmation url --(POST/ID)--> API`
 
 
-### Url parameters
+### Authorize request Url parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 ID | string | String `id` of the order to perform action with.
 
 If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
+
+### Confirm example
+
+<pre class="highlight pseudo"><code><span class="na">FUNTION</span> confirm(request):
+  <span class="na">SET</span> orderID <span class="na">to</span> request.POST['checkout_token']
+  <span class="na">SET</span> order <span class="na">to</span> Session(orderID)
+
+  <span class="na">IF</span> order not found:
+    <span class="na">RETURN</span> Response(status_code = 404)
+  <span class="na">END IF</span>
+
+  <span class="na">SET</span> client <span class="na">to</span> aplazameAPIClient()
+  <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.v1+json
+  <span class="na">SET</span> client.headers[Authorization] <span class="na">to</span> PrivateKey
+  <span class="na">SET</span> response <span class="na">to</span> client.post(https://api.aplazame.com/orders/:orderID/authorize)
+
+  <span class="na">IF</span> response.status_code = 200 <span class="na">AND</span> response.amount = order.total:
+    <span class="na">SET</span> order.confirmed <span class="na">to</span> TRUE
+    <span class="na">RETURN</span> Response(status_code = 200 or 204)
+  <span class="na">ELSE:</span>
+    <span class="na">RETURN</span> Response(status_code >= 400)
+  <span class="na">END IF</span>
+<span class="na">END FUNTION</span>
+</code></pre>
