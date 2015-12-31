@@ -176,7 +176,7 @@ If you have any doubt about how to communicate with our API services, read the *
 
   <span class="na">SET</span> client <span class="na">to</span> aplazameAPIClient()
   <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.v1+json
-  <span class="na">SET</span> client.headers[Authorization] <span class="na">to</span> PrivateKey
+  <span class="na">SET</span> client.headers[Authorization] <span class="na">to</span> Bearer PrivateKey
   <span class="na">SET</span> response <span class="na">to</span> client.post(https://api.aplazame.com/orders/:orderID/authorize)
 
   <span class="na">IF</span> response.status_code = 200 <span class="na">AND</span> response.amount = order.total:
