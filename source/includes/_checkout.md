@@ -37,14 +37,16 @@ sandbox | boolean | no | Determines if the request is in sandbox mode.
 ```js
 aplazame.button({
   button: '#some-button-or-wrapper-id'  // accepts any valid css selector
-  amount: 12050
+  amount: 12050,
+  currency: 'EUR',
+  country: 'ES'
 });
 ```
 
 > you can even check by amount
 
 ```js
-aplazame.button.check(12050, function (allowed) { /* your code */ });
+aplazame.button.check(12050, 'EUR', 'ES', function (allowed) { /* your code */ });
 ```
 
 Start by including in the payment method selection menu a script that checks, through our API, whether the request can be processed.
@@ -73,13 +75,16 @@ Take your button **image** [here](#buttons)!!
 ```js
 aplazame.checkout({
   "toc": true,
-  "merchant": ...,
-  "order": ...,
-  "customer": ...,
-  "billing": ...,
-  "shipping": ...,
-  "meta": {
-    "version" "0.0.1"
+  "order": {},
+  "customer": {},
+  "billing": {},
+  "shipping": {},
+  "meta": {},
+  "merchant": {
+    "confirmation_url": "/CONFIRM-STEP-3",
+    "cancel_url": "/",
+    "success_url": "/",
+    "checkout_url": "/"
   }
 });
 ```
@@ -149,7 +154,7 @@ Once you have completed the checkout process, the client JS will send a signal t
 
 ### Workflow
 
-`CHECKOUT --(POST/ID)--> Confirmation url --(POST/ID)--> API`
+`CHECKOUT --(POST/ID)--> Confirm --(POST/ID)--> API /authorize`
 
 
 ### Authorize request Url parameters
@@ -158,28 +163,30 @@ Parameter | Type | Description
 --------- | ---- | -----------
 ID | string | String `id` of the order to perform action with.
 
-If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
-
 ### Confirm example
 
 <pre class="highlight pseudo"><code><span class="na">FUNTION</span> confirm(request):
-  <span class="na">SET</span> orderID <span class="na">to</span> request.POST['checkout_token']
-  <span class="na">SET</span> order <span class="na">to</span> Session(orderID)
+  <span class="na">SET</span> orderId <span class="na">to</span> request.POST['checkout_token']
+  <span class="na">SET</span> order <span class="na">to</span> Session(orderId)
 
-  <span class="na">IF</span> order not found:
-    <span class="na">RETURN</span> Response(status_code = 404)
+  <span class="na">IF</span> order not found <span class="na">THEN</span>:
+    <span class="na">RETURN</span> <span class="se">Response(status_code = 404)</span>
   <span class="na">END IF</span>
 
   <span class="na">SET</span> client <span class="na">to</span> aplazameAPIClient()
   <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.v1+json
   <span class="na">SET</span> client.headers[Authorization] <span class="na">to</span> Bearer PrivateKey
-  <span class="na">SET</span> response <span class="na">to</span> client.post(https://api.aplazame.com/orders/:orderID/authorize)
+  <span class="na">SET</span> response <span class="na">to</span> client.post(https://api.aplazame.com/orders/:orderId/authorize)
 
-  <span class="na">IF</span> response.status_code = 200 <span class="na">AND</span> response.amount = order.total:
+  <span class="na">IF</span> response.status_code = 200 <span class="na">AND</span> response.amount = order.total <span class="na">THEN</span>:
     <span class="na">SET</span> order.confirmed <span class="na">to</span> TRUE
-    <span class="na">RETURN</span> Response(status_code = 200 or 204)
+    <span class="na">RETURN</span> <span class="ok">Response(status_code = 200/204)</span>
   <span class="na">ELSE:</span>
-    <span class="na">RETURN</span> Response(status_code >= 400)
+    <span class="na">RETURN</span> <span class="se">Response(status_code >= 400)</span>
   <span class="na">END IF</span>
 <span class="na">END FUNTION</span>
 </code></pre>
+
+### Help
+
+If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).

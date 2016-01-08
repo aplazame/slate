@@ -19,6 +19,16 @@
   text-shadow:none;
 }
 
-.content pre.pseudo code span.na{
+pre.pseudo span.se{
+  color: red;
+}
+
+pre.pseudo span.ok{
+  color: green;
+}
+
+pre.pseudo span.na,
+pre.pseudo span.se,
+pre.pseudo span.ok{
   font-weight: bolder;
 }
