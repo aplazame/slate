@@ -174,7 +174,13 @@ ID | string | String `id` of the order to perform action with.
   <span class="na">END IF</span>
 
   <span class="na">SET</span> client <span class="na">to</span> aplazameAPIClient()
-  <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.v1+json
+
+  <span class="na">IF</span> is_sandbox <span class="na">THEN</span>:
+    <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.sandbox.v1+json
+  <span class="na">ELSE:</span>
+    <span class="na">SET</span> client.headers[Accept] <span class="na">to</span> application/vnd.aplazame.v1+json
+  <span class="na">END IF</span>
+  
   <span class="na">SET</span> client.headers[Authorization] <span class="na">to</span> Bearer PrivateKey
   <span class="na">SET</span> response <span class="na">to</span> client.post(https://api.aplazame.com/orders/:orderId/authorize)
 
