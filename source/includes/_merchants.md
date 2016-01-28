@@ -334,7 +334,7 @@ If you want to partial editing, this is the service you need.
 
 
 
-## Hostnames
+## + Hostnames
 
 ## ○ List
 
@@ -534,7 +534,7 @@ response = client.delete_hostname(':merchantId', ':hostnameId')
 
 If you want to delete any hostname, this is the service you need.
 
-## Operations
+## + Operations
 
 ```http
 GET /merchants/:merchantId/operations HTTP/1.1
@@ -1076,7 +1076,7 @@ You can call join to subscribe the socket to the operations channel.
 [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) is a compact, URL-safe means of representing claims to be transferred between the NodeJs server and the client. You can request `/me` or `/merchants` to get the jwt token by merchant.
 
 
-## Payments
+## + Payments
 
 ```http
 GET /merchants/:merchantId/payments HTTP/1.1
@@ -1634,7 +1634,7 @@ You can call join to subscribe the socket to the payments channel.
 [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) is a compact, URL-safe means of representing claims to be transferred between the NodeJs server and the client. You can request `/me` or `/merchants` to get the jwt token by merchant.
 
 
-## Invoices
+## + Invoices
 
 ## ○ List
 
@@ -1746,7 +1746,7 @@ Parameter | Type | Lookups | Description
 created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range`, `startswith` | A datetime designating when the instalment payment was created.
 
 
-## Instalment Payments
+## + Instalment Payments
 
 ```http
 GET /merchants/:merchantId/instalment-payments HTTP/1.1

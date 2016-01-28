@@ -163,6 +163,10 @@ Parameter | Type | Description
 --------- | ---- | -----------
 ID | string | String `id` of the order to perform action with.
 
+### Help
+
+If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
+
 ### Confirm example
 
 <pre class="highlight pseudo"><code><span class="na">FUNTION</span> confirm(request):
@@ -192,7 +196,3 @@ ID | string | String `id` of the order to perform action with.
   <span class="na">END IF</span>
 <span class="na">END FUNTION</span>
 </code></pre>
-
-### Help
-
-If you have any doubt about how to communicate with our API services, read the **[docs](#making-requests)** or [contact us](mailto:soporte@aplazame.com?subject=I have a doubt).
