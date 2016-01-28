@@ -11,6 +11,10 @@
 * Operations and payments summary
 * Jazz dummy data
 * Real time, socket.io and JWT
+* Confirm using pseudocode
+* Merchants endpoints, create and edit
+* Hostnames endpoints
+* Invoices endpoints
 
 ## 0.0.4 (2015-12-05)
 **Untitled**

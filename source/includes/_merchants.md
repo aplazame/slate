@@ -1,6 +1,6 @@
 # + Merchants
 
-## List
+## ○ List
 
 ```http
 GET /merchants HTTP/1.1
@@ -38,7 +38,6 @@ $ curl "https://api.aplazame.com/merchants" \
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.merchants()
 ```
 
@@ -55,8 +54,80 @@ paging | object | Pagination state.
 results | collection | Merchant queryset.
 
 
+## ○ Create
 
-## Detail
+```http
+POST /merchants HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+
+{
+  "name": "Aplazame e-commerce",
+  "url": "http://www.aplazame.com",
+  "account": {
+    "business_activity": "01",
+    "iban": "ES9121000418450200051332"
+  }
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/vnd.aplazame.v1+json
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    --data-binary '{
+      "name": "Aplazame e-commerce",
+      "url": "http://www.aplazame.com",
+      "account": {
+        "business_activity": "01",
+        "iban": "ES9121000418450200051332"
+      }
+    }'
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.post_merchant({
+  'name': 'Aplazame e-commerce',
+  'url': 'http://www.aplazame.com',
+  'account': {
+    'business_activity': '01',
+    'iban': 'ES9121000418450200051332'
+  }
+})
+```
+
+`POST https://api.aplazame.com/merchants`
+
+To create a merchant.
+
+### Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+name | string | yes | Merchant name.
+url | url | yes | Merchant url.
+widget_enabled | bool | no | Determines if the widget is enabled.
+min_amount_per_transaction | [decimals](#decimals) | no | Minimun amount per transaction.
+connect_discounts | bool | no | Determines if discounts are enabled.
+
+### Account Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+business_activity | code | yes | Merchant business activity, select your choice [here](https://aplazame.com/static/payments/business-activity.html).
+iban | [ISO 13616](https://en.wikipedia.org/wiki/International_Bank_Account_Number) | yes | International Bank Account Number.
+payment_frequency | choices | no | Determines the payment frequency, choices are `daily` or `weekly`.
+
+## ○ Detail
 
 ```http
 GET /merchants/:merchantId HTTP/1.1
@@ -85,18 +156,17 @@ $ curl "https://api.aplazame.com/merchants/:merchantId" \
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-
 response = client.get_merchant(':merchantId')
 ```
 
 `GET https://api.aplazame.com/merchants/:merchantId`
 
-If you want to check the status of an merchant, this is the service you need.
+If you want to check the status of a merchant, this is the service you need.
 
 ### /me
 `GET https://api.aplazame.com/me`
 
-To make all requests for a current merchant , you can replace `/merchants/:merchantId` by `/me`.
+To make all requests for a current merchant, you can replace `/merchants/:merchantId` by `/me`.
 
 ### Parameters
 `/merchants/:merchantId`
@@ -109,10 +179,360 @@ Parameter | Type | Description
 
 Parameter | Type | Description
 --------- | ---- | -----------
-id | object | Merchant id,
+id | hash | Merchant id,
 ... | ... | ...
 
 
+## ○ Edit
+
+```http
+PUT /merchants/:merchantId HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+
+{
+  "name": "Aplazame e-commerce",
+  "url": "http://www.aplazame.com",
+  "account": {
+    "business_activity": "01",
+    "iban": "ES9121000418450200051332"
+  }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "id": ":merchantId",
+  "...": "..."
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    -X PUT \
+    --data-binary '{
+      "name": "Aplazame e-commerce",
+      "url": "http://www.aplazame.com",
+      "account": {
+        "business_activity": "01",
+        "iban": "ES9121000418450200051332"
+      }
+    }'
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.put_merchant(':merchantId', {
+  'name': 'Aplazame e-commerce',
+  'url': 'http://www.aplazame.com',
+  'account': {
+    'business_activity': '01',
+    'iban': 'ES9121000418450200051332'
+  }
+})
+```
+
+`PUT https://api.aplazame.com/merchants/:merchantId`
+
+If you want to edit a merchant, this is the service you need.
+
+### /me
+`PUT https://api.aplazame.com/me`
+
+To make all requests for a current merchant, you can replace `/merchants/:merchantId` by `/me`.
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+:merchantId | string | String `id` of the merchant to perform action with.
+
+### Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+name | string | yes | Merchant name.
+url | url | yes | Merchant url.
+widget_enabled | bool | no | Determines if the widget is enabled.
+min_amount_per_transaction | [decimals](#decimals) | no | Minimun amount per transaction.
+connect_discounts | bool | no | Determines if discounts are enabled.
+
+### Account Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+business_activity | code | yes | Merchant business activity, select your choice [here](https://aplazame.com/static/payments/business-activity.html).
+iban | [ISO 13616](https://en.wikipedia.org/wiki/International_Bank_Account_Number) | yes | International Bank Account Number.
+payment_frequency | choices | no | Determines the payment frequency, choices are `daily` or `weekly`.
+
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+id | hash | Merchant id,
+... | ... | ...
+
+
+
+### Partial Edit
+
+```http
+PATCH /merchants/:merchantId HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+
+{
+  "name": "edited"
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "id": ":merchantId",
+  "...": "..."
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    -X PATCH \
+    --data-binary '{
+      "name": "Aplazame e-commerce"
+    }'
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.patch_merchant(':merchantId', {
+  'name': 'edited'
+})
+```
+
+`PATCH https://api.aplazame.com/merchants/:merchantId`
+
+If you want to partial editing, this is the service you need.
+
+### /me
+`PATCH https://api.aplazame.com/me`
+
+
+
+## Hostnames
+
+## ○ List
+
+```http
+GET /merchants/:merchantId/hostnames HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "cursor": {
+    "after": 3,
+    "before": 1
+  },
+  "paging": {
+    "count": 314,
+    "next": "https://api.aplazame.com/merchants/:merchantId/hostnames?page=3",
+    "previous": "https://api.aplazame.com/merchants/:merchantId/hostnames?page=1"
+  },
+  "results": [
+  ]
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/hostnames" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+# Merchant request
+response = client.merchant_request('hostnames', ':merchantId')
+# Current merchant
+response = client.hostnames()
+```
+
+`GET https://api.aplazame.com/merchants/:merchantId/hostnames`
+
+To retrieve hostnames queryset.
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+cursor | object | Pagination cursor object.
+paging | object | Pagination state.
+results | collection | Hostnames queryset.
+
+
+## ○ Create
+
+```http
+POST /merchants/:merchantId/hostnames HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+
+{
+  "url": "http://www.aplazame.com"
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/vnd.aplazame.v1+json
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/hostnames" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    --data-binary '{
+      "url": "http://www.aplazame.com"
+    }'
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.post_hostname(':merchantId', {
+  'url': 'http://www.aplazame.com'
+})
+```
+
+`POST https://api.aplazame.com/merchants/:merchantId/hostnames`
+
+To create a hostname.
+
+### Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+url | url | yes | Merchant url.
+
+## ○ Detail
+
+```http
+GET /merchants/:merchantId/hostnames/:hostnameId HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "id": ":hostnameId",
+  "host": "www.aplazame.com",
+  "name": "www.aplazame.com"
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/hostnames/:hostnameId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.get_hostname(':merchantId', ':hostnameId')
+```
+
+`GET https://api.aplazame.com/merchants/:merchantId/hostnames/:hostnameId`
+
+If you want to check the status of a hostname, this is the service you need.
+
+### /me
+`GET https://api.aplazame.com/me/hostnames/:hostnameId`
+
+To make all requests for a current merchant, you can replace `/merchants/:merchantId` by `/me`.
+
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+:merchantId | hash | String `id` of the merchant to perform action with.
+:hostnameId | hash | String `id` of the hostname to perform action with.
+
+### Payload
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+url | url | yes | Merchant url.
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+id | hash | Hostname id,
+host | host | The host.
+name | string | The name.
+
+
+## ○ Delete
+
+```http
+DELETE /merchants/:merchantId/hostnames/:hostnameId HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+Content-Type: application/vnd.aplazame.v1+json
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/hostnames/:hostnameId " \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    -X DELETE
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.delete_hostname(':merchantId', ':hostnameId')
+```
+
+If you want to delete any hostname, this is the service you need.
 
 ## Operations
 
@@ -152,8 +572,9 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/operations" \
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-
+# Merchant request
 response = client.merchant_request('operations', ':merchantId')
+# Current merchant
 response = client.operations()
 ```
 
@@ -693,8 +1114,9 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/payments" \
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-
+# Merchant request
 response = client.merchant_request('payments', ':merchantId')
+# Current merchant
 response = client.payments()
 ```
 
@@ -1212,6 +1634,117 @@ You can call join to subscribe the socket to the payments channel.
 [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) is a compact, URL-safe means of representing claims to be transferred between the NodeJs server and the client. You can request `/me` or `/merchants` to get the jwt token by merchant.
 
 
+## Invoices
+
+## ○ List
+
+```http
+GET /merchants/:merchantId/invoices HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "cursor": {
+    "after": 3,
+    "before": 1
+  },
+  "paging": {
+    "count": 314,
+    "next": "https://api.aplazame.com/merchants/:merchantId/invoices?page=3",
+    "previous": "https://api.aplazame.com/merchants/:merchantId/invoices?page=1"
+  },
+  "results": [
+  ]
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/invoices" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+# Merchant request
+response = client.merchant_request('invoices', ':merchantId')
+# Current merchant
+response = client.invoices()
+```
+
+`GET https://api.aplazame.com/merchants/:merchantId/invoices`
+
+To retrieve invoices queryset.
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+cursor | object | Pagination cursor object.
+paging | object | Pagination state.
+results | collection | Invoices queryset.
+
+## ○ Filter
+
+
+```http
+GET /merchants/:merchantId/invoices?created-startswith=2016-01 HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "cursor": {
+    "after": 3,
+    "before": 1
+  },
+  "paging": {
+    "count": 314,
+    "next": "https://api.aplazame.com/merchants/:merchantId/invoices?page=3&created-startswith=2016-01",
+    "previous": "https://api.aplazame.com/merchants/:merchantId/invoices?page=1&created-startswith=2016-01"
+  },
+  "results": [
+  ]
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/invoices?created-startswith=2016-01" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+# Merchant request
+response = client.merchant_request('invoices', ':merchantId', {
+  'created-startswith': '2016-01'
+})
+# Current merchant
+response = client.invoices({
+  'created-startswith': '2016-01'
+})
+```
+
+Parameter | Type | Lookups | Description
+--------- | ---- | ------ | -----------
+created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range`, `startswith` | A datetime designating when the instalment payment was created.
+
 
 ## Instalment Payments
 
@@ -1251,8 +1784,9 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/instalment-payments" \
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-
+# Merchant request
 response = client.merchant_request('instalment-payments', ':merchantId')
+# Current merchant
 response = client.instalment_payments()
 ```
 
