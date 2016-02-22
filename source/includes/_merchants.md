@@ -489,12 +489,6 @@ Parameter | Type | Description
 :merchantId | hash | String `id` of the merchant to perform action with.
 :hostnameId | hash | String `id` of the hostname to perform action with.
 
-### Payload
-
-Parameter | Type | Required | Description
---------- | ---- | -------- | -----------
-url | url | yes | Merchant url.
-
 ### Response
 
 Parameter | Type | Description
@@ -1021,6 +1015,56 @@ Parameter | Type | Description
 --------- | ---- | -----------
 order-created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was created.
 order-confirmed | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | A datetime designating when the order was confirmed.
+
+
+## ○ Detail
+
+```http
+GET /merchants/:merchantId/operations/:operationId HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.v1+json
+
+{
+  "id": ":operationId"
+}
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId/operations/:operationId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.get_operation(':merchantId', ':operationId')
+```
+
+`GET https://api.aplazame.com/merchants/:merchantId/operations/:operationId`
+
+If you want to check the status of a operation, this is the service you need.
+
+### /me
+`GET https://api.aplazame.com/me/operations/:operationId`
+
+To make all requests for a current merchant, you can replace `/merchants/:merchantId` by `/me`.
+
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+:merchantId | hash | String `id` of the merchant to perform action with.
+:operationId | hash | String `id` of the operation to perform action with.
+
 
 ## ○ Summary
 

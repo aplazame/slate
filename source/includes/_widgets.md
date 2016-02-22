@@ -19,8 +19,8 @@ Before you use a widget, you must import aplazame-js and configure it with the [
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 amount | [decimal](#decimals)  | yes | order amount.
-price | selector | no | CSS selector to price.
-qty | selector | no | CSS selector to product quantity form field.
+price | [selector](http://www.w3schools.com/cssref/css_selectors.asp) | no | CSS selector to price.
+qty | [selector](http://www.w3schools.com/cssref/css_selectors.asp) | no | CSS selector to product quantity form field.
 currency | [ISO 4217](http://es.wikipedia.org/wiki/ISO_4217) | no | Currency code of the order.
 country | [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | Country code.
 locale | [ISO 639](https://en.wikipedia.org/wiki/ISO_639) & [ISO 3166-1](http://es.wikipedia.org/wiki/ISO_3166-1) | no | l10n, widget localization.
