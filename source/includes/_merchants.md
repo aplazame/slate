@@ -67,7 +67,9 @@ Host: api.aplazame.com
   "url": "http://www.aplazame.com",
   "account": {
     "business_activity": "01",
-    "iban": "ES9121000418450200051332"
+    "iban": "ES9121000418450200051332",
+    "monthly_earnings": "20000",
+    "average_amount": "200"
   }
 }
 ```
@@ -86,7 +88,9 @@ $ curl "https://api.aplazame.com/merchants" \
       "url": "http://www.aplazame.com",
       "account": {
         "business_activity": "01",
-        "iban": "ES9121000418450200051332"
+        "iban": "ES9121000418450200051332",
+        "monthly_earnings": "20000",
+        "average_amount": "200"
       }
     }'
 ```
@@ -100,7 +104,9 @@ response = client.post_merchant({
   'url': 'http://www.aplazame.com',
   'account': {
     'business_activity': '01',
-    'iban': 'ES9121000418450200051332'
+    'iban': 'ES9121000418450200051332',
+    'monthly_earnings': '20000',
+    'average_amount': '200'
   }
 })
 ```
@@ -125,7 +131,10 @@ Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 business_activity | code | yes | Merchant business activity, select your choice [here](https://aplazame.com/static/payments/business-activity.html).
 iban | [ISO 13616](https://en.wikipedia.org/wiki/International_Bank_Account_Number) | yes | International Bank Account Number.
+monthly_earnings | integer | yes | Refers to all remuneration received before deduction of the merchant.
+average_amount | integer | yes | The average amount of merchant.
 payment_frequency | choices | no | Determines the payment frequency, choices are `daily` or `weekly`.
+
 
 ## ○ Detail
 
@@ -196,7 +205,9 @@ Host: api.aplazame.com
   "url": "http://www.aplazame.com",
   "account": {
     "business_activity": "01",
-    "iban": "ES9121000418450200051332"
+    "iban": "ES9121000418450200051332",
+    "monthly_earnings": "20000",
+    "average_amount": "200"
   }
 }
 ```
@@ -221,7 +232,9 @@ $ curl "https://api.aplazame.com/merchants/:merchantId" \
       "url": "http://www.aplazame.com",
       "account": {
         "business_activity": "01",
-        "iban": "ES9121000418450200051332"
+        "iban": "ES9121000418450200051332",
+        "monthly_earnings": "20000",
+        "average_amount": "200"
       }
     }'
 ```
@@ -235,7 +248,9 @@ response = client.put_merchant(':merchantId', {
   'url': 'http://www.aplazame.com',
   'account': {
     'business_activity': '01',
-    'iban': 'ES9121000418450200051332'
+    'iban': 'ES9121000418450200051332',
+    'monthly_earnings': '20000',
+    'average_amount': '200'
   }
 })
 ```
@@ -271,6 +286,8 @@ Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
 business_activity | code | yes | Merchant business activity, select your choice [here](https://aplazame.com/static/payments/business-activity.html).
 iban | [ISO 13616](https://en.wikipedia.org/wiki/International_Bank_Account_Number) | yes | International Bank Account Number.
+monthly_earnings | integer | yes | Refers to all remuneration received before deduction of the merchant.
+average_amount | integer | yes | The average amount of merchant.
 payment_frequency | choices | no | Determines the payment frequency, choices are `daily` or `weekly`.
 
 
