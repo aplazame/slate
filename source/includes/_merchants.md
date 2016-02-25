@@ -350,6 +350,81 @@ If you want to partial editing, this is the service you need.
 `PATCH https://api.aplazame.com/me`
 
 
+## ○ Enable
+
+```http
+POST /merchants/:merchantId/enable HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+Content-Type: application/vnd.aplazame.v1+json
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    -X POST
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.enable_merchant(':merchantId')
+```
+
+<aside class="notice">
+Merchants are enabled by default.
+</aside>
+
+
+`POST https://api.aplazame.com/merchants/:merchantId/enable`
+
+If you want to enable a merchant, this is the service you need.
+
+### /me
+`POST https://api.aplazame.com/me/enable`
+
+## ○ Disable
+
+```http
+POST /merchants/:merchantId/disable HTTP/1.1
+Accept: application/vnd.aplazame.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+Content-Type: application/vnd.aplazame.v1+json
+```
+
+```shell
+$ curl "https://api.aplazame.com/merchants/:merchantId" \
+    -H "Accept: application/vnd.aplazame.v1+json" \
+    -H "Authorization: Bearer ->AccessToken<-"\
+    -X POST
+```
+
+```python
+import aplazame_sdk
+
+client = aplazame_sdk.Client('->AccessToken<-')
+response = client.disable_merchant(':merchantId')
+```
+
+`POST https://api.aplazame.com/merchants/:merchantId/disable`
+
+If you want to disable a merchant, this is the service you need.
+
+### /me
+`POST https://api.aplazame.com/me/disable`
+
 
 ## + Hostnames
 

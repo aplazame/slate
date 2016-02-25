@@ -15,6 +15,7 @@
 * Merchants endpoints, create and edit
 * Hostnames endpoints
 * Invoices endpoints
+* Enable and disable merchants
 
 ## 0.0.4 (2015-12-05)
 **Untitled**
