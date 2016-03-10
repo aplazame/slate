@@ -12,10 +12,7 @@
 * Jazz dummy data
 * Real time, socket.io and JWT
 * Confirm using pseudocode
-* Merchants endpoints, create and edit
-* Hostnames endpoints
-* Invoices endpoints
-* Enable and disable merchants
+* Merchants (create, edit, disable), hostnames, invoices and campaigns endpoints
 
 ## 0.0.4 (2015-12-05)
 **Untitled**

@@ -20,6 +20,7 @@ includes:
   - requests
   - orders
   - merchants
+  - campaigns
   - customers
   - widgets
   - buttons

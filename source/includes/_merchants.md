@@ -3,7 +3,7 @@
 ## ○ List
 
 ```http
-GET /merchants HTTP/1.1
+GET /merchants?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -431,7 +431,7 @@ If you want to disable a merchant, this is the service you need.
 ## ○ List
 
 ```http
-GET /merchants/:merchantId/hostnames HTTP/1.1
+GET /merchants/:merchantId/hostnames?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -623,7 +623,7 @@ If you want to delete any hostname, this is the service you need.
 ## + Operations
 
 ```http
-GET /merchants/:merchantId/operations HTTP/1.1
+GET /merchants/:merchantId/operations?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -1215,7 +1215,7 @@ You can call join to subscribe the socket to the operations channel.
 ## + Payments
 
 ```http
-GET /merchants/:merchantId/payments HTTP/1.1
+GET /merchants/:merchantId/payments?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -1823,7 +1823,7 @@ You can call join to subscribe the socket to the payments channel.
 ## ○ List
 
 ```http
-GET /merchants/:merchantId/invoices HTTP/1.1
+GET /merchants/:merchantId/invoices?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -1880,7 +1880,7 @@ results | collection | Invoices queryset.
 
 
 ```http
-GET /merchants/:merchantId/invoices?created-startswith=2016-01 HTTP/1.1
+GET /merchants/:merchantId/invoices?page=2&created-startswith=2016-01 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -1933,7 +1933,7 @@ created | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | `date`, `range`, 
 ## + Instalment Payments
 
 ```http
-GET /merchants/:merchantId/instalment-payments HTTP/1.1
+GET /merchants/:merchantId/instalment-payments?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
