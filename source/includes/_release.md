@@ -7,12 +7,12 @@
 * Filters review
 * Replace opearion type, `order` by `credit`
 * Price does not include the tax
-* Widget, add attributes and remove unused options.
+* Widget, add attributes and remove unused options
 * Operations and payments summary
 * Jazz dummy data
 * Real time, socket.io and JWT
 * Confirm using pseudocode
-* Merchants (create, edit, disable), hostnames, invoices and campaigns endpoints
+* Merchants (create, edit, disable), hostnames, invoices, campaigns and widgets endpoints
 
 ## 0.0.4 (2015-12-05)
 **Untitled**

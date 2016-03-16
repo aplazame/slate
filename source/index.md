@@ -21,8 +21,8 @@ includes:
   - orders
   - merchants
   - campaigns
-  - customers
   - widgets
+  - customers
   - buttons
   - packages
   - errors
