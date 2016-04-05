@@ -70,7 +70,8 @@ Host: api.aplazame.com
   "start_date": "2016-06-01",
   "end_date": "2016-08-31",
   "interest": "2500",
-  "partial": true
+  "partial": true,
+  "num_instalments": [1, 2, 3, 5, 8]
 }
 ```
 
@@ -86,6 +87,7 @@ Content-Type: application/vnd.aplazame.v1+json
   "end_date": "2016-08-31",
   "interest": 2500,
   "partial": false,
+  "num_instalments": [1, 2, 3, 5, 8],
   "created": "2016-03-10T11:08:57.265971"
 }
 ```
@@ -99,7 +101,8 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns" \
       "start_date": "2016-06-01",
       "end_date": "2016-08-31",
       "interest": "2500",
-      "partial": true
+      "partial": true,
+      "num_instalments": [1, 2, 3, 5, 8]
     }'
 ```
 
@@ -112,7 +115,8 @@ response = client.post_campaign(':merchantId', {
   'start_date': '2016-06-01',
   'end_date': '2016-08-31',
   'interest': '2500',
-  'partial': True
+  'partial': True,
+  'num_instalments': [1, 2, 3, 5, 8]
 })
 ```
 
@@ -129,6 +133,7 @@ start_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | yes | Date whe
 end_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Date when the campaign ends.
 interest | [decimals](#decimals) | yes | Interest discount rate.
 partial | bool | no | Determines if the campaign applies to all products, `false` by default.
+num_instalments | array | no | Number of instalments available for the campaign.
 
 ## ○ Detail
 
@@ -151,6 +156,7 @@ Content-Type: application/vnd.aplazame.v1+json
    "end_date": "2016-08-31",
    "interest": 2500,
    "partial": false,
+   "num_instalments": [1, 2, 3, 5, 8],
    "created": "2016-03-10T11:08:57.265971"
 }
 ```
@@ -211,7 +217,8 @@ Host: api.aplazame.com
   "start_date": "2016-06-01",
   "end_date": "2016-08-31",
   "interest": "2500",
-  "partial": true
+  "partial": true,
+  "num_instalments": [1, 2, 3, 5, 8]
 }
 ```
 
@@ -230,7 +237,8 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
       "start_date": "2016-06-01",
       "end_date": "2016-08-31",
       "interest": "2500",
-      "partial": true
+      "partial": true,
+      "num_instalments": [1, 2, 3, 5, 8]
     }'
 ```
 
@@ -243,7 +251,8 @@ response = client.put_campaign(':merchantId', ':campaignSlug', {
   'start_date': '2016-06-01',
   'end_date': '2016-08-31',
   'interest': '2500',
-  'partial': True
+  'partial': True,
+  'num_instalments': [1, 2, 3, 5, 8]
 })
 ```
 
@@ -268,6 +277,7 @@ start_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | yes | Date whe
 end_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Date when the campaign ends.
 interest | [decimals](#decimals) | yes | Interest discount rate.
 partial | bool | no | Determines if the campaign applies to all products, `false` by default.
+num_instalments | array | no | Number of instalments available for the campaign.
 
 
 ## ○ Partial edit
@@ -328,6 +338,7 @@ start_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Date when
 end_date | [ISO 8601](https://es.wikipedia.org/wiki/ISO_8601) | no | Date when the campaign ends.
 interest | [decimals](#decimals) | no | Interest discount rate.
 partial | bool | no | Determines if the campaign applies to all products, `false` by default.
+num_instalments | array | no | Number of instalments available for the campaign.
 
 ## ○ Delete
 
