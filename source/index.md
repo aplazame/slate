@@ -73,7 +73,7 @@ assert(something.__doc__ is not None)
 
 Ease of implementation is the main objective we had in mind when developing Aplazame’s REST API.
 
-If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#img-alt-github-src-http-icons-iconarchive-com-icons-social-media-icons-social-buntings-32-github-icon-png) list.
+If you have an e-commerce platform, you may find a suitable plugin from our [installable plugins](#e-commerce-modules) list.
 
 Otherwise you will have to carefully follow the instructions contained in this documentation, starting with the [3 step Checkout](#3-steps-to-checkout-v2) and following to our [API description](#making-requests), which defines the available services and the steps required to establish communication with our endpoints.
 
