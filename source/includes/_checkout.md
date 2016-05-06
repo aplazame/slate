@@ -11,7 +11,7 @@
   data-sandbox="true"></script>
 ```
 
-### Script options
+### Script parameters
 
 Parameter | Type | Required | Description
 --------- | ---- | -------- | -----------
