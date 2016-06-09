@@ -138,7 +138,7 @@ num_instalments | array | no | Number of instalments available for the campaign.
 ## ○ Detail
 
 ```http
-GET /merchants/:merchantId/campaigns/:campaignSlug HTTP/1.1
+GET /merchants/:merchantId/campaigns/:campaignId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -162,7 +162,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -171,15 +171,15 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.get_campaign(':merchantId', ':campaignSlug')
+response = client.get_campaign(':merchantId', ':campaignId')
 ```
 
-`GET https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug`
+`GET https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId`
 
 If you want to check the status of a campaign, this is the service you need.
 
 ### /me
-`GET https://api.aplazame.com/me/campaigns/:campaignSlug`
+`GET https://api.aplazame.com/me/campaigns/:campaignId`
 
 To make all requests for a current merchant, you can replace `/merchants/:merchantId` by `/me`.
 
@@ -189,7 +189,7 @@ To make all requests for a current merchant, you can replace `/merchants/:mercha
 Parameter | Type | Description
 --------- | ---- | -----------
 :merchantId | hash | String `id` of the merchant to perform action with.
-:campaignSlug | [slug](https://en.wikipedia.org/wiki/Semantic_URL#Slug) | String `slug` of the campaign to perform action with.
+:campaignSlug | hash | String `id` of the campaign to perform action with.
 
 ### Response
 
@@ -207,7 +207,7 @@ partial | bool | Determines if the campaign applies to all products.
 ## ○ Edit
 
 ```http
-PUT /merchants/:merchantId/campaigns/:campaignSlug HTTP/1.1
+PUT /merchants/:merchantId/campaigns/:campaignId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -228,7 +228,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     -X PUT\
@@ -246,7 +246,7 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.put_campaign(':merchantId', ':campaignSlug', {
+response = client.put_campaign(':merchantId', ':campaignId', {
   'name': 'Summertime',
   'start_date': '2016-06-01T00:00:00',
   'end_date': '2016-08-31T:23:59:59',
@@ -256,17 +256,17 @@ response = client.put_campaign(':merchantId', ':campaignSlug', {
 })
 ```
 
-`PUT https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug`
+`PUT https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId`
 
 ### /me
-`PUT https://api.aplazame.com/me/campaigns/:campaignSlug`
+`PUT https://api.aplazame.com/me/campaigns/:campaignId`
 
 ### Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 :merchantId | hash | String `id` of the merchant to perform action with.
-:campaignSlug | [slug](https://en.wikipedia.org/wiki/Semantic_URL#Slug) | String `slug` of the campaign to perform action with.
+:campaignId | hash | String `id` of the campaign to perform action with.
 
 ### Payload
 
@@ -283,7 +283,7 @@ num_instalments | array | no | Number of instalments available for the campaign.
 ## ○ Partial edit
 
 ```http
-PATCH /merchants/:merchantId/campaigns/:campaignSlug HTTP/1.1
+PATCH /merchants/:merchantId/campaigns/:campaignId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -299,7 +299,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     -X PATCH\
@@ -312,22 +312,22 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.patch_campaign(':merchantId', ':campaignSlug', {
+response = client.patch_campaign(':merchantId', ':campaignId', {
   'start_date': '2016-06-22T00:00:00'
 })
 ```
 
-`PATCH https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug`
+`PATCH https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId`
 
 ### /me
-`PATCH https://api.aplazame.com/me/campaigns/:campaignSlug`
+`PATCH https://api.aplazame.com/me/campaigns/:campaignId`
 
 ### Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 :merchantId | hash | String `id` of the merchant to perform action with.
-:campaignSlug | [slug](https://en.wikipedia.org/wiki/Semantic_URL#Slug) | String `slug` of the campaign to perform action with.
+:campaignId | hash | String `id` of the campaign to perform action with.
 
 ### Payload
 
@@ -343,7 +343,7 @@ num_instalments | array | no | Number of instalments available for the campaign.
 ## ○ Delete
 
 ```http
-DELETE /merchants/:merchantId/campaigns/:campaignSlug HTTP/1.1
+DELETE /merchants/:merchantId/campaigns/:campaignId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -355,7 +355,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug " \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId " \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     -X DELETE
@@ -365,10 +365,10 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug "
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.delete_campaign(':merchantId', ':campaignSlug')
+response = client.delete_campaign(':merchantId', ':campaignId')
 ```
 
-`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug`
+`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId`
 
 If you want to delete any campaign, this is the service you need.
 
@@ -379,7 +379,7 @@ If you want to delete any campaign, this is the service you need.
 ## ○ List
 
 ```http
-GET /merchants/:merchantId/campaigns/:campaignSlug/articles?page=2 HTTP/1.1
+GET /merchants/:merchantId/campaigns/:campaignId/articles?page=2 HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -396,8 +396,8 @@ Content-Type: application/vnd.aplazame.v1+json
   },
   "paging": {
     "count": 314,
-    "next": "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles?page=3",
-    "previous": "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles?page=1"
+    "next": "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles?page=3",
+    "previous": "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles?page=1"
   },
   "results": [
   ]
@@ -405,7 +405,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"
 ```
@@ -414,10 +414,10 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/a
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.get_campaign_articles(':merchantId', ':campaignSlug')
+response = client.get_campaign_articles(':merchantId', ':campaignId')
 ```
 
-`GET https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles`
+`GET https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles`
 
 To retrieve articles on campaigns.
 
@@ -433,7 +433,7 @@ results | collection | Campaigns queryset.
 ## ○ Collect
 
 ```http
-POST /merchants/:merchantId/campaigns/:campaignSlug/articles HTTP/1.1
+POST /merchants/:merchantId/campaigns/:campaignId/articles HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -462,7 +462,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     --data-binary '[
@@ -487,7 +487,7 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/a
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.post_campaign_articles(':merchantId', ':campaignSlug', [
+response = client.post_campaign_articles(':merchantId', ':campaignId', [
   {
     'id': '89793238462643383279',
     'name': 'Reloj en oro blanco de 18 quilates y diamantes',
@@ -505,7 +505,7 @@ response = client.post_campaign_articles(':merchantId', ':campaignSlug', [
 ])
 ```
 
-`POST https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles`
+`POST https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles`
 
 ### Payload
 
@@ -520,7 +520,7 @@ image_url | url | no | Article image url.
 ## ○ Delete all
 
 ```http
-DELETE /merchants/:merchantId/campaigns/:campaignSlug/articles HTTP/1.1
+DELETE /merchants/:merchantId/campaigns/:campaignId/articles HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -532,7 +532,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     -X DELETE'
@@ -542,21 +542,21 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/a
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.delete_campaign_articles(':merchantId', ':campaignSlug')
+response = client.delete_campaign_articles(':merchantId', ':campaignId')
 ```
 
-`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles`
+`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles`
 
 Parameter | Type | Description
 --------- | ---- | -----------
 :merchantId | hash | String `id` of the merchant to perform action with.
-:campaignSlug | [slug](https://en.wikipedia.org/wiki/Semantic_URL#Slug) | String `slug` of the campaign to perform action with.
+:campaignId | hash | String `id` of the campaign to perform action with.
 
 
 ## ○ Delete single article
 
 ```http
-DELETE /merchants/:merchantId/campaigns/:campaignSlug/articles/:articleId HTTP/1.1
+DELETE /merchants/:merchantId/campaigns/:campaignId/articles/:articleId HTTP/1.1
 Accept: application/vnd.aplazame.v1+json
 Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
@@ -568,7 +568,7 @@ Content-Type: application/vnd.aplazame.v1+json
 ```
 
 ```shell
-$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles/:articleId" \
+$ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles/:articleId" \
     -H "Accept: application/vnd.aplazame.v1+json" \
     -H "Authorization: Bearer ->AccessToken<-"\
     -X DELETE'
@@ -578,15 +578,15 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/a
 import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
-response = client.delete_campaign_article(':merchantId', ':campaignSlug', ':articleId')
+response = client.delete_campaign_article(':merchantId', ':campaignId', ':articleId')
 ```
 
-`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug/articles/:articleId`
+`DELETE https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignId/articles/:articleId`
 
 ### Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
 :merchantId | hash | String `id` of the merchant to perform action with.
-:campaignSlug | [slug](https://en.wikipedia.org/wiki/Semantic_URL#Slug) | String `slug` of the campaign to perform action with.
+:campaignId | hash | String `id` of the campaign to perform action with.
 :articleId | hash | String `id` of the article to perform action with.
