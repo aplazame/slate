@@ -67,8 +67,8 @@ Host: api.aplazame.com
 
 {
   "name": "Summertime",
-  "start_date": "2016-06-01",
-  "end_date": "2016-08-31",
+  "start_date": "2016-06-01T00:00:00",
+  "end_date": "2016-08-31T:23:59:59",
   "interest": "2500",
   "partial": true,
   "num_instalments": [1, 2, 3, 5, 8]
@@ -83,10 +83,10 @@ Content-Type: application/vnd.aplazame.v1+json
   "id": "c994e03e42d24be7bf6e1fcbad3334c0",
   "name": "Summertime",
   "slug": "summertime",
-  "start_date": "2016-06-01",
-  "end_date": "2016-08-31",
+  "start_date": "2016-06-01T00:00:00",
+  "end_date": "2016-08-31T:23:59:59",
   "interest": 2500,
-  "partial": false,
+  "partial": true,
   "num_instalments": [1, 2, 3, 5, 8],
   "created": "2016-03-10T11:08:57.265971"
 }
@@ -98,8 +98,8 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns" \
     -H "Authorization: Bearer ->AccessToken<-"\
     --data-binary '{
       "name": "Summertime",
-      "start_date": "2016-06-01",
-      "end_date": "2016-08-31",
+      "start_date": "2016-06-01T00:00:00",
+      "end_date": "2016-08-31T:23:59:59",
       "interest": "2500",
       "partial": true,
       "num_instalments": [1, 2, 3, 5, 8]
@@ -112,8 +112,8 @@ import aplazame_sdk
 client = aplazame_sdk.Client('->AccessToken<-')
 response = client.post_campaign(':merchantId', {
   'name': 'Summertime',
-  'start_date': '2016-06-01',
-  'end_date': '2016-08-31',
+  'start_date': '2016-06-01T00:00:00',
+  'end_date': '2016-08-31T:23:59:59',
   'interest': '2500',
   'partial': True,
   'num_instalments': [1, 2, 3, 5, 8]
@@ -152,8 +152,8 @@ Content-Type: application/vnd.aplazame.v1+json
    "id": "c994e03e42d24be7bf6e1fcbad3334c0",
    "name": "Summertime",
    "slug": "summertime",
-   "start_date": "2016-06-01",
-   "end_date": "2016-08-31",
+   "start_date": "2016-06-01T00:00:00",
+   "end_date": "2016-08-31T:23:59:59",
    "interest": 2500,
    "partial": false,
    "num_instalments": [1, 2, 3, 5, 8],
@@ -214,8 +214,8 @@ Host: api.aplazame.com
 
 {
   "name": "Summertime",
-  "start_date": "2016-06-01",
-  "end_date": "2016-08-31",
+  "start_date": "2016-06-01T00:00:00",
+  "end_date": "2016-08-31T:23:59:59",
   "interest": "2500",
   "partial": true,
   "num_instalments": [1, 2, 3, 5, 8]
@@ -234,8 +234,8 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
     -X PUT\
     --data-binary '{
       "name": "Summertime",
-      "start_date": "2016-06-01",
-      "end_date": "2016-08-31",
+      "start_date": "2016-06-01T00:00:00",
+      "end_date": "2016-08-31T:23:59:59",
       "interest": "2500",
       "partial": true,
       "num_instalments": [1, 2, 3, 5, 8]
@@ -248,8 +248,8 @@ import aplazame_sdk
 client = aplazame_sdk.Client('->AccessToken<-')
 response = client.put_campaign(':merchantId', ':campaignSlug', {
   'name': 'Summertime',
-  'start_date': '2016-06-01',
-  'end_date': '2016-08-31',
+  'start_date': '2016-06-01T00:00:00',
+  'end_date': '2016-08-31T:23:59:59',
   'interest': '2500',
   'partial': True,
   'num_instalments': [1, 2, 3, 5, 8]
@@ -289,7 +289,7 @@ Authorization: Bearer ->AccessToken<-
 Host: api.aplazame.com
 
 {
-  "start_date": "2016-06-22"
+  "start_date": "2016-06-22T00:00:00"
 }
 ```
 
@@ -304,7 +304,7 @@ $ curl "https://api.aplazame.com/merchants/:merchantId/campaigns/:campaignSlug" 
     -H "Authorization: Bearer ->AccessToken<-"\
     -X PATCH\
     --data-binary '{
-      "start_date": "2016-06-22"
+      "start_date": "2016-06-22T00:00:00"
     }'
 ```
 
@@ -313,7 +313,7 @@ import aplazame_sdk
 
 client = aplazame_sdk.Client('->AccessToken<-')
 response = client.patch_campaign(':merchantId', ':campaignSlug', {
-  'start_date': '2016-06-22'
+  'start_date': '2016-06-22T00:00:00'
 })
 ```
 
