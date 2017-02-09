@@ -3,7 +3,27 @@ sudo: false
 language: ruby
 
 rvm:
-  - 1.9.3
-  - 2.0.0
+  - 2.1.0
 
 cache: bundler
+
+env:
+  global:
+    - DEPLOY_BRANCH=master
+    - GIT_NAME=Travis-CI
+    - GIT_EMAIL=$USER@$(hostname)
+
+before_install:
+  - if [[ $DEPLOY_BRANCH == $TRAVIS_BRANCH && $TRAVIS_PULL_REQUEST == "false" ]]; then DO_DEPLOY=true; else DO_DEPLOY=false; fi
+  - git config --global user.name "$GIT_NAME"
+  - git config --global user.email "$GIT_EMAIL"
+  - git config --global credential.helper "store --file=$HOME/.git-credentials"
+  - echo https://$GH_TOKEN:@github.com > $HOME/.git-credentials
+
+before_script:
+  - if [[ $DO_DEPLOY == "true" ]]; then git config remote.origin.url https://github.com/aplazame/slate.git; fi
+  - bundle exec rake prepare_build_dir
+  - bundle exec rake sync_build_dir
+
+after_script:
+  - if [[ $DO_DEPLOY == "true" ]]; then bundle exec rake publish ALLOW_DIRTY=true; fi
